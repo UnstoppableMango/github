@@ -37,11 +37,10 @@ jobs:
         with:
           node-version-file: .nvmrc
           cache: yarn
-          cache-dependency-path: src/yarn.lock
+          cache-dependency-path: yarn.lock
 
       - name: Yarn install
         run: yarn install --frozen-lockfile
-        working-directory: src
 
       - name: Pulumi login
         uses: pulumi/auth-actions@v1
@@ -55,4 +54,3 @@ jobs:
           command: ${{ github.event_name == 'pull_request' && 'preview' || 'up' }}
           stack-name: UnstoppableMango/github/prod
           refresh: true
-          work-dir: src
