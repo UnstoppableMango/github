@@ -1,6 +1,6 @@
 {
   "name": "github",
-	"license": "MIT",
+  "license": "MIT",
   "packageManager": "yarn@1.22.19",
   "main": "index.ts",
   "dependencies": {
