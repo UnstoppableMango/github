@@ -34,6 +34,7 @@ jobs:
         with:
           organization: UnstoppableMango
           requested-token-type: urn:pulumi:token-type:access_token:personal
+          scope: user:UnstoppableMango
 
       - uses: pulumi/actions@v5
         with:
