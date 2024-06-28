@@ -16,4 +16,6 @@ const tlsRepo = new gh.Repository("tls", {
   squashMergeCommitMessage: "COMMIT_MESSAGES",
   squashMergeCommitTitle: "COMMIT_OR_PR_TITLE",
   visibility: "private",
+}, {
+	protect: true,
 });
