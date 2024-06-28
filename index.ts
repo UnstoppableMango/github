@@ -8,7 +8,7 @@ const tlsRepo = new gh.Repository("tls", {
 	description: "My TLS infrastructure",
 	deleteBranchOnMerge: true,
 	hasDiscussions: false,
-	hasIssues: false,
+	hasIssues: true,
 	hasProjects: false,
 	hasWiki: false,
 	licenseTemplate: "mit",

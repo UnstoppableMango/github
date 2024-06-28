@@ -1,16 +1,23 @@
-.PHONY: preview diff up
+_ := $(shell mkdir -p .make)
 
-preview:
+.PHONY: preview diff up stack format install
+
+preview: install
 	pulumi preview
 
-diff:
+diff: install
 	pulumi preview --diff
 
-up:
+up: isntall
 	pulumi up
 
-stack:
+stack: install
 	pulumi stack select prod
 
 format:
 	dprint fmt
+
+install: .make/yarn_install
+.make/yarn_install: yarn.lock
+	yarn install
+	@touch $@
