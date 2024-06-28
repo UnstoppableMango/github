@@ -1,13 +1,16 @@
-.PHONY: preview up
+.PHONY: preview diff up
 
 preview:
-	pulumi -C src preview
+	pulumi preview
 
 diff:
-	pulumi -C src preview --diff
+	pulumi preview --diff
 
 up:
-	pulumi -C src up
+	pulumi up
+
+stack:
+	pulumi stack select prod
 
 format:
 	dprint fmt
