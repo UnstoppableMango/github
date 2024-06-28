@@ -36,6 +36,10 @@ jobs:
           cache: yarn
           cache-dependency-path: src/yarn.lock
 
+      - name: Yarn install
+        run: yarn install --frozen-lockfile
+        working-directory: src
+
       - name: Pulumi login
         uses: pulumi/auth-actions@v1
         with:
