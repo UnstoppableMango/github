@@ -39,6 +39,6 @@ jobs:
       - uses: pulumi/actions@v5
         with:
           command: ${{ github.event_name == 'pull_request' && 'preview' || 'up' }}
-          stack-name: UnstoppableMango/github
+          stack-name: github/prod
           refresh: true
           work-dir: src
