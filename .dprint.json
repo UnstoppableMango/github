@@ -1,5 +1,7 @@
 {
-  "typescript": {},
+  "typescript": {
+    "useTabs": true
+  },
   "json": {},
   "markdown": {},
   "excludes": [
