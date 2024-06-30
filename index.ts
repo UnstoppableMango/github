@@ -19,32 +19,3 @@ const tlsRepo = new gh.Repository('tls', {
 }, {
 	protect: true,
 });
-
-const tlsRuleset = new gh.RepositoryRuleset('tls', {
-	name: 'main',
-	repository: tlsRepo.name,
-	enforcement: 'active',
-	target: 'branch',
-	conditions: {
-		refName: {
-			includes: ['~DEFAULT_BRANCH'],
-			excludes: [],
-		},
-	},
-	rules: {
-		deletion: true,
-		pullRequest: {
-			dismissStaleReviewsOnPush: true,
-			requiredReviewThreadResolution: true,
-			requireLastPushApproval: true,
-		},
-		nonFastForward: true,
-		requiredLinearHistory: true,
-		requiredSignatures: true,
-		requiredStatusChecks: {
-			requiredChecks: [{
-				context: 'Main',
-			}],
-		},
-	},
-});
