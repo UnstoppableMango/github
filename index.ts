@@ -18,7 +18,7 @@ const tlsRepo = new gh.Repository('tls', {
 	visibility: 'private',
 }, {
 	protect: true,
-},);
+});
 
 const tlsRuleset = new gh.RepositoryRuleset('tls', {
 	name: 'main',
@@ -27,7 +27,7 @@ const tlsRuleset = new gh.RepositoryRuleset('tls', {
 	target: 'branch',
 	conditions: {
 		refName: {
-			includes: ['~DEFAULT_BRANCH',],
+			includes: ['~DEFAULT_BRANCH'],
 			excludes: [],
 		},
 	},
@@ -44,7 +44,7 @@ const tlsRuleset = new gh.RepositoryRuleset('tls', {
 		requiredStatusChecks: {
 			requiredChecks: [{
 				context: 'Main',
-			},],
+			}],
 		},
 	},
-},);
+});
