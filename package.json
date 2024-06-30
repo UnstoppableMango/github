@@ -1,14 +1,14 @@
 {
-  "name": "github",
-  "license": "MIT",
-  "packageManager": "yarn@1.22.22",
-  "main": "index.ts",
-  "dependencies": {
-    "@pulumi/github": "^6.2.2",
-    "@pulumi/pulumi": "^3.113.0"
-  },
-  "devDependencies": {
-    "@types/node": "^20.0.0",
-    "typescript": "^5.0.0"
-  }
+	"name": "github",
+	"license": "MIT",
+	"packageManager": "yarn@1.22.22",
+	"main": "index.ts",
+	"dependencies": {
+		"@pulumi/github": "^6.2.2",
+		"@pulumi/pulumi": "^3.113.0"
+	},
+	"devDependencies": {
+		"@types/node": "^20.0.0",
+		"typescript": "^5.0.0"
+	}
 }

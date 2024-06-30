@@ -8,7 +8,7 @@ preview: install
 diff: install
 	pulumi preview --diff
 
-up: isntall
+up: install
 	pulumi up
 
 stack: install
