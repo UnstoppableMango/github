@@ -1,6 +1,6 @@
 _ := $(shell mkdir -p .make)
 
-.PHONY: preview diff up stack format install
+.PHONY: preview diff up stack lint format install
 
 preview: install
 	pulumi preview
@@ -13,6 +13,9 @@ up: install
 
 stack: install
 	pulumi stack select prod
+
+lint: install
+	yarn eslint .
 
 format:
 	dprint fmt
