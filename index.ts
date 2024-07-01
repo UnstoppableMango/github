@@ -28,3 +28,8 @@ function privateRepo(
 const tlsRepo = privateRepo('tls', 'My TLS infrastructure', {
 	protect: true,
 });
+
+const iowaDems = privateRepo(
+	'iowa-dems-mailer',
+	'Iowa Democrats mailing application',
+);
