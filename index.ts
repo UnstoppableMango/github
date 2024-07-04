@@ -52,6 +52,11 @@ const pfsenseOperator = new PublicRepo('pfsense-operator', {
 	}],
 });
 
+const idmProd = new gh.RepositoryEnvironment('production', {
+	environment: 'production',
+	repository: iowaDems.name,
+}, { parent: iowaDems });
+
 const minecraftOperator = new gh.Repository('minecraft-operator', {
 	description: 'An operator for managing minecraft servers on Kubernetes',
 	allowMergeCommit: false,
