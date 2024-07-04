@@ -37,6 +37,11 @@ const everybodyCodes = new PublicRepo('everybody-codes', {
 	description: 'Everybody Codes solutions in various languages',
 });
 
+const idmProd = new gh.RepositoryEnvironment('production', {
+	environment: 'production',
+	repository: iowaDems.name,
+}, { parent: iowaDems });
+
 export const repos = [
 	pki.repo.name,
 	hosts.repo.name,
