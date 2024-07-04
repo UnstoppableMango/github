@@ -52,6 +52,11 @@ const pfsenseOperator = new PublicRepo('pfsense-operator', {
 	}],
 });
 
+const idmProd = new gh.RepositoryEnvironment('production', {
+	environment: 'production',
+	repository: iowaDems.name,
+}, { parent: iowaDems });
+
 export const repos = [
 	pki.repo.name,
 	hosts.repo.name,
