@@ -33,6 +33,11 @@ const pulumiBun = new PublicRepo('pulumi-bun', {
 	description: 'Experimental Pulumi support for Bun',
 });
 
+const idmProd = new gh.RepositoryEnvironment('production', {
+	environment: 'production',
+	repository: iowaDems.name,
+}, { parent: iowaDems });
+
 export const repos = [
 	pki.repo.name,
 	hosts.repo.name,
