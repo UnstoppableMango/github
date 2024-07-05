@@ -13,6 +13,8 @@
 		"forceConsistentCasingInFileNames": true
 	},
 	"files": [
+		"components/index.ts",
+		"components/repo.ts",
 		"index.ts"
 	]
 }
