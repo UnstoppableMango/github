@@ -6,7 +6,7 @@ interface RepoArgs {
 }
 
 abstract class Repo extends ComponentResource {
-	public readonly repo: gh.Repository;
+	public readonly repo!: gh.Repository;
 
 	constructor(type: string, name: string, args: RepoArgs, opts?: ComponentResourceOptions) {
 		super(type, name, args, opts);
@@ -26,7 +26,7 @@ abstract class Repo extends ComponentResource {
 			squashMergeCommitMessage: 'COMMIT_MESSAGES',
 			squashMergeCommitTitle: 'COMMIT_OR_PR_TITLE',
 			...args.overrides,
-		}, opts);
+		}, { parent: this });
 
 		this.repo = repo;
 	}
@@ -98,7 +98,7 @@ export class PublicRepo extends Repo {
 					}],
 				},
 			},
-		});
+		}, { parent: this });
 
 		this.mainRuleset = mainRuleset;
 
