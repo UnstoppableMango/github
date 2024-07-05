@@ -1,5 +1,5 @@
-import { ComponentResource, ComponentResourceOptions, Input } from '@pulumi/pulumi';
 import * as gh from '@pulumi/github';
+import { ComponentResource, ComponentResourceOptions, Input } from '@pulumi/pulumi';
 
 interface RepoArgs {
 	overrides: Partial<gh.RepositoryArgs>;
@@ -51,7 +51,6 @@ export class PrivateRepo extends Repo {
 		this.registerOutputs({ repo });
 	}
 }
-
 
 export interface PublicRepoArgs {
 	description: Input<string>;
