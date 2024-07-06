@@ -1,5 +1,6 @@
 import * as gh from '@pulumi/github';
 import { CustomResourceOptions } from '@pulumi/pulumi';
+import { PrivateRepo } from './components';
 
 function repo(
 	name: string,
@@ -78,9 +79,9 @@ function mainRuleset(name: string, repo: gh.Repository): gh.RepositoryRuleset {
 	});
 }
 
-const tlsRepo = privateRepo('tls', 'My TLS infrastructure', {
-	protect: true,
-});
+const pki = new PrivateRepo('pki', {
+	description: 'My private key infrastructure',
+}, { protect: true });
 
 const iowaDems = privateRepo(
 	'iowa-dems-mailer',
