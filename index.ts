@@ -1,6 +1,6 @@
 import * as gh from '@pulumi/github';
 import { CustomResourceOptions } from '@pulumi/pulumi';
-import { PrivateRepo } from './components';
+import { PrivateRepo, PublicRepo } from './components';
 
 function repo(
 	name: string,
@@ -24,18 +24,6 @@ function repo(
 	}, opts);
 }
 
-function publicRepo(
-	name: string,
-	description: string,
-	opts?: CustomResourceOptions,
-): gh.Repository {
-	return repo(name, {
-		name,
-		description,
-		visibility: 'public',
-	}, opts);
-}
-
 function privateRepo(
 	name: string,
 	description: string,
@@ -48,37 +36,6 @@ function privateRepo(
 	}, opts);
 }
 
-function mainRuleset(name: string, repo: gh.Repository): gh.RepositoryRuleset {
-	return new gh.RepositoryRuleset(name, {
-		name: 'main',
-		repository: repo.name,
-		enforcement: 'active',
-		target: 'branch',
-		conditions: {
-			refName: {
-				includes: ['~DEFAULT_BRANCH'],
-				excludes: [],
-			},
-		},
-		rules: {
-			deletion: true,
-			pullRequest: {
-				dismissStaleReviewsOnPush: true,
-				requiredReviewThreadResolution: true,
-				requireLastPushApproval: true,
-			},
-			nonFastForward: true,
-			requiredLinearHistory: true,
-			requiredSignatures: true,
-			requiredStatusChecks: {
-				requiredChecks: [{
-					context: 'Main',
-				}],
-			},
-		},
-	});
-}
-
 const pki = new PrivateRepo('pki', {
 	description: 'My private key infrastructure',
 }, { protect: true });
@@ -88,9 +45,6 @@ const iowaDems = privateRepo(
 	'Iowa Democrats mailing application',
 );
 
-const pulumiBun = publicRepo(
-	'pulumi-bun',
-	'Experimental Pulumi support for Bun',
-);
-
-const pulumiBunRuleset = mainRuleset('pulumi-bun', pulumiBun);
+const pulumiBun = new PublicRepo('pulumi-bun', {
+	description: 'Experimental Pulumi support for Bun',
+});
