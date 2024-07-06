@@ -13,7 +13,8 @@ abstract class Repo extends ComponentResource {
 		if (opts?.urn) return; // Refreshing
 
 		const repo = new gh.Repository(name, {
-			allowAutoMerge: true,
+			// I think this isn't allowed for private repos
+			allowAutoMerge: false,
 			allowMergeCommit: false,
 			allowRebaseMerge: false,
 			allowSquashMerge: true,
@@ -65,6 +66,7 @@ export class PublicRepo extends Repo {
 				name,
 				description: args.description,
 				visibility: 'public',
+				allowAutoMerge: true,
 			},
 		}, opts);
 
