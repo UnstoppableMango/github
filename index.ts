@@ -40,6 +40,10 @@ const pki = new PrivateRepo('pki', {
 	description: 'My private key infrastructure',
 }, { protect: true });
 
+const hosts = new PublicRepo('hosts', {
+	description: 'My on-prem server infrastructure',
+});
+
 const iowaDems = privateRepo(
 	'iowa-dems-mailer',
 	'Iowa Democrats mailing application',
