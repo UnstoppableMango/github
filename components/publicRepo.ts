@@ -10,7 +10,7 @@ export class PublicRepo extends Repo {
 	public readonly mainRuleset: gh.RepositoryRuleset;
 
 	constructor(name: string, args: PublicRepoArgs, opts?: ComponentResourceOptions) {
-		super('unmango:github:PrivateRepo', name, {
+		super('unmango:github:PublicRepo', name, {
 			overrides: {
 				name,
 				description: args.description,
