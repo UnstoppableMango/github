@@ -50,7 +50,6 @@ export class PublicRepo extends Repo {
 					pullRequest: {
 						dismissStaleReviewsOnPush: true,
 						requiredReviewThreadResolution: true,
-						requireLastPushApproval: true,
 					},
 					nonFastForward: true,
 					requiredLinearHistory: true,
