@@ -1,54 +1,68 @@
-import * as gh from '@pulumi/github';
-import { ComponentResourceOptions, Input } from '@pulumi/pulumi';
-import { Repo } from './repo';
+import * as gh from "@pulumi/github";
+import { ComponentResourceOptions, Input } from "@pulumi/pulumi";
+import { Repo } from "./repo";
+import {
+	RepositoryRulesetRules,
+	RepositoryRulesetRulesRequiredStatusChecks,
+} from "@pulumi/github/types/input";
 
 export interface PublicRepoArgs {
 	description: Input<string>;
+	requiredChecks?: RepositoryRulesetRulesRequiredStatusChecks["requiredChecks"];
 }
 
 export class PublicRepo extends Repo {
 	public readonly mainRuleset: gh.RepositoryRuleset;
 
-	constructor(name: string, args: PublicRepoArgs, opts?: ComponentResourceOptions) {
-		super('unmango:github:PublicRepo', name, {
-			overrides: {
-				name,
-				description: args.description,
-				visibility: 'public',
-				allowAutoMerge: true,
+	constructor(
+		name: string,
+		args: PublicRepoArgs,
+		opts?: ComponentResourceOptions
+	) {
+		super(
+			"unmango:github:PublicRepo",
+			name,
+			{
+				overrides: {
+					name,
+					description: args.description,
+					visibility: "public",
+					allowAutoMerge: true,
+				},
 			},
-		}, opts);
+			opts
+		);
 
 		const repo = this.repo;
 
-		const mainRuleset = new gh.RepositoryRuleset(name, {
-			name: 'main',
-			repository: repo.name,
-			enforcement: 'active',
-			target: 'branch',
-			conditions: {
-				refName: {
-					includes: ['~DEFAULT_BRANCH'],
-					excludes: [],
+		const mainRuleset = new gh.RepositoryRuleset(
+			name,
+			{
+				name: "main",
+				repository: repo.name,
+				enforcement: "active",
+				target: "branch",
+				conditions: {
+					refName: {
+						includes: ["~DEFAULT_BRANCH"],
+						excludes: [],
+					},
+				},
+				rules: {
+					deletion: true,
+					pullRequest: {
+						dismissStaleReviewsOnPush: true,
+						requiredReviewThreadResolution: true,
+						requireLastPushApproval: true,
+					},
+					nonFastForward: true,
+					requiredLinearHistory: true,
+					requiredSignatures: true,
+					requiredStatusChecks: getRequiredStatusChecks(args.requiredChecks),
 				},
 			},
-			rules: {
-				deletion: true,
-				pullRequest: {
-					dismissStaleReviewsOnPush: true,
-					requiredReviewThreadResolution: true,
-					requireLastPushApproval: true,
-				},
-				nonFastForward: true,
-				requiredLinearHistory: true,
-				requiredSignatures: true,
-				requiredStatusChecks: {
-					requiredChecks: [{
-						context: 'Main',
-					}],
-				},
-			},
-		}, { parent: this });
+			{ parent: this }
+		);
 
 		this.mainRuleset = mainRuleset;
 
@@ -57,4 +71,11 @@ export class PublicRepo extends Repo {
 			mainRuleset,
 		});
 	}
+}
+
+function getRequiredStatusChecks(
+	checks: PublicRepoArgs["requiredChecks"]
+): RepositoryRulesetRules["requiredStatusChecks"] {
+	if (!checks) return;
+	return { requiredChecks: checks };
 }
