@@ -42,6 +42,11 @@ const pki = new PrivateRepo('pki', {
 
 const hosts = new PublicRepo('hosts', {
 	description: 'My on-prem server infrastructure',
+	requiredChecks: [{
+		context: 'pulumi',
+		// GitHub Actions
+		integrationId: 15368,
+	}],
 });
 
 const iowaDems = privateRepo(
