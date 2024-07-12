@@ -1,17 +1,25 @@
 import * as gh from '@pulumi/github';
 import { PrivateRepo, privateRepo, PublicRepo } from './components';
 
+const integrationIds = {
+	github: 15368,
+};
+
 const pki = new PrivateRepo('pki', {
 	description: 'My private key infrastructure',
 }, { protect: true });
 
 const hosts = new PublicRepo('hosts', {
 	description: 'My on-prem server infrastructure',
-	requiredChecks: [{
-		context: 'pulumi',
-		// GitHub Actions
-		integrationId: 15368,
-	}],
+	requiredChecks: gh.getRepositoryFileOutput({
+		file: 'hosts.txt',
+		repository: 'UnstoppableMango/hosts',
+	}).apply(file => {
+		return file.content.trim().split('\n').map(x => ({
+			context: `pulumi (${x})`,
+			integrationId: integrationIds.github,
+		}));
+	}),
 });
 
 const iowaDems = privateRepo(
