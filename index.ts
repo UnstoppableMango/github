@@ -1,40 +1,9 @@
 import * as gh from '@pulumi/github';
-import { CustomResourceOptions } from '@pulumi/pulumi';
-import { PrivateRepo, PublicRepo } from './components';
+import { PrivateRepo, privateRepo, PublicRepo } from './components';
 
-function repo(
-	name: string,
-	args?: Partial<gh.RepositoryArgs>,
-	opts?: CustomResourceOptions,
-): gh.Repository {
-	return new gh.Repository(name, {
-		allowAutoMerge: true,
-		allowMergeCommit: false,
-		allowRebaseMerge: false,
-		allowSquashMerge: true,
-		deleteBranchOnMerge: true,
-		hasDiscussions: false,
-		hasIssues: true,
-		hasProjects: false,
-		hasWiki: false,
-		licenseTemplate: 'mit',
-		squashMergeCommitMessage: 'COMMIT_MESSAGES',
-		squashMergeCommitTitle: 'COMMIT_OR_PR_TITLE',
-		...args,
-	}, opts);
-}
-
-function privateRepo(
-	name: string,
-	description: string,
-	opts?: CustomResourceOptions,
-): gh.Repository {
-	return repo(name, {
-		name,
-		description,
-		visibility: 'private',
-	}, opts);
-}
+const integrationIds = {
+	github: 15368,
+};
 
 const pki = new PrivateRepo('pki', {
 	description: 'My private key infrastructure',
@@ -42,11 +11,15 @@ const pki = new PrivateRepo('pki', {
 
 const hosts = new PublicRepo('hosts', {
 	description: 'My on-prem server infrastructure',
-	requiredChecks: [{
-		context: 'pulumi',
-		// GitHub Actions
-		integrationId: 15368,
-	}],
+	requiredChecks: gh.getRepositoryFileOutput({
+		file: 'hosts.txt',
+		repository: 'UnstoppableMango/hosts',
+	}).apply(file => {
+		return file.content.trim().split('\n').map(x => ({
+			context: `pulumi (${x})`,
+			integrationId: integrationIds.github,
+		}));
+	}),
 });
 
 const iowaDems = privateRepo(
@@ -57,3 +30,10 @@ const iowaDems = privateRepo(
 const pulumiBun = new PublicRepo('pulumi-bun', {
 	description: 'Experimental Pulumi support for Bun',
 });
+
+export const repos = [
+	pki.repo.name,
+	hosts.repo.name,
+	iowaDems.name,
+	pulumiBun.repo.name,
+];
