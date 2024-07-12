@@ -33,5 +33,6 @@ export function privateRepo(
 		name,
 		description,
 		visibility: 'private',
+		allowAutoMerge: false,
 	}, opts);
 }
