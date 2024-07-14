@@ -15,10 +15,12 @@ const hosts = new PublicRepo('hosts', {
 		file: 'hosts.txt',
 		repository: 'UnstoppableMango/hosts',
 	}).apply(file => {
-		return file.content.trim().split('\n').map(x => ({
-			context: `pulumi (${x})`,
-			integrationId: integrationIds.github,
-		}));
+		return file.content.trim().split('\n')
+			.filter(x => !['apollo', 'pik8s0a'].includes(x))
+			.map(x => ({
+				context: `pulumi (${x})`,
+				integrationId: integrationIds.github,
+			}));
 	}),
 });
 
