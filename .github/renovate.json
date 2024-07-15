@@ -2,5 +2,18 @@
 	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
 	"extends": [
 		"config:recommended"
+	],
+	"customManagers": [
+		{
+			"customType": "regex",
+			"depNameTemplate": "pulumi/pulumi",
+			"datasourceTemplate": "github-releases",
+			"fileMatch": [
+				"\\.versions\\/pulumi"
+			],
+			"matchStrings": [
+				"(?<currentValue>\\d+\\.\\d+\\.\\d+)"
+			]
+		}
 	]
 }
