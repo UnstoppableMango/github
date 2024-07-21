@@ -3,6 +3,7 @@
 	"extends": [
 		"config:recommended"
 	],
+	"automerge": true,
 	"customManagers": [
 		{
 			"customType": "regex",
@@ -13,6 +14,14 @@
 			],
 			"matchStrings": [
 				"(?<currentValue>\\d+\\.\\d+\\.\\d+)"
+			]
+		}
+	],
+	"packageRules": [
+		{
+			"groupName": "pulumi",
+			"matchDepNames": [
+				"pulumi/pulumi$"
 			]
 		}
 	]
