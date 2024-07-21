@@ -1,5 +1,5 @@
 import * as gh from '@pulumi/github';
-import { PrivateRepo, privateRepo, PublicRepo } from './components';
+import { PrivateRepo, PublicRepo } from './components';
 
 const integrationIds = {
 	github: 15368,
@@ -24,10 +24,9 @@ const hosts = new PublicRepo('hosts', {
 	}),
 });
 
-const iowaDems = privateRepo(
-	'iowa-dems-mailer',
-	'Iowa Democrats mailing application',
-);
+const johnstonDems = new PrivateRepo('johnston-dems-mailer', {
+	description: 'Johnston Democrats mailing application',
+});
 
 const pulumiBun = new PublicRepo('pulumi-bun', {
 	description: 'Experimental Pulumi support for Bun',
@@ -36,6 +35,6 @@ const pulumiBun = new PublicRepo('pulumi-bun', {
 export const repos = [
 	pki.repo.name,
 	hosts.repo.name,
-	iowaDems.name,
+	johnstonDems.repo.name,
 	pulumiBun.repo.name,
 ];
