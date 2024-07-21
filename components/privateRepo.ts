@@ -1,6 +1,5 @@
-import * as gh from '@pulumi/github';
-import { ComponentResourceOptions, CustomResourceOptions, Input } from '@pulumi/pulumi';
-import { Repo, repo } from './repo';
+import { ComponentResourceOptions, Input } from '@pulumi/pulumi';
+import { Repo } from './repo';
 
 export interface PrivateRepoArgs {
 	description: Input<string>;
@@ -20,19 +19,4 @@ export class PrivateRepo extends Repo {
 
 		this.registerOutputs({ repo });
 	}
-}
-
-// This will stick around until I decide to figure out
-// how to import the iowa dems repo into the component resource.
-export function privateRepo(
-	name: string,
-	description: string,
-	opts?: CustomResourceOptions,
-): gh.Repository {
-	return repo(name, {
-		name,
-		description,
-		visibility: 'private',
-		allowAutoMerge: false,
-	}, opts);
 }
