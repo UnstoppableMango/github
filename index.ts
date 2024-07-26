@@ -32,9 +32,15 @@ const pulumiBun = new PublicRepo('pulumi-bun', {
 	description: 'Experimental Pulumi support for Bun',
 });
 
+const pulumiBaremetal = new PublicRepo('pulumi-baremetal', {
+	description: 'Pulumi provider for provisioning baremetal hosts',
+	template: { owner: 'pulumi', repository: 'pulumi-provider-boilerplate' },
+});
+
 export const repos = [
 	pki.repo.name,
 	hosts.repo.name,
 	johnstonDems.repo.name,
 	pulumiBun.repo.name,
+	pulumiBaremetal.repo.name,
 ];
