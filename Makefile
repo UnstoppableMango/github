@@ -2,17 +2,15 @@ _ := $(shell mkdir -p .make)
 
 .PHONY: preview diff up stack lint format install
 
-preview: install
+preview: install stack
 	pulumi preview
 
-diff: install
+diff: install stack
 	pulumi preview --diff
 
-up: install
+up: install stack
 	pulumi up
 
-stack: install
-	pulumi stack select prod
 
 lint: install
 	yarn eslint .
@@ -23,4 +21,9 @@ format:
 install: .make/yarn_install
 .make/yarn_install: yarn.lock
 	yarn install
+	@touch $@
+
+stack: .make/stack_select_prod
+.make/stack_select_prod:
+	pulumi stack select prod
 	@touch $@
