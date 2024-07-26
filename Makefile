@@ -15,8 +15,7 @@ up: install stack
 lint: install
 	yarn eslint .
 
-format:
-	dprint fmt
+format: .make/format
 
 install: .make/yarn_install
 .make/yarn_install: yarn.lock
@@ -26,4 +25,8 @@ install: .make/yarn_install
 stack: .make/stack_select_prod
 .make/stack_select_prod:
 	pulumi stack select prod
+	@touch $@
+
+.make/format: $(shell find . -name '*.ts' -not -path '**/node_modules/**')
+	dprint fmt $^
 	@touch $@
