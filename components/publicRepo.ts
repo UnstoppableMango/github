@@ -1,12 +1,16 @@
 import * as gh from '@pulumi/github';
-import { RepositoryRulesetRules, RepositoryRulesetRulesRequiredStatusChecks, RepositoryTemplate } from '@pulumi/github/types/input';
+import {
+	RepositoryRulesetRules,
+	RepositoryRulesetRulesRequiredStatusChecks,
+	RepositoryTemplate,
+} from '@pulumi/github/types/input';
 import { ComponentResourceOptions, Input } from '@pulumi/pulumi';
 import { Repo } from './repo';
 
 export interface PublicRepoArgs {
 	description: Input<string>;
 	requiredChecks?: RepositoryRulesetRulesRequiredStatusChecks['requiredChecks'];
-	template?: RepositoryTemplate,
+	template?: RepositoryTemplate;
 }
 
 export class PublicRepo extends Repo {
