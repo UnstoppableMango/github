@@ -1,32 +1,44 @@
 _ := $(shell mkdir -p .make)
+WORKING_DIR := $(shell pwd)
+
+PULUMI := ${WORKING_DIR}/bin/pulumi
 
 .PHONY: preview diff up stack lint format install
 
-preview: install stack
-	pulumi preview
+preview: install stack | bin/pulumi
+	$(PULUMI) preview
 
-diff: install stack
-	pulumi preview --diff
+diff: install stack | bin/pulumi
+	$(PULUMI) preview --diff
 
-up: install stack
-	pulumi up
+up: install stack | bin/pulumi
+	$(PULUMI) up
 
+refresh: install stack | bin/pulumi
+	$(PULUMI) refresh
+
+install: .make/yarn_install
+stack: .make/stack_select_prod
 
 lint: install
 	yarn eslint .
 
 format: .make/format
 
-install: .make/yarn_install
-.make/yarn_install: yarn.lock
-	yarn install
+bin/pulumi: .versions/pulumi
+	curl -fsSL https://get.pulumi.com | sh -s -- --install-root ${WORKING_DIR} --version $(shell cat $<) --no-edit-path
+
+.envrc: hack/example.envrc
+	cp $< $@
+
+.make/yarn_install: yarn.lock | bin/pulumi
+	$(PULUMI) install
 	@touch $@
 
-stack: .make/stack_select_prod
-.make/stack_select_prod:
-	pulumi stack select prod
+.make/stack_select_prod: | bin/pulumi
+	$(PULUMI) stack select prod
 	@touch $@
 
 .make/format: $(shell find . -name '*.ts' -not -path '**/node_modules/**')
-	dprint fmt $^
+	dprint fmt $?
 	@touch $@
