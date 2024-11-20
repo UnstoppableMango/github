@@ -32,9 +32,14 @@ const pulumiBun = new PublicRepo('pulumi-bun', {
 	description: 'Experimental Pulumi support for Bun',
 });
 
+const everybodyCodes = new PublicRepo('everybody-codes', {
+	description: 'Everybody Codes solutions in various languages',
+});
+
 export const repos = [
 	pki.repo.name,
 	hosts.repo.name,
 	johnstonDems.repo.name,
 	pulumiBun.repo.name,
+	everybodyCodes.repo.name,
 ];
