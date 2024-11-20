@@ -14,6 +14,9 @@ diff: install stack | bin/pulumi
 up: install stack | bin/pulumi
 	$(PULUMI) up
 
+refresh: install stack | bin/pulumi
+	$(PULUMI) refresh
+
 install: .make/yarn_install
 stack: .make/stack_select_prod
 

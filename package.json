@@ -7,7 +7,7 @@
 		"lint": "eslint ."
 	},
 	"dependencies": {
-		"@pulumi/github": "^6.2.2",
+		"@pulumi/github": "^6.3.2",
 		"@pulumi/pulumi": "^3.113.0"
 	},
 	"devDependencies": {
