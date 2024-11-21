@@ -413,10 +413,15 @@
   resolved "https://registry.yarnpkg.com/@opentelemetry/semantic-conventions/-/semantic-conventions-1.25.1.tgz#0deecb386197c5e9c2c28f2f89f51fb8ae9f145e"
   integrity sha512-ZDjMJJQRlyk8A1KZFCc+bCbsyrn1wTwdNt56F7twdfUfnHUZUq77/WfONCj8p72NZOyP7pNTdUWSTYC3GTbuuQ==
 
-"@opentelemetry/semantic-conventions@1.27.0", "@opentelemetry/semantic-conventions@^1.25":
+"@opentelemetry/semantic-conventions@1.27.0":
   version "1.27.0"
   resolved "https://registry.yarnpkg.com/@opentelemetry/semantic-conventions/-/semantic-conventions-1.27.0.tgz#1a857dcc95a5ab30122e04417148211e6f945e6c"
   integrity sha512-sAay1RrB+ONOem0OZanAR1ZI/k7yDpnOQSQmTMuGImUQb2y8EbSaCJ94FQluM74xoU03vlb2d2U90hZluL6nQg==
+
+"@opentelemetry/semantic-conventions@^1.25":
+  version "1.28.0"
+  resolved "https://registry.yarnpkg.com/@opentelemetry/semantic-conventions/-/semantic-conventions-1.28.0.tgz#337fb2bca0453d0726696e745f50064411f646d6"
+  integrity sha512-lp4qAiMTD4sNWW4DbKLBkfiMZ4jbAboJIGOQr5DvciMRI494OapieI9qiODpOt0XBr1LjIDy1xAGAnVs5supTA==
 
 "@pkgjs/parseargs@^0.11.0":
   version "0.11.0"
@@ -477,9 +482,9 @@
   integrity sha512-Vvn3zZrhQZkkBE8LSuW3em98c0FwgO4nxzv6OdSxPKJIEKY2bGbHn+mhGIPerzI4twdxaP8/0+06HBpwf345Lw==
 
 "@pulumi/github@^6.3.2":
-  version "6.3.2"
-  resolved "https://registry.yarnpkg.com/@pulumi/github/-/github-6.3.2.tgz#17e51033e64993dd7df44a15db5ecd99ed88624f"
-  integrity sha512-t3dWU0X+2F5/e8R3Kp7AnOKgX7OQ9Qc2uYbhOTem2MJXN9ZUx8ywFSZuJzdk1vb8CxaAgkUiMyBAH3B6zfOPYA==
+  version "6.4.0"
+  resolved "https://registry.yarnpkg.com/@pulumi/github/-/github-6.4.0.tgz#192a1e526568afa21c51adc407f33e8b86219525"
+  integrity sha512-4JP+i3Rkr+GhxY7of6iEG6lN1p2UW/Te4wCbMwN3ln/+A2kArHjI+zYoFLjQMUWWq3ACE8srakOo1rwfEmVclQ==
   dependencies:
     "@pulumi/pulumi" "^3.136.0"
 
