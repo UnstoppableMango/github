@@ -481,14 +481,14 @@
   resolved "https://registry.yarnpkg.com/@protobufjs/utf8/-/utf8-1.1.0.tgz#a777360b5b39a1a2e5106f8e858f2fd2d060c570"
   integrity sha512-Vvn3zZrhQZkkBE8LSuW3em98c0FwgO4nxzv6OdSxPKJIEKY2bGbHn+mhGIPerzI4twdxaP8/0+06HBpwf345Lw==
 
-"@pulumi/github@^6.3.2":
+"@pulumi/github@^6.4.0":
   version "6.4.0"
   resolved "https://registry.yarnpkg.com/@pulumi/github/-/github-6.4.0.tgz#192a1e526568afa21c51adc407f33e8b86219525"
   integrity sha512-4JP+i3Rkr+GhxY7of6iEG6lN1p2UW/Te4wCbMwN3ln/+A2kArHjI+zYoFLjQMUWWq3ACE8srakOo1rwfEmVclQ==
   dependencies:
     "@pulumi/pulumi" "^3.136.0"
 
-"@pulumi/pulumi@^3.113.0", "@pulumi/pulumi@^3.136.0":
+"@pulumi/pulumi@^3.136.0", "@pulumi/pulumi@^3.141.0":
   version "3.141.0"
   resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-3.141.0.tgz#18c93a18732d09021e34eda4b989a87ca3e070e6"
   integrity sha512-gJejbOsLMg1KKmzK/yJIzU3gUT7fy42jrsSeR9aRyjteqgtT8vvhV7YKozGrkoumfu2L02SHCnPnAvpf5Rp7UQ==
@@ -657,7 +657,7 @@
   dependencies:
     "@types/node" "*"
 
-"@types/node@*", "@types/node@>=13.7.0", "@types/node@^22.0.0":
+"@types/node@*", "@types/node@>=13.7.0", "@types/node@^22.9.3":
   version "22.9.3"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-22.9.3.tgz#08f3d64b3bc6d74b162d36f60213e8a6704ef2b4"
   integrity sha512-F3u1fs/fce3FFk+DAxbxc78DF8x0cY09RRL8GnXLmkJ1jvx3TtPdWoTT5/NiYfI5ASqXBmfqJi9dZ3gxMx4lzw==
