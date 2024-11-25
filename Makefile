@@ -3,7 +3,7 @@ WORKING_DIR := $(shell pwd)
 
 PULUMI := ${WORKING_DIR}/bin/pulumi
 
-.PHONY: preview diff up stack lint format install
+.PHONY: preview diff up refresh stack lint format install
 
 preview: install stack | bin/pulumi
 	$(PULUMI) preview
@@ -17,7 +17,7 @@ up: install stack | bin/pulumi
 refresh: install stack | bin/pulumi
 	$(PULUMI) refresh
 
-install: .make/yarn_install
+install: .make/pulumi_install
 stack: .make/stack_select_prod
 
 lint: install
@@ -31,7 +31,7 @@ bin/pulumi: .versions/pulumi
 .envrc: hack/example.envrc
 	cp $< $@
 
-.make/yarn_install: yarn.lock | bin/pulumi
+.make/pulumi_install: yarn.lock | bin/pulumi
 	$(PULUMI) install
 	@touch $@
 
