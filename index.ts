@@ -11,18 +11,17 @@ const pki = new PrivateRepo('pki', {
 
 const hosts = new PublicRepo('hosts', {
 	description: 'My on-prem server infrastructure',
-	// This is being a pain in the butt
-	// requiredChecks: gh.getRepositoryFileOutput({
-	// 	file: 'hosts.txt',
-	// 	repository: 'UnstoppableMango/hosts',
-	// }).apply(file => {
-	// 	return file.content.trim().split('\n')
-	// 		.filter(x => !['apollo', 'pik8s0a'].includes(x))
-	// 		.map(x => ({
-	// 			context: `pulumi (${x})`,
-	// 			integrationId: integrationIds.github,
-	// 		}));
-	// }),
+	requiredChecks: gh.getRepositoryFileOutput({
+		file: 'hosts.txt',
+		repository: 'UnstoppableMango/hosts',
+	}).apply(file => {
+		return file.content.trim().split('\n')
+			.filter(x => !['apollo', 'pik8s0a'].includes(x))
+			.map(x => ({
+				context: `pulumi (${x})`,
+				integrationId: integrationIds.github,
+			}));
+	}),
 });
 
 const johnstonDems = new PrivateRepo('johnston-dems-mailer', {
