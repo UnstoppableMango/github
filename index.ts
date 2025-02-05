@@ -40,7 +40,7 @@ const lang = new PublicRepo('lang', {
 	description: 'A programming language',
 	requiredChecks: [{
 		context: 'Build and Test',
-		integrationId: integrationIds.github
+		integrationId: integrationIds.github,
 	}],
 });
 
