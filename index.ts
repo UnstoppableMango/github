@@ -36,10 +36,19 @@ const everybodyCodes = new PublicRepo('everybody-codes', {
 	description: 'Everybody Codes solutions in various languages',
 });
 
+const lang = new PublicRepo('lang', {
+	description: 'A programming language',
+	requiredChecks: [{
+		context: 'Build and Test',
+		integrationId: integrationIds.github
+	}],
+});
+
 export const repos = [
 	pki.repo.name,
 	hosts.repo.name,
 	johnstonDems.repo.name,
 	pulumiBun.repo.name,
 	everybodyCodes.repo.name,
+	lang.repo.name,
 ];
