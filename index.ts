@@ -44,6 +44,14 @@ const lang = new PublicRepo('lang', {
 	}],
 });
 
+const pfsenseOperator = new PublicRepo('pfsense-operator', {
+	description: 'An operator for deploying an managing pfSense on Kubernetes',
+	requiredChecks: [{
+		context: 'Build and Test',
+		integrationId: integrationIds.github,
+	}],
+});
+
 export const repos = [
 	pki.repo.name,
 	hosts.repo.name,
@@ -51,4 +59,5 @@ export const repos = [
 	pulumiBun.repo.name,
 	everybodyCodes.repo.name,
 	lang.repo.name,
+	pfsenseOperator.repo.name,
 ];
