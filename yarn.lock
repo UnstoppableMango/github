@@ -482,13 +482,13 @@
   integrity sha512-Vvn3zZrhQZkkBE8LSuW3em98c0FwgO4nxzv6OdSxPKJIEKY2bGbHn+mhGIPerzI4twdxaP8/0+06HBpwf345Lw==
 
 "@pulumi/github@^6.4.0":
-  version "6.4.0"
-  resolved "https://registry.yarnpkg.com/@pulumi/github/-/github-6.4.0.tgz#192a1e526568afa21c51adc407f33e8b86219525"
-  integrity sha512-4JP+i3Rkr+GhxY7of6iEG6lN1p2UW/Te4wCbMwN3ln/+A2kArHjI+zYoFLjQMUWWq3ACE8srakOo1rwfEmVclQ==
+  version "6.6.0"
+  resolved "https://registry.yarnpkg.com/@pulumi/github/-/github-6.6.0.tgz#ca4fc2d30117842b789658b03ae118dbafbbf611"
+  integrity sha512-dq+3AhhpAELHZB/C44YQkh/rSgWR6uPEjW/MR6j5GvMyedS44nOG8FBExPh1S4Lhi7DfRb9ioPLb6+m6YBb7yw==
   dependencies:
-    "@pulumi/pulumi" "^3.136.0"
+    "@pulumi/pulumi" "^3.142.0"
 
-"@pulumi/pulumi@^3.136.0", "@pulumi/pulumi@^3.141.0":
+"@pulumi/pulumi@^3.141.0", "@pulumi/pulumi@^3.142.0":
   version "3.152.0"
   resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-3.152.0.tgz#7373085689d4cc73b9faf77e435847a3a63b4889"
   integrity sha512-rY3bIuu+oGv7WAAuicZjXebiTCDCN7lehje3EUs7o9XFOkJY4t0pOtiLjmjMhmY9I2PBT+5l6k3RZsAxBKuNVw==
