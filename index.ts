@@ -45,11 +45,17 @@ const lang = new PublicRepo('lang', {
 });
 
 const pfsenseOperator = new PublicRepo('pfsense-operator', {
-	description: 'An operator for deploying an managing pfSense on Kubernetes',
+	description: 'An operator for deploying and managing pfSense on Kubernetes',
 	requiredChecks: [{
 		context: 'Build and Test',
 		integrationId: integrationIds.github,
 	}],
+});
+
+const minecraftOperator = new gh.Repository('minecraft-operator', {
+	description: 'An operator for managing minecraft servers on Kubernetes',
+	allowMergeCommit: false,
+	deleteBranchOnMerge: true,
 });
 
 export const repos = [
@@ -60,4 +66,5 @@ export const repos = [
 	everybodyCodes.repo.name,
 	lang.repo.name,
 	pfsenseOperator.repo.name,
+	minecraftOperator.name,
 ];
