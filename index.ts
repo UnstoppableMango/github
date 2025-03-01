@@ -56,6 +56,15 @@ const minecraftOperator = new gh.Repository('minecraft-operator', {
 	description: 'An operator for managing minecraft servers on Kubernetes',
 	allowMergeCommit: false,
 	deleteBranchOnMerge: true,
+	archived: true,
+});
+
+const minecraftManager = new PublicRepo('minecraft-manager', {
+	description: 'Visual management tool for deploying Minecraft servers across various platforms',
+	requiredChecks: [{
+		context: 'Build and Test',
+		integrationId: integrationIds.github,
+	}],
 });
 
 export const repos = [
@@ -67,4 +76,5 @@ export const repos = [
 	lang.repo.name,
 	pfsenseOperator.repo.name,
 	minecraftOperator.name,
+	minecraftManager.repo.name,
 ];
