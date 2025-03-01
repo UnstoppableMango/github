@@ -491,43 +491,7 @@
   dependencies:
     "@pulumi/pulumi" "^3.142.0"
 
-"@pulumi/pulumi@^3.141.0":
-  version "3.152.0"
-  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-3.152.0.tgz#7373085689d4cc73b9faf77e435847a3a63b4889"
-  integrity sha512-rY3bIuu+oGv7WAAuicZjXebiTCDCN7lehje3EUs7o9XFOkJY4t0pOtiLjmjMhmY9I2PBT+5l6k3RZsAxBKuNVw==
-  dependencies:
-    "@grpc/grpc-js" "^1.10.1"
-    "@logdna/tail-file" "^2.0.6"
-    "@npmcli/arborist" "^7.3.1"
-    "@opentelemetry/api" "^1.9"
-    "@opentelemetry/exporter-zipkin" "^1.28"
-    "@opentelemetry/instrumentation" "^0.55"
-    "@opentelemetry/instrumentation-grpc" "^0.55"
-    "@opentelemetry/resources" "^1.28"
-    "@opentelemetry/sdk-trace-base" "^1.28"
-    "@opentelemetry/sdk-trace-node" "^1.28"
-    "@opentelemetry/semantic-conventions" "^1.28"
-    "@pulumi/query" "^0.3.0"
-    "@types/google-protobuf" "^3.15.5"
-    "@types/semver" "^7.5.6"
-    "@types/tmp" "^0.2.6"
-    execa "^5.1.0"
-    fdir "^6.1.1"
-    google-protobuf "^3.5.0"
-    got "^11.8.6"
-    ini "^2.0.0"
-    js-yaml "^3.14.0"
-    minimist "^1.2.6"
-    normalize-package-data "^6.0.0"
-    picomatch "^3.0.1"
-    pkg-dir "^7.0.0"
-    require-from-string "^2.0.1"
-    semver "^7.5.2"
-    source-map-support "^0.5.6"
-    tmp "^0.2.1"
-    upath "^1.1.0"
-
-"@pulumi/pulumi@^3.142.0":
+"@pulumi/pulumi@^3.141.0", "@pulumi/pulumi@^3.142.0":
   version "3.153.1"
   resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-3.153.1.tgz#d84c4c6582123603eb842e30a96a2bb05531a14f"
   integrity sha512-NeYLOSOVqsUEhPH3eCRGJNuahtWMHEom2E3NR/LoTccH5SGzlgHeL153lQSjmm2reik/l0B+ZCjPB3rN4HAbqw==
