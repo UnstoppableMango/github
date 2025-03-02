@@ -61,10 +61,17 @@ const minecraftOperator = new gh.Repository('minecraft-operator', {
 
 const minecraftManager = new PublicRepo('minecraft-manager', {
 	description: 'Visual management tool for deploying Minecraft servers across various platforms',
-	requiredChecks: [{
-		context: 'Build and Test',
-		integrationId: integrationIds.github,
-	}],
+	topics: ['minecraft', 'kubernetes', 'docker', 'helm', 'bun', 'react', 'tailwindcss'],
+	requiredChecks: [
+		{ context: 'Build and Test', integrationId: integrationIds.github },
+		{ context: 'Docker', integrationId: integrationIds.github },
+		{ context: 'Helm', integrationId: integrationIds.github },
+	],
+});
+
+const renovateConfig = new PublicRepo('renovate-config', {
+	description: `UnstoppableMango's Renovate presets`,
+	requiredChecks: [{ context: 'Validate', integrationId: integrationIds.github }],
 });
 
 export const repos = [

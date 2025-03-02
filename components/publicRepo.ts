@@ -11,6 +11,7 @@ export interface PublicRepoArgs {
 	description: Input<string>;
 	requiredChecks?: RepositoryRulesetRulesRequiredStatusChecks['requiredChecks'];
 	template?: RepositoryTemplate;
+	topics?: Input<Input<string>[]>;
 }
 
 export class PublicRepo extends Repo {
@@ -31,6 +32,7 @@ export class PublicRepo extends Repo {
 					visibility: 'public',
 					allowAutoMerge: true,
 					template: args.template,
+					topics: args.topics,
 				},
 			},
 			opts,
