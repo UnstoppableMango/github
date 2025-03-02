@@ -71,6 +71,7 @@ const minecraftManager = new PublicRepo('minecraft-manager', {
 
 const renovateConfig = new PublicRepo('renovate-config', {
 	description: `UnstoppableMango's Renovate presets`,
+	topics: ['renovate', 'cicd', 'bun'],
 	requiredChecks: [{ context: 'Validate', integrationId: integrationIds.github }],
 });
 
