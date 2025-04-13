@@ -54,10 +54,10 @@ const pfsenseOperator = new PublicRepo('pfsense-operator', {
 
 const piaManualConnections = new PublicRepo('pia-manual-connections', {
 	description: 'Dockerized pia-foss/manual-connections scripts',
-	requiredChecks: [{
-		context: 'Docker',
-		integrationId: integrationIds.github,
-	}],
+	requiredChecks: [
+		{ context: 'Build and Test', integrationId: integrationIds.github },
+		{ context: 'Docker', integrationId: integrationIds.github },
+	],
 });
 
 const minecraftOperator = new gh.Repository('minecraft-operator', {
