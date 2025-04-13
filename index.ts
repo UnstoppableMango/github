@@ -52,6 +52,14 @@ const pfsenseOperator = new PublicRepo('pfsense-operator', {
 	}],
 });
 
+const piaManualConnections = new PublicRepo('pia-manual-connections', {
+	description: 'Dockerized pia-foss/manual-connections scripts',
+	requiredChecks: [{
+		context: 'Docker',
+		integrationId: integrationIds.github,
+	}],
+});
+
 const minecraftOperator = new gh.Repository('minecraft-operator', {
 	description: 'An operator for managing minecraft servers on Kubernetes',
 	allowMergeCommit: false,
