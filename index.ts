@@ -44,6 +44,14 @@ const lang = new PublicRepo('lang', {
 	}],
 });
 
+const nixos = new PublicRepo('nixos', {
+	description: 'My NixOS source',
+	requiredChecks: [{
+		context: 'Build',
+		integrationId: integrationIds.github,
+	}],
+});
+
 const pfsenseOperator = new PublicRepo('pfsense-operator', {
 	description: 'An operator for deploying and managing pfSense on Kubernetes',
 	requiredChecks: [{
@@ -92,7 +100,9 @@ export const repos = [
 	pulumiBun.repo.name,
 	everybodyCodes.repo.name,
 	lang.repo.name,
+	nixos.repo.name,
 	pfsenseOperator.repo.name,
+	piaManualConnections.repo.name,
 	minecraftOperator.name,
 	minecraftManager.repo.name,
 ];
