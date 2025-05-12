@@ -52,6 +52,10 @@ const nixos = new PublicRepo('nixos', {
 	}],
 });
 
+const ouranosis = new PublicRepo('ouranosis', {
+	description: 'A game-ish kinda thing',
+});
+
 const pfsenseOperator = new PublicRepo('pfsense-operator', {
 	description: 'An operator for deploying and managing pfSense on Kubernetes',
 	requiredChecks: [{
