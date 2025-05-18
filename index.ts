@@ -36,6 +36,14 @@ const everybodyCodes = new PublicRepo('everybody-codes', {
 	description: 'Everybody Codes solutions in various languages',
 });
 
+const gast = new PublicRepo('gast', {
+	description: 'ASTs for everyone',
+	topics: ['ast', 'codegen', 'protobuf', 'grpc', 'buf'],
+	requiredChecks: [
+		{ context: 'Build and Test', integrationId: integrationIds.github },
+	],
+});
+
 const lang = new PublicRepo('lang', {
 	description: 'A programming language',
 	requiredChecks: [{
@@ -94,19 +102,33 @@ const minecraftManager = new PublicRepo('minecraft-manager', {
 const renovateConfig = new PublicRepo('renovate-config', {
 	description: `UnstoppableMango's Renovate presets`,
 	topics: ['renovate', 'cicd', 'bun'],
-	requiredChecks: [{ context: 'Validate', integrationId: integrationIds.github }],
+	requiredChecks: [
+		{ context: 'Validate', integrationId: integrationIds.github },
+	],
+});
+
+const ux = new PublicRepo('ux', {
+	description: `The universal codegen framework`,
+	topics: ['codegen', 'go', 'protobuf'],
+	requiredChecks: [
+		{ context: 'Build and Test', integrationId: integrationIds.github },
+	],
 });
 
 export const repos = [
-	pki.repo.name,
+	everybodyCodes.repo.name,
+	gast.repo.name,
 	hosts.repo.name,
 	johnstonDems.repo.name,
-	pulumiBun.repo.name,
-	everybodyCodes.repo.name,
 	lang.repo.name,
+	minecraftManager.repo.name,
+	minecraftOperator.name,
 	nixos.repo.name,
+	ouranosis.repo.name,
 	pfsenseOperator.repo.name,
 	piaManualConnections.repo.name,
-	minecraftOperator.name,
-	minecraftManager.repo.name,
+	pki.repo.name,
+	pulumiBun.repo.name,
+	renovateConfig.repo.name,
+	ux.repo.name,
 ];
