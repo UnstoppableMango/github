@@ -36,6 +36,14 @@ const everybodyCodes = new PublicRepo('everybody-codes', {
 	description: 'Everybody Codes solutions in various languages',
 });
 
+const gast = new PublicRepo('gast', {
+	description: 'ASTs for everyone',
+	topics: ['ast', 'codegen', 'protobuf', 'grpc', 'buf'],
+	requiredChecks: [
+		{ context: 'Build and Test', integrationId: integrationIds.github },
+	],
+});
+
 const lang = new PublicRepo('lang', {
 	description: 'A programming language',
 	requiredChecks: [{
@@ -99,8 +107,17 @@ const renovateConfig = new PublicRepo('renovate-config', {
 	],
 });
 
+const ux = new PublicRepo('ux', {
+	description: `The universal codegen framework`,
+	topics: ['codegen', 'go', 'protobuf'],
+	requiredChecks: [
+		{ context: 'Build and Test', integrationId: integrationIds.github },
+	],
+});
+
 export const repos = [
 	everybodyCodes.repo.name,
+	gast.repo.name,
 	hosts.repo.name,
 	johnstonDems.repo.name,
 	lang.repo.name,
@@ -113,4 +130,5 @@ export const repos = [
 	pki.repo.name,
 	pulumiBun.repo.name,
 	renovateConfig.repo.name,
+	ux.repo.name,
 ];
