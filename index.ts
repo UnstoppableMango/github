@@ -94,19 +94,22 @@ const minecraftManager = new PublicRepo('minecraft-manager', {
 const renovateConfig = new PublicRepo('renovate-config', {
 	description: `UnstoppableMango's Renovate presets`,
 	topics: ['renovate', 'cicd', 'bun'],
-	requiredChecks: [{ context: 'Validate', integrationId: integrationIds.github }],
+	requiredChecks: [
+		{ context: 'Validate', integrationId: integrationIds.github },
+	],
 });
 
 export const repos = [
-	pki.repo.name,
+	everybodyCodes.repo.name,
 	hosts.repo.name,
 	johnstonDems.repo.name,
-	pulumiBun.repo.name,
-	everybodyCodes.repo.name,
 	lang.repo.name,
+	minecraftManager.repo.name,
+	minecraftOperator.name,
 	nixos.repo.name,
 	pfsenseOperator.repo.name,
 	piaManualConnections.repo.name,
-	minecraftOperator.name,
-	minecraftManager.repo.name,
+	pki.repo.name,
+	pulumiBun.repo.name,
+	renovateConfig.repo.name,
 ];
