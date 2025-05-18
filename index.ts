@@ -107,6 +107,7 @@ export const repos = [
 	minecraftManager.repo.name,
 	minecraftOperator.name,
 	nixos.repo.name,
+	ouranosis.repo.name,
 	pfsenseOperator.repo.name,
 	piaManualConnections.repo.name,
 	pki.repo.name,
