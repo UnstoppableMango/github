@@ -218,6 +218,27 @@ const slackerBot = new gh.Repository('slacker-bot', {
 	vulnerabilityAlerts: true,
 }, { protect: true });
 
+const theCluster = new gh.Repository('the-cluster', {
+	name: 'the-cluster',
+	allowAutoMerge: true,
+	allowMergeCommit: false,
+	allowUpdateBranch: true,
+	deleteBranchOnMerge: true,
+	description: 'Source for THECLUSTER',
+	hasIssues: true,
+	securityAndAnalysis: {
+		secretScanning: {
+			status: 'disabled',
+		},
+		secretScanningPushProtection: {
+			status: 'disabled',
+		},
+	},
+	squashMergeCommitTitle: 'PR_TITLE',
+	visibility: 'public',
+	webCommitSignoffRequired: true,
+}, { protect: true });
+
 const ux = new PublicRepo('ux', {
 	description: `The universal codegen framework`,
 	topics: ['codegen', 'go', 'protobuf'],
@@ -265,6 +286,7 @@ export const repos = [
 	renovateConfig.repo.name,
 	rest.name,
 	slackerBot.name,
+	theCluster.name,
 	ux.repo.name,
 	xml.name,
 ];
