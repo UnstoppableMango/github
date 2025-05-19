@@ -45,6 +45,27 @@ const hosts = new PublicRepo('hosts', {
 	}),
 });
 
+const http = new gh.Repository('http', {
+	name: 'http',
+	allowAutoMerge: true,
+	allowMergeCommit: false,
+	allowUpdateBranch: true,
+	deleteBranchOnMerge: true,
+	hasDownloads: true,
+	hasIssues: true,
+	securityAndAnalysis: {
+		secretScanning: {
+			status: 'disabled',
+		},
+		secretScanningPushProtection: {
+			status: 'disabled',
+		},
+	},
+	squashMergeCommitTitle: 'PR_TITLE',
+	visibility: 'public',
+	vulnerabilityAlerts: true,
+}, { protect: true });
+
 const johnstonDems = new PrivateRepo('johnston-dems-mailer', {
 	description: 'Johnston Democrats mailing application',
 });
@@ -209,6 +230,7 @@ export const repos = [
 	everybodyCodes.repo.name,
 	gast.repo.name,
 	hosts.repo.name,
+	http.name,
 	johnstonDems.repo.name,
 	lang.repo.name,
 	minecraftManager.repo.name,
