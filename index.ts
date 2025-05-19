@@ -5,6 +5,27 @@ const integrationIds = {
 	github: 15368,
 };
 
+const adventOfCode = new gh.Repository('advent-of-code', {
+	name: 'advent-of-code',
+	allowAutoMerge: true,
+	allowMergeCommit: false,
+	deleteBranchOnMerge: true,
+	description: 'Advent of Code solutions in various languages',
+	hasDownloads: true,
+	hasIssues: true,
+	securityAndAnalysis: {
+		secretScanning: {
+			status: 'disabled',
+		},
+		secretScanningPushProtection: {
+			status: 'disabled',
+		},
+	},
+	squashMergeCommitTitle: 'PR_TITLE',
+	topics: ['advent-of-code'],
+	visibility: 'public',
+}, { protect: true });
+
 const pki = new PrivateRepo('pki', {
 	description: 'My private key infrastructure',
 }, { protect: true });
