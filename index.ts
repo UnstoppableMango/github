@@ -136,6 +136,25 @@ const renovateConfig = new PublicRepo('renovate-config', {
 	],
 });
 
+const rest = new gh.Repository('rest', {
+	name: 'rest',
+	allowMergeCommit: false,
+	deleteBranchOnMerge: true,
+	description: 'Just another .NET REST client',
+	hasDownloads: true,
+	hasIssues: true,
+	securityAndAnalysis: {
+		secretScanning: {
+			status: 'disabled',
+		},
+		secretScanningPushProtection: {
+			status: 'disabled',
+		},
+	},
+	visibility: 'public',
+	vulnerabilityAlerts: true,
+}, { protect: true });
+
 const ux = new PublicRepo('ux', {
 	description: `The universal codegen framework`,
 	topics: ['codegen', 'go', 'protobuf'],
@@ -179,6 +198,7 @@ export const repos = [
 	pki.repo.name,
 	pulumiBun.repo.name,
 	renovateConfig.repo.name,
+	rest.name,
 	ux.repo.name,
 	xml.name,
 ];
