@@ -52,34 +52,6 @@ const lang = new PublicRepo('lang', {
 	}],
 });
 
-const nixos = new PublicRepo('nixos', {
-	description: 'My NixOS source',
-	requiredChecks: [{
-		context: 'Build',
-		integrationId: integrationIds.github,
-	}],
-});
-
-const ouranosis = new PublicRepo('ouranosis', {
-	description: 'A game-ish kinda thing',
-});
-
-const pfsenseOperator = new PublicRepo('pfsense-operator', {
-	description: 'An operator for deploying and managing pfSense on Kubernetes',
-	requiredChecks: [{
-		context: 'Build and Test',
-		integrationId: integrationIds.github,
-	}],
-});
-
-const piaManualConnections = new PublicRepo('pia-manual-connections', {
-	description: 'Dockerized pia-foss/manual-connections scripts',
-	requiredChecks: [
-		{ context: 'Build and Test', integrationId: integrationIds.github },
-		{ context: 'Docker', integrationId: integrationIds.github },
-	],
-});
-
 const minecraftOperator = new gh.Repository('minecraft-operator', {
 	description: 'An operator for managing minecraft servers on Kubernetes',
 	allowMergeCommit: false,
@@ -96,6 +68,42 @@ const minecraftManager = new PublicRepo('minecraft-manager', {
 		{ context: 'Docker (web)', integrationId: integrationIds.github },
 		{ context: 'Docker (api)', integrationId: integrationIds.github },
 		{ context: 'Helm', integrationId: integrationIds.github },
+	],
+});
+
+const nixos = new PublicRepo('nixos', {
+	description: 'My NixOS source',
+	requiredChecks: [{
+		context: 'Build',
+		integrationId: integrationIds.github,
+	}],
+});
+
+const ouranosis = new PublicRepo('ouranosis', {
+	description: 'A game-ish kinda thing',
+});
+
+const perryOperator = new PublicRepo('perry-operator', {
+	description: `A platypus? Perry the platypus?!?`,
+	topics: ['kubernetes', 'pulumi', 'operator'],
+	requiredChecks: [
+		{ context: 'Build and Test', integrationId: integrationIds.github },
+	],
+});
+
+const pfsenseOperator = new PublicRepo('pfsense-operator', {
+	description: 'An operator for deploying and managing pfSense on Kubernetes',
+	requiredChecks: [{
+		context: 'Build and Test',
+		integrationId: integrationIds.github,
+	}],
+});
+
+const piaManualConnections = new PublicRepo('pia-manual-connections', {
+	description: 'Dockerized pia-foss/manual-connections scripts',
+	requiredChecks: [
+		{ context: 'Build and Test', integrationId: integrationIds.github },
+		{ context: 'Docker', integrationId: integrationIds.github },
 	],
 });
 
@@ -125,6 +133,7 @@ export const repos = [
 	minecraftOperator.name,
 	nixos.repo.name,
 	ouranosis.repo.name,
+	perryOperator.repo.name,
 	pfsenseOperator.repo.name,
 	piaManualConnections.repo.name,
 	pki.repo.name,
