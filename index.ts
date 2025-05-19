@@ -362,6 +362,31 @@ const pulumiImaug = new gh.Repository('pulumi-imaug', {
 	visibility: 'public',
 }, { protect: true });
 
+const pulumiKubernetesTheHardWay = new gh.Repository('pulumi-kubernetes-the-hard-way', {
+	name: 'pulumi-kubernetes-the-hard-way',
+	allowAutoMerge: true,
+	allowMergeCommit: false,
+	deleteBranchOnMerge: true,
+	description: 'A Pulumi component provider that implements Kelsey Hightower\'s Kubernetes the Hard Way',
+	hasDownloads: true,
+	hasIssues: true,
+	hasProjects: true,
+	securityAndAnalysis: {
+		secretScanning: {
+			status: 'disabled',
+		},
+		secretScanningPushProtection: {
+			status: 'disabled',
+		},
+	},
+	squashMergeCommitTitle: 'PR_TITLE',
+	template: {
+		owner: 'pulumi',
+		repository: 'pulumi-component-provider-go-boilerplate',
+	},
+	visibility: 'public',
+}, { protect: true });
+
 const pulumiProxmox = new gh.Repository('pulumi-proxmox', {
 	name: 'pulumi-proxmox',
 	hasDownloads: true,
@@ -564,6 +589,7 @@ export const repos = [
 	proxmoxClient.name,
 	pulumiBun.repo.name,
 	pulumiImaug.name,
+	pulumiKubernetesTheHardWay.name,
 	pulumiProxmox.name,
 	renovateConfig.repo.name,
 	rest.name,
