@@ -66,6 +66,27 @@ const cliwrapFsharp = new gh.Repository('CliWrap.FSharp', {
 	visibility: 'public',
 }, { protect: true });
 
+const dockerDotnetFsharp = new gh.Repository('Docker.Dotnet.FSharp', {
+	name: 'Docker.Dotnet.FSharp',
+	allowAutoMerge: true,
+	allowMergeCommit: false,
+	allowUpdateBranch: true,
+	deleteBranchOnMerge: true,
+	description: 'Idiomatic F# support for Docker.DotNet',
+	hasDownloads: true,
+	hasIssues: true,
+	securityAndAnalysis: {
+		secretScanning: {
+			status: 'enabled',
+		},
+		secretScanningPushProtection: {
+			status: 'enabled',
+		},
+	},
+	squashMergeCommitTitle: 'PR_TITLE',
+	visibility: 'public',
+}, { protect: true });
+
 const dotnetProxmoxClient = new gh.Repository('dotnet-proxmox-client', {
 	name: 'dotnet-proxmox-client',
 	allowAutoMerge: true,
@@ -498,6 +519,7 @@ const xml = new gh.Repository('xml', {
 export const repos = [
 	audio.name,
 	cliwrapFsharp.name,
+	dockerDotnetFsharp.name,
 	dotnetProxmoxClient.name,
 	everybodyCodes.repo.name,
 	gast.repo.name,
