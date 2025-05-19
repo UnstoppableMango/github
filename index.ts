@@ -228,6 +228,29 @@ const slackerBot = new gh.Repository('slacker-bot', {
 	vulnerabilityAlerts: true,
 }, { protect: true });
 
+const tdl = new gh.Repository('tdl', {
+	name: 'tdl',
+	allowAutoMerge: true,
+	allowMergeCommit: false,
+	allowUpdateBranch: true,
+	deleteBranchOnMerge: true,
+	description: 'Type description language and codegen suite',
+	hasDownloads: true,
+	hasIssues: true,
+	hasProjects: true,
+	securityAndAnalysis: {
+		secretScanning: {
+			status: 'enabled',
+		},
+		secretScanningPushProtection: {
+			status: 'enabled',
+		},
+	},
+	squashMergeCommitTitle: 'PR_TITLE',
+	visibility: 'public',
+	webCommitSignoffRequired: true,
+}, { protect: true });
+
 const theCluster = new gh.Repository('the-cluster', {
 	name: 'the-cluster',
 	allowAutoMerge: true,
@@ -317,6 +340,7 @@ export const repos = [
 	renovateConfig.repo.name,
 	rest.name,
 	slackerBot.name,
+	tdl.name,
 	theCluster.name,
 	unstoppablemango_io.name,
 	ux.repo.name,
