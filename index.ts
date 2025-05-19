@@ -327,6 +327,24 @@ const ouranosis = new PublicRepo('ouranosis', {
 	description: 'A game-ish kinda thing',
 });
 
+const palumiWorld = new gh.Repository('palumi-world', {
+	name: 'palumi-world',
+	description: 'My Palworld install',
+	hasDownloads: true,
+	hasIssues: true,
+	hasProjects: true,
+	hasWiki: true,
+	securityAndAnalysis: {
+		secretScanning: {
+			status: 'enabled',
+		},
+		secretScanningPushProtection: {
+			status: 'enabled',
+		},
+	},
+	visibility: 'public',
+}, { protect: true });
+
 const perryOperator = new PublicRepo('perry-operator', {
 	description: `A platypus? Perry the platypus?!?`,
 	topics: ['kubernetes', 'pulumi', 'operator'],
@@ -644,6 +662,7 @@ export const repos = [
 	multiDownloaderNxDocker.name,
 	nixos.repo.name,
 	ouranosis.repo.name,
+	palumiWorld.name,
 	perryOperator.repo.name,
 	pfsenseOperator.repo.name,
 	piaManualConnections.repo.name,
