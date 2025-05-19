@@ -251,6 +251,30 @@ const pulumiBun = new PublicRepo('pulumi-bun', {
 	description: 'Experimental Pulumi support for Bun',
 });
 
+const pulumiImaug = new gh.Repository('pulumi-imaug', {
+	name: 'pulumi-imaug',
+	allowAutoMerge: true,
+	allowMergeCommit: false,
+	deleteBranchOnMerge: true,
+	description: 'A Pulumi component provider for the Iowa Microsoft Azure User Group presentation',
+	hasDownloads: true,
+	hasIssues: true,
+	securityAndAnalysis: {
+		secretScanning: {
+			status: 'enabled',
+		},
+		secretScanningPushProtection: {
+			status: 'enabled',
+		},
+	},
+	squashMergeCommitTitle: 'PR_TITLE',
+	template: {
+		owner: 'pulumi',
+		repository: 'pulumi-component-provider-ts-boilerplate',
+	},
+	visibility: 'public',
+}, { protect: true });
+
 const pulumiProxmox = new gh.Repository('pulumi-proxmox', {
 	name: 'pulumi-proxmox',
 	hasDownloads: true,
@@ -448,6 +472,7 @@ export const repos = [
 	pki.repo.name,
 	proxmoxClient.name,
 	pulumiBun.repo.name,
+	pulumiImaug.name,
 	pulumiProxmox.name,
 	renovateConfig.repo.name,
 	rest.name,
