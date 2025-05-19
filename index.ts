@@ -355,6 +355,21 @@ const ux = new PublicRepo('ux', {
 	],
 });
 
+const xmageDocker = new gh.Repository('xmage-docker', {
+	name: 'xmage-docker',
+	hasDownloads: true,
+	hasIssues: true,
+	securityAndAnalysis: {
+		secretScanning: {
+			status: 'disabled',
+		},
+		secretScanningPushProtection: {
+			status: 'disabled',
+		},
+	},
+	visibility: 'public',
+}, { protect: true });
+
 const xml = new gh.Repository('xml', {
 	name: 'xml',
 	allowMergeCommit: false,
@@ -402,5 +417,6 @@ export const repos = [
 	theCluster.name,
 	unstoppablemango_io.name,
 	ux.repo.name,
+	xmageDocker.name,
 	xml.name,
 ];
