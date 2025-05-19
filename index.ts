@@ -26,6 +26,25 @@ const adventOfCode = new gh.Repository('advent-of-code', {
 	visibility: 'public',
 }, { protect: true });
 
+const audio = new gh.Repository('audio', {
+	name: 'audio',
+	allowAutoMerge: true,
+	allowMergeCommit: false,
+	allowRebaseMerge: false,
+	deleteBranchOnMerge: true,
+	hasDownloads: true,
+	hasIssues: true,
+	securityAndAnalysis: {
+		secretScanning: {
+			status: 'disabled',
+		},
+		secretScanningPushProtection: {
+			status: 'disabled',
+		},
+	},
+	visibility: 'public',
+}, { protect: true });
+
 const pki = new PrivateRepo('pki', {
 	description: 'My private key infrastructure',
 }, { protect: true });
@@ -227,6 +246,7 @@ const xml = new gh.Repository('xml', {
 }, { protect: true });
 
 export const repos = [
+	audio.name,
 	everybodyCodes.repo.name,
 	gast.repo.name,
 	hosts.repo.name,
