@@ -249,6 +249,26 @@ const theCluster = new gh.Repository('the-cluster', {
 	webCommitSignoffRequired: true,
 }, { protect: true });
 
+const unstoppablemango_io = new gh.Repository('unstoppablemango.io', {
+	name: 'unstoppablemango.io',
+	allowAutoMerge: true,
+	allowMergeCommit: false,
+	allowRebaseMerge: false,
+	deleteBranchOnMerge: true,
+	description: 'A website about me for random garbage',
+	hasDownloads: true,
+	hasIssues: true,
+	securityAndAnalysis: {
+		secretScanning: {
+			status: 'disabled',
+		},
+		secretScanningPushProtection: {
+			status: 'disabled',
+		},
+	},
+	visibility: 'public',
+}, { protect: true });
+
 const ux = new PublicRepo('ux', {
 	description: `The universal codegen framework`,
 	topics: ['codegen', 'go', 'protobuf'],
@@ -298,6 +318,7 @@ export const repos = [
 	rest.name,
 	slackerBot.name,
 	theCluster.name,
+	unstoppablemango_io.name,
 	ux.repo.name,
 	xml.name,
 ];
