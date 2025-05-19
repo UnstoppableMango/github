@@ -87,6 +87,27 @@ const dockerDotnetFsharp = new gh.Repository('Docker.Dotnet.FSharp', {
 	visibility: 'public',
 }, { protect: true });
 
+const dockerFsharp = new gh.Repository('Docker.FSharp', {
+	name: 'Docker.FSharp',
+	allowAutoMerge: true,
+	allowMergeCommit: false,
+	allowUpdateBranch: true,
+	deleteBranchOnMerge: true,
+	description: 'Docker computation expression and client written in F#',
+	hasDownloads: true,
+	hasIssues: true,
+	securityAndAnalysis: {
+		secretScanning: {
+			status: 'enabled',
+		},
+		secretScanningPushProtection: {
+			status: 'enabled',
+		},
+	},
+	squashMergeCommitTitle: 'PR_TITLE',
+	visibility: 'public',
+}, { protect: true });
+
 const dotnetProxmoxClient = new gh.Repository('dotnet-proxmox-client', {
 	name: 'dotnet-proxmox-client',
 	allowAutoMerge: true,
@@ -520,6 +541,7 @@ export const repos = [
 	audio.name,
 	cliwrapFsharp.name,
 	dockerDotnetFsharp.name,
+	dockerFsharp.name,
 	dotnetProxmoxClient.name,
 	everybodyCodes.repo.name,
 	gast.repo.name,
