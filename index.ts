@@ -114,6 +114,24 @@ const http = new gh.Repository('http', {
 	vulnerabilityAlerts: true,
 }, { protect: true });
 
+const imaug = new gh.Repository('imaug', {
+	name: 'imaug',
+	description: 'Code used in presentations for the Iowa Microsoft Azure User Group',
+	hasDownloads: true,
+	hasIssues: true,
+	hasProjects: true,
+	hasWiki: true,
+	securityAndAnalysis: {
+		secretScanning: {
+			status: 'enabled',
+		},
+		secretScanningPushProtection: {
+			status: 'enabled',
+		},
+	},
+	visibility: 'public',
+}, { protect: true });
+
 const infra = new gh.Repository('infra', {
 	name: 'infra',
 	allowMergeCommit: false,
@@ -415,6 +433,7 @@ export const repos = [
 	gast.repo.name,
 	hosts.repo.name,
 	http.name,
+	imaug.name,
 	infra.name,
 	johnstonDems.repo.name,
 	lang.repo.name,
