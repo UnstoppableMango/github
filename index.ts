@@ -211,6 +211,24 @@ const pki = new PrivateRepo('pki', {
 	description: 'My private key infrastructure',
 }, { protect: true });
 
+const proxmoxClient = new gh.Repository('proxmox-client', {
+	name: 'proxmox-client',
+	allowMergeCommit: false,
+	deleteBranchOnMerge: true,
+	description: 'Proxmox client libraries generated via OpenAPI Generator',
+	hasDownloads: true,
+	hasIssues: true,
+	securityAndAnalysis: {
+		secretScanning: {
+			status: 'disabled',
+		},
+		secretScanningPushProtection: {
+			status: 'disabled',
+		},
+	},
+	visibility: 'public',
+}, { protect: true });
+
 const pulumiBun = new PublicRepo('pulumi-bun', {
 	description: 'Experimental Pulumi support for Bun',
 });
@@ -375,6 +393,7 @@ export const repos = [
 	pfsenseOperator.repo.name,
 	piaManualConnections.repo.name,
 	pki.repo.name,
+	proxmoxClient.name,
 	pulumiBun.repo.name,
 	renovateConfig.repo.name,
 	rest.name,
