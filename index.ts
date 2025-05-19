@@ -144,6 +144,25 @@ const ux = new PublicRepo('ux', {
 	],
 });
 
+const xml = new gh.Repository('xml', {
+	name: 'xml',
+	allowMergeCommit: false,
+	deleteBranchOnMerge: true,
+	description: 'A .NET XML serializer',
+	hasDownloads: true,
+	hasIssues: true,
+	securityAndAnalysis: {
+		secretScanning: {
+			status: 'disabled',
+		},
+		secretScanningPushProtection: {
+			status: 'disabled',
+		},
+	},
+	visibility: 'public',
+	vulnerabilityAlerts: true,
+}, { protect: true });
+
 export const repos = [
 	everybodyCodes.repo.name,
 	gast.repo.name,
@@ -161,4 +180,5 @@ export const repos = [
 	pulumiBun.repo.name,
 	renovateConfig.repo.name,
 	ux.repo.name,
+	xml.name,
 ];
