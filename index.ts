@@ -155,6 +155,29 @@ const rest = new gh.Repository('rest', {
 	vulnerabilityAlerts: true,
 }, { protect: true });
 
+const slackerBot = new gh.Repository('slacker-bot', {
+	name: 'slacker-bot',
+	allowAutoMerge: true,
+	allowMergeCommit: false,
+	allowUpdateBranch: true,
+	deleteBranchOnMerge: true,
+	hasDownloads: true,
+	hasIssues: true,
+	hasProjects: true,
+	securityAndAnalysis: {
+		secretScanning: {
+			status: 'disabled',
+		},
+		secretScanningPushProtection: {
+			status: 'disabled',
+		},
+	},
+	squashMergeCommitMessage: 'PR_BODY',
+	squashMergeCommitTitle: 'PR_TITLE',
+	visibility: 'public',
+	vulnerabilityAlerts: true,
+}, { protect: true });
+
 const ux = new PublicRepo('ux', {
 	description: `The universal codegen framework`,
 	topics: ['codegen', 'go', 'protobuf'],
@@ -199,6 +222,7 @@ export const repos = [
 	pulumiBun.repo.name,
 	renovateConfig.repo.name,
 	rest.name,
+	slackerBot.name,
 	ux.repo.name,
 	xml.name,
 ];
