@@ -45,6 +45,26 @@ const audio = new gh.Repository('audio', {
 	visibility: 'public',
 }, { protect: true });
 
+const blockyController = new gh.Repository('blocky-controller', {
+	name: 'blocky-controller',
+	allowAutoMerge: true,
+	allowMergeCommit: false,
+	deleteBranchOnMerge: true,
+	description: 'Blocky kubernetes controller sandbox',
+	hasDownloads: true,
+	hasIssues: true,
+	securityAndAnalysis: {
+		secretScanning: {
+			status: 'disabled',
+		},
+		secretScanningPushProtection: {
+			status: 'disabled',
+		},
+	},
+	squashMergeCommitTitle: 'PR_TITLE',
+	visibility: 'public',
+}, { protect: true });
+
 const cliwrapFsharp = new gh.Repository('CliWrap.FSharp', {
 	name: 'CliWrap.FSharp',
 	allowAutoMerge: true,
@@ -642,6 +662,7 @@ const xml = new gh.Repository('xml', {
 
 export const repos = [
 	audio.name,
+	blockyController.name,
 	cliwrapFsharp.name,
 	dockerDotnetFsharp.name,
 	dockerFsharp.name,
