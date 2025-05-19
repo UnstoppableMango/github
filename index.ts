@@ -45,6 +45,27 @@ const audio = new gh.Repository('audio', {
 	visibility: 'public',
 }, { protect: true });
 
+const dotnetProxmoxClient = new gh.Repository('dotnet-proxmox-client', {
+	name: 'dotnet-proxmox-client',
+	allowAutoMerge: true,
+	allowMergeCommit: false,
+	deleteBranchOnMerge: true,
+	description: '.NET client for the Proxmox REST API',
+	hasDownloads: true,
+	hasIssues: true,
+	hasWiki: true,
+	securityAndAnalysis: {
+		secretScanning: {
+			status: 'disabled',
+		},
+		secretScanningPushProtection: {
+			status: 'disabled',
+		},
+	},
+	visibility: 'public',
+	vulnerabilityAlerts: true,
+}, { protect: true });
+
 const everybodyCodes = new PublicRepo('everybody-codes', {
 	description: 'Everybody Codes solutions in various languages',
 });
@@ -321,6 +342,7 @@ const xml = new gh.Repository('xml', {
 
 export const repos = [
 	audio.name,
+	dotnetProxmoxClient.name,
 	everybodyCodes.repo.name,
 	gast.repo.name,
 	hosts.repo.name,
