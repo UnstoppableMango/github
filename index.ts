@@ -172,14 +172,13 @@ const everybodyCodes = new PublicRepo('everybody-codes', {
 });
 
 const fsharpPropertyTesting = new gh.Repository('fsharp-property-testing', {
+	name: 'fsharp-property-testing',
 	allowAutoMerge: true,
 	allowMergeCommit: false,
 	allowUpdateBranch: true,
-	defaultBranch: 'main',
 	deleteBranchOnMerge: true,
 	description: 'Lightning talk for property testing in F#',
 	hasDownloads: true,
-	name: 'fsharp-property-testing',
 	securityAndAnalysis: {
 		secretScanning: {
 			status: 'enabled',
@@ -661,6 +660,7 @@ const xml = new gh.Repository('xml', {
 }, { protect: true });
 
 export const repos = [
+	adventOfCode.name,
 	audio.name,
 	blockyController.name,
 	cliwrapFsharp.name,
