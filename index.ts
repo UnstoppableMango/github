@@ -338,6 +338,27 @@ const pulumiBun = new PublicRepo('pulumi-bun', {
 	description: 'Experimental Pulumi support for Bun',
 });
 
+const pulumiCiMgmt = new gh.Repository('pulumi-ci-mgmt', {
+	name: 'pulumi-ci-mgmt',
+	allowAutoMerge: true,
+	allowMergeCommit: false,
+	allowUpdateBranch: true,
+	deleteBranchOnMerge: true,
+	description: 'CI automation for Pulumi providers based on pulumi/ci-mgmt',
+	hasDownloads: true,
+	hasIssues: true,
+	securityAndAnalysis: {
+		secretScanning: {
+			status: 'enabled',
+		},
+		secretScanningPushProtection: {
+			status: 'enabled',
+		},
+	},
+	squashMergeCommitTitle: 'PR_TITLE',
+	visibility: 'public',
+}, { protect: true });
+
 const pulumiImaug = new gh.Repository('pulumi-imaug', {
 	name: 'pulumi-imaug',
 	allowAutoMerge: true,
@@ -588,6 +609,7 @@ export const repos = [
 	pki.repo.name,
 	proxmoxClient.name,
 	pulumiBun.repo.name,
+	pulumiCiMgmt.name,
 	pulumiImaug.name,
 	pulumiKubernetesTheHardWay.name,
 	pulumiProxmox.name,
