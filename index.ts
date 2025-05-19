@@ -233,6 +233,25 @@ const pulumiBun = new PublicRepo('pulumi-bun', {
 	description: 'Experimental Pulumi support for Bun',
 });
 
+const pulumiProxmox = new gh.Repository('pulumi-proxmox', {
+	name: 'pulumi-proxmox',
+	hasDownloads: true,
+	hasIssues: true,
+	securityAndAnalysis: {
+		secretScanning: {
+			status: 'disabled',
+		},
+		secretScanningPushProtection: {
+			status: 'disabled',
+		},
+	},
+	template: {
+		owner: 'pulumi',
+		repository: 'pulumi-component-provider-ts-boilerplate',
+	},
+	visibility: 'public',
+}, { protect: true });
+
 const renovateConfig = new PublicRepo('renovate-config', {
 	description: `UnstoppableMango's Renovate presets`,
 	topics: ['renovate', 'cicd', 'bun'],
@@ -410,6 +429,7 @@ export const repos = [
 	pki.repo.name,
 	proxmoxClient.name,
 	pulumiBun.repo.name,
+	pulumiProxmox.name,
 	renovateConfig.repo.name,
 	rest.name,
 	slackerBot.name,
