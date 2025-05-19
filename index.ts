@@ -136,6 +136,22 @@ const lang = new PublicRepo('lang', {
 	}],
 });
 
+const mangoMtg = new gh.Repository('mango-mtg', {
+	name: 'mango-mtg',
+	description: 'Digital Magic: The Gathering',
+	hasDownloads: true,
+	hasIssues: true,
+	securityAndAnalysis: {
+		secretScanning: {
+			status: 'disabled',
+		},
+		secretScanningPushProtection: {
+			status: 'disabled',
+		},
+	},
+	visibility: 'public',
+}, { protect: true });
+
 const minecraftOperator = new gh.Repository('minecraft-operator', {
 	description: 'An operator for managing minecraft servers on Kubernetes',
 	allowMergeCommit: false,
@@ -350,6 +366,7 @@ export const repos = [
 	infra.name,
 	johnstonDems.repo.name,
 	lang.repo.name,
+	mangoMtg.name,
 	minecraftManager.repo.name,
 	minecraftOperator.name,
 	nixos.repo.name,
