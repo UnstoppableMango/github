@@ -189,6 +189,30 @@ const minecraftManager = new PublicRepo('minecraft-manager', {
 	],
 });
 
+const multiDownloaderNxDocker = new gh.Repository('multi-downloader-nx-docker', {
+	name: 'multi-downloader-nx-docker',
+	description: 'Docker image for anidl/multi-downloader-nx',
+	hasDownloads: true,
+	hasIssues: true,
+	securityAndAnalysis: {
+		secretScanning: {
+			status: 'disabled',
+		},
+		secretScanningPushProtection: {
+			status: 'disabled',
+		},
+	},
+	topics: [
+		'anime',
+		'crunchyroll',
+		'docker',
+		'downloader',
+		'funimation',
+		'utility',
+	],
+	visibility: 'public',
+}, { protect: true });
+
 const nixos = new PublicRepo('nixos', {
 	description: 'My NixOS source',
 	requiredChecks: [{
@@ -464,6 +488,7 @@ export const repos = [
 	mangoMtg.name,
 	minecraftManager.repo.name,
 	minecraftOperator.name,
+	multiDownloaderNxDocker.name,
 	nixos.repo.name,
 	ouranosis.repo.name,
 	perryOperator.repo.name,
