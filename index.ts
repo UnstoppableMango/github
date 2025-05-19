@@ -151,6 +151,27 @@ const everybodyCodes = new PublicRepo('everybody-codes', {
 	description: 'Everybody Codes solutions in various languages',
 });
 
+const fsharpPropertyTesting = new gh.Repository('fsharp-property-testing', {
+	allowAutoMerge: true,
+	allowMergeCommit: false,
+	allowUpdateBranch: true,
+	defaultBranch: 'main',
+	deleteBranchOnMerge: true,
+	description: 'Lightning talk for property testing in F#',
+	hasDownloads: true,
+	name: 'fsharp-property-testing',
+	securityAndAnalysis: {
+		secretScanning: {
+			status: 'enabled',
+		},
+		secretScanningPushProtection: {
+			status: 'enabled',
+		},
+	},
+	squashMergeCommitTitle: 'PR_TITLE',
+	visibility: 'public',
+}, { protect: true });
+
 const gast = new PublicRepo('gast', {
 	description: 'ASTs for everyone',
 	topics: ['ast', 'codegen', 'protobuf', 'grpc', 'buf'],
@@ -609,6 +630,7 @@ export const repos = [
 	dotfiles.name,
 	dotnetProxmoxClient.name,
 	everybodyCodes.repo.name,
+	fsharpPropertyTesting.name,
 	gast.repo.name,
 	hosts.repo.name,
 	http.name,
