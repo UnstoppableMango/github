@@ -45,9 +45,17 @@ const audio = new gh.Repository('audio', {
 	visibility: 'public',
 }, { protect: true });
 
-const pki = new PrivateRepo('pki', {
-	description: 'My private key infrastructure',
-}, { protect: true });
+const everybodyCodes = new PublicRepo('everybody-codes', {
+	description: 'Everybody Codes solutions in various languages',
+});
+
+const gast = new PublicRepo('gast', {
+	description: 'ASTs for everyone',
+	topics: ['ast', 'codegen', 'protobuf', 'grpc', 'buf'],
+	requiredChecks: [
+		{ context: 'Build and Test', integrationId: integrationIds.github },
+	],
+});
 
 const hosts = new PublicRepo('hosts', {
 	description: 'My on-prem server infrastructure',
@@ -85,24 +93,18 @@ const http = new gh.Repository('http', {
 	vulnerabilityAlerts: true,
 }, { protect: true });
 
+const infra = new gh.Repository('infra', {
+	name: 'infra',
+	allowMergeCommit: false,
+	deleteBranchOnMerge: true,
+	hasDownloads: true,
+	hasIssues: true,
+	visibility: 'private',
+	vulnerabilityAlerts: true,
+}, { protect: true });
+
 const johnstonDems = new PrivateRepo('johnston-dems-mailer', {
 	description: 'Johnston Democrats mailing application',
-});
-
-const pulumiBun = new PublicRepo('pulumi-bun', {
-	description: 'Experimental Pulumi support for Bun',
-});
-
-const everybodyCodes = new PublicRepo('everybody-codes', {
-	description: 'Everybody Codes solutions in various languages',
-});
-
-const gast = new PublicRepo('gast', {
-	description: 'ASTs for everyone',
-	topics: ['ast', 'codegen', 'protobuf', 'grpc', 'buf'],
-	requiredChecks: [
-		{ context: 'Build and Test', integrationId: integrationIds.github },
-	],
 });
 
 const lang = new PublicRepo('lang', {
@@ -166,6 +168,14 @@ const piaManualConnections = new PublicRepo('pia-manual-connections', {
 		{ context: 'Build and Test', integrationId: integrationIds.github },
 		{ context: 'Docker', integrationId: integrationIds.github },
 	],
+});
+
+const pki = new PrivateRepo('pki', {
+	description: 'My private key infrastructure',
+}, { protect: true });
+
+const pulumiBun = new PublicRepo('pulumi-bun', {
+	description: 'Experimental Pulumi support for Bun',
 });
 
 const renovateConfig = new PublicRepo('renovate-config', {
@@ -272,6 +282,7 @@ export const repos = [
 	gast.repo.name,
 	hosts.repo.name,
 	http.name,
+	infra.name,
 	johnstonDems.repo.name,
 	lang.repo.name,
 	minecraftManager.repo.name,
