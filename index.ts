@@ -108,6 +108,24 @@ const dockerFsharp = new gh.Repository('Docker.FSharp', {
 	visibility: 'public',
 }, { protect: true });
 
+const dotfiles = new gh.Repository('dotfiles', {
+	name: 'dotfiles',
+	allowAutoMerge: true,
+	allowMergeCommit: false,
+	deleteBranchOnMerge: true,
+	hasDownloads: true,
+	securityAndAnalysis: {
+		secretScanning: {
+			status: 'disabled',
+		},
+		secretScanningPushProtection: {
+			status: 'disabled',
+		},
+	},
+	visibility: 'public',
+	vulnerabilityAlerts: true,
+}, { protect: true });
+
 const dotnetProxmoxClient = new gh.Repository('dotnet-proxmox-client', {
 	name: 'dotnet-proxmox-client',
 	allowAutoMerge: true,
@@ -588,6 +606,7 @@ export const repos = [
 	cliwrapFsharp.name,
 	dockerDotnetFsharp.name,
 	dockerFsharp.name,
+	dotfiles.name,
 	dotnetProxmoxClient.name,
 	everybodyCodes.repo.name,
 	gast.repo.name,
