@@ -364,6 +364,15 @@ const palumiWorld = new gh.Repository('palumi-world', {
 	visibility: 'public',
 }, { protect: true });
 
+const pcl2openapi = new PublicRepo('pcl2openapi', {
+	description: 'Converts Pulumi Configuration Language (PCL) to OpenAPI',
+	requiredChecks: [
+		{ context: 'build', integrationId: integrationIds.github },
+		{ context: 'lint', integrationId: integrationIds.github },
+		{ context: 'docker', integrationId: integrationIds.github },
+	],
+});
+
 const perryOperator = new PublicRepo('perry-operator', {
 	description: `A platypus? Perry the platypus?!?`,
 	topics: ['kubernetes', 'pulumi', 'operator'],
@@ -530,6 +539,10 @@ const rest = new gh.Repository('rest', {
 	vulnerabilityAlerts: true,
 }, { protect: true });
 
+const resume = new PrivateRepo('resume', {
+	description: 'My résumé, codified',
+});
+
 const slackerBot = new gh.Repository('slacker-bot', {
 	name: 'slacker-bot',
 	allowAutoMerge: true,
@@ -688,6 +701,7 @@ export const repos = [
 	nixos.repo.name,
 	ouranosis.repo.name,
 	palumiWorld.name,
+	pcl2openapi.repo.name,
 	perryOperator.repo.name,
 	pfsenseOperator.repo.name,
 	piaManualConnections.repo.name,
@@ -699,6 +713,7 @@ export const repos = [
 	pulumiKubernetesTheHardWay.name,
 	pulumiProxmox.name,
 	renovateConfig.repo.name,
+	resume.repo.name,
 	rest.name,
 	slackerBot.name,
 	tdl.name,
