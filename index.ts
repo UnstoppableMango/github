@@ -621,7 +621,11 @@ const ux = new PublicRepo('ux', {
 	description: `The universal codegen framework`,
 	topics: ['codegen', 'go', 'protobuf'],
 	requiredChecks: [
-		{ context: 'Build and Test', integrationId: integrationIds.github },
+		{ context: 'build', integrationId: integrationIds.github },
+		{ context: 'lint', integrationId: integrationIds.github },
+		{ context: 'docker', integrationId: integrationIds.github },
+		{ context: 'buf', integrationId: integrationIds.github },
+		{ context: 'clean', integrationId: integrationIds.github },
 	],
 });
 
