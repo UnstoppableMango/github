@@ -69,9 +69,9 @@
     levn "^0.4.1"
 
 "@grpc/grpc-js@^1.10.1":
-  version "1.13.3"
-  resolved "https://registry.yarnpkg.com/@grpc/grpc-js/-/grpc-js-1.13.3.tgz#6ad08d186c2a8651697085f790c5c68eaca45904"
-  integrity sha512-FTXHdOoPbZrBjlVLHuKbDZnsTxXv2BlHF57xw6LuThXacXvtkahEPED0CKMk6obZDf65Hv4k3z62eyPNpvinIg==
+  version "1.13.4"
+  resolved "https://registry.yarnpkg.com/@grpc/grpc-js/-/grpc-js-1.13.4.tgz#922fbc496e229c5fa66802d2369bf181c1df1c5a"
+  integrity sha512-GsFaMXCkMqkKIvwCQjCrwH+GHbPKBjhwo/8ZuUkWHqbI73Kky9I+pQltrlT0+MWpedCoosda53lgjYfyEPgxBg==
   dependencies:
     "@grpc/proto-loader" "^0.7.13"
     "@js-sdsl/ordered-map" "^4.4.2"
@@ -492,9 +492,9 @@
     "@pulumi/pulumi" "^3.142.0"
 
 "@pulumi/pulumi@^3.141.0", "@pulumi/pulumi@^3.142.0":
-  version "3.170.0"
-  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-3.170.0.tgz#49b8af1b34d626ed71289cbf95369cd56188039e"
-  integrity sha512-r39S0mdbEs3vyONZ/V4mWN1ThF4zSGXno6gkx4B7+QygtW5D1hnqxllQ8rp3vZ5sCqFACvMP8GV2NLtAsvGmqg==
+  version "3.171.0"
+  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-3.171.0.tgz#1e941c173676c198b065c2ddd8ee6c906438853c"
+  integrity sha512-HJHvZR0lsLROq3oDYSoXkfeKh0ddjglSmbqk1lkRuGdF8Y5DeD80wOSlD6c4EKWyo4N8f8wtWP7uDc5/HvH07g==
   dependencies:
     "@grpc/grpc-js" "^1.10.1"
     "@logdna/tail-file" "^2.0.6"
@@ -2121,9 +2121,9 @@ promise-retry@^2.0.1:
     retry "^0.12.0"
 
 protobufjs@^7.2.5:
-  version "7.5.2"
-  resolved "https://registry.yarnpkg.com/protobufjs/-/protobufjs-7.5.2.tgz#030568499b1ef400a780b2d78488ca549ebcb169"
-  integrity sha512-f2ls6rpO6G153Cy+o2XQ+Y0sARLOZ17+OGVLHrc3VUKcLHYKEKWbkSujdBWQXM7gKn5NTfp0XnRPZn1MIu8n9w==
+  version "7.4.0"
+  resolved "https://registry.yarnpkg.com/protobufjs/-/protobufjs-7.4.0.tgz#7efe324ce9b3b61c82aae5de810d287bc08a248a"
+  integrity sha512-mRUWCc3KUU4w1jU8sGxICXH/gNS94DvI1gxqDvBzhj1JpcsimQkYiOJfwsPUykUI5ZaspFbSgmBLER8IrQ3tqw==
   dependencies:
     "@protobufjs/aspromise" "^1.1.2"
     "@protobufjs/base64" "^1.1.2"
