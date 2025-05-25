@@ -539,9 +539,12 @@ const rest = new gh.Repository('rest', {
 	vulnerabilityAlerts: true,
 }, { protect: true });
 
-const resume = new PrivateRepo('resume', {
+const resume = new PublicRepo('resume', {
 	description: 'My résumé, codified',
-});
+	requiredChecks: [
+		{ context: 'build', integrationId: integrationIds.github },
+	]
+}, { aliases: [{ type: 'unmango:github:PrivateRepo' }] });
 
 const slackerBot = new gh.Repository('slacker-bot', {
 	name: 'slacker-bot',
