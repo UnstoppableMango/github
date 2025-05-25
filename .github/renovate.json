@@ -12,8 +12,7 @@
 		{
 			"groupName": "pulumi",
 			"matchDepNames": [
-				"pulumi/pulumi$",
-				"@pulumi/pulumi"
+				"pulumi/pulumi"
 			]
 		}
 	]
