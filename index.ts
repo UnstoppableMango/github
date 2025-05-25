@@ -543,7 +543,7 @@ const resume = new PublicRepo('resume', {
 	description: 'My résumé, codified',
 	requiredChecks: [
 		{ context: 'build', integrationId: integrationIds.github },
-	]
+	],
 }, { aliases: [{ type: 'unmango:github:PrivateRepo' }] });
 
 const slackerBot = new gh.Repository('slacker-bot', {
