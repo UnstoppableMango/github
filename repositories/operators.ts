@@ -44,7 +44,7 @@ export const plexOperator = new PublicRepo('plex-operator', {
 	],
 });
 
-export const wireguardOperator = new PublicRepo('plex-operator', {
+export const wireguardOperator = new PublicRepo('wireguard-operator', {
 	description: 'An operator for deploying and managing Wireguard on Kubernetes',
 	requiredChecks: [
 		{ context: 'Run On Ubuntu', integrationId: integrationIds.github },
