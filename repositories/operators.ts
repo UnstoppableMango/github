@@ -36,3 +36,17 @@ export const pfsenseOperator = new PublicRepo('pfsense-operator', {
 		integrationId: integrationIds.github,
 	}],
 });
+
+export const plexOperator = new PublicRepo('plex-operator', {
+	description: 'An operator for deploying and managing Plex on Kubernetes',
+	requiredChecks: [
+		{ context: 'Run On Ubuntu', integrationId: integrationIds.github },
+	],
+});
+
+export const wireguardOperator = new PublicRepo('plex-operator', {
+	description: 'An operator for deploying and managing Wireguard on Kubernetes',
+	requiredChecks: [
+		{ context: 'Run On Ubuntu', integrationId: integrationIds.github },
+	],
+});
