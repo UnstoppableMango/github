@@ -57,7 +57,6 @@ export class PublicRepo extends Repo {
 					deletion: true,
 					pullRequest: {
 						dismissStaleReviewsOnPush: true,
-						requiredReviewThreadResolution: true,
 					},
 					nonFastForward: true,
 					requiredLinearHistory: true,
