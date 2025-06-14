@@ -7,3 +7,4 @@ export * from './presentations';
 export * from './pulumi';
 export * from './utilities';
 export * from './ux';
+export * from './work';
