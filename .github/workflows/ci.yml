@@ -15,7 +15,6 @@ jobs:
     runs-on: ubuntu-latest
     concurrency:
       group: ${{ github.ref }}
-      cancel-in-progress: true
     env:
       # renovate: datasource=github-releases depName=dprint/dprint
       DPRINT_VERSION: 0.50.0
