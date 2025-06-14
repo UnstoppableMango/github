@@ -7,8 +7,7 @@ export const minecraftManager = new PublicRepo('minecraft-manager', {
 	requiredChecks: [
 		{ context: 'Build and Test', integrationId: integrationIds.github },
 		{ context: 'Build and Test API', integrationId: integrationIds.github },
-		{ context: 'Docker (web)', integrationId: integrationIds.github },
-		{ context: 'Docker (api)', integrationId: integrationIds.github },
+		{ context: 'Docker', integrationId: integrationIds.github },
 		{ context: 'Helm', integrationId: integrationIds.github },
 	],
 });
