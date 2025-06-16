@@ -52,6 +52,15 @@ export const tdl = new gh.Repository('tdl', {
 	webCommitSignoffRequired: true,
 }, { protect: true });
 
+export const terraform2crd = new PublicRepo('pulumi2crd', {
+	description: 'Converts Terraform provider code specs to Custom Resource Definitions (CRDs)',
+	requiredChecks: [
+		{ context: 'build', integrationId: integrationIds.github },
+		{ context: 'lint', integrationId: integrationIds.github },
+		{ context: 'docker', integrationId: integrationIds.github },
+	],
+});
+
 export const ux = new PublicRepo('ux', {
 	description: `The universal codegen framework`,
 	topics: ['codegen', 'go', 'protobuf'],
