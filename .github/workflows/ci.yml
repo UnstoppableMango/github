@@ -56,7 +56,3 @@ jobs:
           refresh: true
           pulumi-version-file: .versions/pulumi
           expect-no-changes: ${{ github.actor == 'renovate[bot]' }}
-        env:
-          GITHUB_APP_ID: 1264044
-          GITHUB_APP_INSTALLATION_ID: 66535113
-          GITHUB_APP_PEM_FILE: ${{ secrets.GH_APP_PEM }}
