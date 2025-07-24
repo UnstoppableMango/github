@@ -1,4 +1,5 @@
 import * as gh from '@pulumi/github';
+import { integrationIds, PublicRepo } from '../components';
 
 export const cliwrapFsharp = new gh.Repository('CliWrap.FSharp', {
 	name: 'CliWrap.FSharp',
@@ -20,6 +21,14 @@ export const cliwrapFsharp = new gh.Repository('CliWrap.FSharp', {
 	squashMergeCommitTitle: 'PR_TITLE',
 	visibility: 'public',
 }, { protect: true });
+
+export const commandLineExtensions = new PublicRepo('UnMango.Extensions.CommandLine', {
+	description: 'Micro-framework for CLI apps built on System.CommandLine',
+	topics: ['dotnet', 'cli', 'commandline'],
+	requiredChecks: [
+		{ context: 'Build and Test', integrationId: integrationIds.github },
+	],
+});
 
 export const dockerDotnetFsharp = new gh.Repository('Docker.Dotnet.FSharp', {
 	name: 'Docker.Dotnet.FSharp',
