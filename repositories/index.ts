@@ -6,6 +6,7 @@ export * from './libraries';
 export * from './operators';
 export * from './presentations';
 export * from './pulumi';
+export * from './terraform';
 export * from './utilities';
 export * from './ux';
 export * from './work';
