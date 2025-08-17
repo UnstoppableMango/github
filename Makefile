@@ -23,7 +23,7 @@ stack: .make/stack_select_prod
 lint: install
 	yarn eslint .
 
-format: .make/format
+format fmt: .make/format
 
 bin/pulumi: .versions/pulumi
 	curl -fsSL https://get.pulumi.com | sh -s -- --install-root ${WORKING_DIR} --version $(shell cat $<) --no-edit-path

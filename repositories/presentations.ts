@@ -1,5 +1,4 @@
 import * as gh from '@pulumi/github';
-import { integrationIds, PublicRepo } from '../components';
 
 export const fsharpPropertyTesting = new gh.Repository('fsharp-property-testing', {
 	name: 'fsharp-property-testing',
