@@ -9,6 +9,16 @@ export const gast = new PublicRepo('gast', {
 	],
 });
 
+export const openapi2terraform = new PublicRepo('openapi2terraform', {
+	description: 'Converts OpenAPI specifications into terraform providers',
+	topics: ['terraform', 'openapi', 'ux', 'codegen', 'iac'],
+	requiredChecks: [
+		{ context: 'build', integrationId: integrationIds.github },
+		{ context: 'lint', integrationId: integrationIds.github },
+		{ context: 'docker', integrationId: integrationIds.github },
+	],
+});
+
 // Not sure why I started with this, the goal is to convert package specs
 // to CRDs. I'll generalize it to PCL/OpenAPI if the need arises...
 export const pcl2openapi = new PublicRepo('pcl2openapi', {
