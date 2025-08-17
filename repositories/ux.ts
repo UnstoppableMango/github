@@ -9,8 +9,18 @@ export const gast = new PublicRepo('gast', {
 	],
 });
 
+export const openapi2go = new PublicRepo('openapi2go', {
+	description: 'Converts OpenAPI specifications to Go',
+	topics: ['openapi', 'ux', 'codegen', 'go', 'ast'],
+	requiredChecks: [
+		{ context: 'build', integrationId: integrationIds.github },
+		{ context: 'lint', integrationId: integrationIds.github },
+		{ context: 'docker', integrationId: integrationIds.github },
+	],
+});
+
 export const openapi2terraform = new PublicRepo('openapi2terraform', {
-	description: 'Converts OpenAPI specifications into terraform providers',
+	description: 'Converts OpenAPI specifications to terraform providers',
 	topics: ['terraform', 'openapi', 'ux', 'codegen', 'iac'],
 	requiredChecks: [
 		{ context: 'build', integrationId: integrationIds.github },
