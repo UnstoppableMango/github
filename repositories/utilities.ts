@@ -36,3 +36,7 @@ export const piaManualConnections = new PublicRepo('pia-manual-connections', {
 export const pulumiBun = new PublicRepo('pulumi-bun', {
 	description: 'Experimental Pulumi support for Bun',
 });
+
+export const wireguardCni = new PublicRepo('wireguard-cni', {
+	description: 'Wireguard CNI plugin',
+});
