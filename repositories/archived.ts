@@ -8,7 +8,8 @@ export const infra = new gh.Repository('infra', {
 	hasIssues: true,
 	visibility: 'private',
 	vulnerabilityAlerts: true,
-}, { protect: true });
+	archived: true,
+});
 
 export const minecraftOperator = new gh.Repository('minecraft-operator', {
 	description: 'An operator for managing minecraft servers on Kubernetes',
@@ -38,4 +39,5 @@ export const slackerBot = new gh.Repository('slacker-bot', {
 	squashMergeCommitTitle: 'PR_TITLE',
 	visibility: 'public',
 	vulnerabilityAlerts: true,
-}, { protect: true });
+	archived: true,
+});
