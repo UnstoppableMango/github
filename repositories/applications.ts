@@ -20,6 +20,13 @@ export const xmageDocker = new gh.Repository('xmage-docker', {
 	name: 'xmage-docker',
 	hasDownloads: true,
 	hasIssues: true,
+	hasWiki: false,
+	allowAutoMerge: true,
+	allowMergeCommit: false,
+	allowRebaseMerge: false,
+	allowSquashMerge: true,
+	deleteBranchOnMerge: true,
+	topics: ['xmage', 'docker', 'container', 'magic', 'mtg', 'gaming', 'self-hosted'],
 	securityAndAnalysis: {
 		secretScanning: {
 			status: 'disabled',
@@ -29,4 +36,31 @@ export const xmageDocker = new gh.Repository('xmage-docker', {
 		},
 	},
 	visibility: 'public',
-}, { protect: true });
+});
+
+export const xmageRuleset = new gh.RepositoryRuleset('xmage-docker', {
+	name: 'main',
+	repository: xmageDocker.name,
+	enforcement: 'active',
+	target: 'branch',
+	conditions: {
+		refName: {
+			includes: ['~DEFAULT_BRANCH'],
+			excludes: [],
+		},
+	},
+	rules: {
+		deletion: true,
+		pullRequest: {
+			dismissStaleReviewsOnPush: true,
+		},
+		nonFastForward: true,
+		requiredLinearHistory: true,
+		requiredSignatures: true,
+		requiredStatusChecks: {
+			requiredChecks: [
+				{ context: 'Build', integrationId: integrationIds.github },
+			],
+		},
+	},
+});

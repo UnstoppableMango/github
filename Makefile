@@ -5,14 +5,14 @@ PULUMI := ${WORKING_DIR}/bin/pulumi
 
 .PHONY: preview diff up refresh stack lint format install
 
+up: install stack | bin/pulumi
+	$(PULUMI) up
+
 preview: install stack | bin/pulumi
 	$(PULUMI) preview
 
 diff: install stack | bin/pulumi
 	$(PULUMI) preview --diff
-
-up: install stack | bin/pulumi
-	$(PULUMI) up
 
 refresh: install stack | bin/pulumi
 	$(PULUMI) refresh
