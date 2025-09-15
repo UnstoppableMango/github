@@ -3,6 +3,9 @@ WORKING_DIR := $(shell pwd)
 
 PULUMI := ${WORKING_DIR}/bin/pulumi
 
+TS_SRC != find . -name '*.ts' -not -path '**/node_modules/**'
+JS_SRC != find . \( -name '*.js' -o -name '*.mjs' \) -not -path '**/node_modules/**'
+
 .PHONY: preview diff up refresh stack lint format install
 
 up: install stack | bin/pulumi
@@ -39,6 +42,6 @@ bin/pulumi: .versions/pulumi
 	$(PULUMI) stack select prod
 	@touch $@
 
-.make/format: $(shell find . -name '*.ts' -not -path '**/node_modules/**')
+.make/format: ${TS_SRC} ${JS_SRC}
 	dprint fmt $?
 	@touch $@
