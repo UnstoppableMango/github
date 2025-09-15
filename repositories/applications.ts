@@ -60,7 +60,6 @@ export const xmageRuleset = new gh.RepositoryRuleset('xmage-docker', {
 		requiredStatusChecks: {
 			requiredChecks: [
 				{ context: 'Build', integrationId: integrationIds.github },
-				{ context: 'Test', integrationId: integrationIds.github },
 			],
 		},
 	},
