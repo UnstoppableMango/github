@@ -174,6 +174,8 @@ const theCluster = new gh.Repository('the-cluster', {
 	name: 'the-cluster',
 	allowAutoMerge: true,
 	allowMergeCommit: false,
+	allowRebaseMerge: false,
+	allowSquashMerge: true,
 	allowUpdateBranch: true,
 	deleteBranchOnMerge: true,
 	description: 'Source for THECLUSTER',
