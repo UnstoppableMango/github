@@ -66,6 +66,7 @@ const dotfiles = new gh.Repository('dotfiles', {
 	allowMergeCommit: false,
 	deleteBranchOnMerge: true,
 	hasDownloads: true,
+	hasIssues: true,
 	securityAndAnalysis: {
 		secretScanning: {
 			status: 'disabled',
