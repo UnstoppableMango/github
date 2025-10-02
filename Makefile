@@ -1,7 +1,8 @@
 _ := $(shell mkdir -p .make)
-WORKING_DIR := $(shell pwd)
 
-PULUMI := ${WORKING_DIR}/bin/pulumi
+DPRINT ?= dprint
+NIX    := nix
+PULUMI ?= ${CURDIR}/bin/pulumi
 
 TS_SRC != find . -name '*.ts' -not -path '**/node_modules/**'
 JS_SRC != find . \( -name '*.js' -o -name '*.mjs' \) -not -path '**/node_modules/**'
@@ -26,10 +27,14 @@ stack: .make/stack_select_prod
 lint: install
 	yarn eslint .
 
-format fmt: .make/format
+format fmt: .make/format .make/nix_fmt
+update: flake.lock
 
-bin/pulumi: .versions/pulumi
-	curl -fsSL https://get.pulumi.com | sh -s -- --install-root ${WORKING_DIR} --version $(shell cat $<) --no-edit-path
+flake.lock: flake.nix
+	$(NIX) flake update
+
+$(PULUMI): .versions/pulumi
+	curl -fsSL https://get.pulumi.com | sh -s -- --install-root ${CURDIR} --version $(shell cat $<) --no-edit-path
 
 .envrc: hack/example.envrc
 	cp $< $@
@@ -43,5 +48,9 @@ bin/pulumi: .versions/pulumi
 	@touch $@
 
 .make/format: ${TS_SRC} ${JS_SRC}
-	dprint fmt $?
+	$(DPRINT) fmt $?
+	@touch $@
+
+.make/nix_fmt: $(wildcard *.nix)
+	$(NIX) fmt
 	@touch $@
