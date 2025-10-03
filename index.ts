@@ -64,6 +64,8 @@ const dotfiles = new gh.Repository('dotfiles', {
 	name: 'dotfiles',
 	allowAutoMerge: true,
 	allowMergeCommit: false,
+	allowRebaseMerge: false,
+	allowSquashMerge: true,
 	deleteBranchOnMerge: true,
 	hasDownloads: true,
 	hasIssues: true,
