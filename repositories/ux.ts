@@ -49,6 +49,13 @@ export const pulumi2crd = new PublicRepo('pulumi2crd', {
 	],
 });
 
+export const sql2csharp = new PublicRepo('sql2csharp', {
+	description: 'Converts SQL into a C# representation',
+	requiredChecks: [
+		{ context: 'build', integrationId: integrationIds.github },
+	],
+});
+
 export const tdl = new gh.Repository('tdl', {
 	name: 'tdl',
 	allowAutoMerge: true,
