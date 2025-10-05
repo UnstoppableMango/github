@@ -9,7 +9,7 @@ export const cliwrapFsharp = new gh.Repository('CliWrap.FSharp', {
 	allowUpdateBranch: true,
 	deleteBranchOnMerge: true,
 	description: 'Idiomatic F# support for CliWrap',
-	topics: ['shell', 'cli', 'F#', 'fsharp', 'dotnet', 'process'],
+	topics: ['shell', 'cli', 'fsharp', 'dotnet', 'process'],
 	hasDownloads: true,
 	hasIssues: true,
 	securityAndAnalysis: {
