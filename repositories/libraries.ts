@@ -5,9 +5,11 @@ export const cliwrapFsharp = new gh.Repository('CliWrap.FSharp', {
 	name: 'CliWrap.FSharp',
 	allowAutoMerge: true,
 	allowMergeCommit: false,
+	allowRebaseMerge: false,
 	allowUpdateBranch: true,
 	deleteBranchOnMerge: true,
 	description: 'Idiomatic F# support for CliWrap',
+	topics: ['shell', 'cli', 'F#', 'fsharp', 'dotnet', 'process'],
 	hasDownloads: true,
 	hasIssues: true,
 	securityAndAnalysis: {
@@ -18,7 +20,7 @@ export const cliwrapFsharp = new gh.Repository('CliWrap.FSharp', {
 			status: 'disabled',
 		},
 	},
-	squashMergeCommitTitle: 'PR_TITLE',
+	squashMergeCommitTitle: 'COMMIT_OR_PR_TITLE',
 	visibility: 'public',
 }, { protect: true });
 
