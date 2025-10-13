@@ -1,4 +1,5 @@
 import * as gh from '@pulumi/github';
+import { PublicRepo } from '../components';
 
 export const audio = new gh.Repository('audio', {
 	name: 'audio',
@@ -77,3 +78,8 @@ export const xml = new gh.Repository('xml', {
 	visibility: 'public',
 	vulnerabilityAlerts: true,
 }, { protect: true });
+
+export const ocamlGo = new PublicRepo('ocaml-go', {
+	description: 'An implementation of Go in OCaml for fun',
+	topics: ['go', 'ocaml', 'practice', 'ast', 'parser', 'lexer'],
+});
