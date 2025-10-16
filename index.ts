@@ -81,6 +81,8 @@ const dotfiles = new gh.Repository('dotfiles', {
 	vulnerabilityAlerts: true,
 }, { protect: true });
 
+const me = new PrivateRepo('erik', { description: 'me' });
+
 const everybodyCodes = new PublicRepo('everybody-codes', {
 	description: 'Everybody Codes solutions in various languages',
 });
