@@ -1,8 +1,8 @@
 import * as gh from '@pulumi/github';
 import { integrationIds, PrivateRepo, PublicRepo } from './components';
 import {
-	audio,
 	a2b,
+	audio,
 	blockyController,
 	cliwrapFsharp,
 	dockerDotnetFsharp,
