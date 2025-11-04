@@ -2,6 +2,7 @@ import * as gh from '@pulumi/github';
 import { integrationIds, PrivateRepo, PublicRepo } from './components';
 import {
 	audio,
+	a2b,
 	blockyController,
 	cliwrapFsharp,
 	dockerDotnetFsharp,
@@ -221,6 +222,7 @@ const unstoppablemango_io = new gh.Repository('unstoppablemango.io', {
 export const repos = [
 	adventOfCode.name,
 	audio.name,
+	a2b.repo.name,
 	blockyController.name,
 	cliwrapFsharp.name,
 	dockerDotnetFsharp.name,

@@ -1,6 +1,14 @@
 import * as gh from '@pulumi/github';
 import { integrationIds, PublicRepo } from '../components';
 
+export const a2b = new PublicRepo('a2b', {
+	description: 'A ux plugin repository',
+	topics: ['ux', 'go', 'dotnet', 'codegen'],
+	requiredChecks: [
+		{ context: 'Build and Test', integrationId: integrationIds.github },
+	],
+});
+
 export const gast = new PublicRepo('gast', {
 	description: 'ASTs for everyone',
 	topics: ['ast', 'codegen', 'protobuf', 'grpc', 'buf'],
