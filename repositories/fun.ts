@@ -83,3 +83,8 @@ export const ocamlGo = new PublicRepo('ocaml-go', {
 	description: 'An implementation of Go in OCaml for fun',
 	topics: ['go', 'ocaml', 'practice', 'ast', 'parser', 'lexer'],
 });
+
+export const x12 = new PublicRepo('x12', {
+	description: 'Path based application framework',
+	topics: ['go', 'framework', 'paths'],
+});

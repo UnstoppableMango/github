@@ -2,7 +2,7 @@ _ := $(shell mkdir -p .make)
 
 DPRINT ?= dprint
 NIX    := nix
-PULUMI ?= ${CURDIR}/bin/pulumi
+PULUMI ?= bin/pulumi
 
 TS_SRC != find . -name '*.ts' -not -path '**/node_modules/**'
 JS_SRC != find . \( -name '*.js' -o -name '*.mjs' \) -not -path '**/node_modules/**'

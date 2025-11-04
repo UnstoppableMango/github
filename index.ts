@@ -36,6 +36,7 @@ import {
 	theclusterIo,
 	ux,
 	wireguardCni,
+	x12,
 	xmageDocker,
 	xml,
 } from './repositories';
@@ -271,4 +272,5 @@ export const repos = [
 	wireguardCni.repo.name,
 	xmageDocker.name,
 	xml.name,
+	x12.repo.name,
 ];
