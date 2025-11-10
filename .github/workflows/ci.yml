@@ -56,3 +56,14 @@ jobs:
           refresh: true
           pulumi-version-file: .versions/pulumi
           expect-no-changes: ${{ github.actor == 'renovate[bot]' }}
+
+  nix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: cachix/install-nix-action@v31.8.1
+        with:
+          github_access_token: ${{ github.token }}
+
+      - run: nix flake check --all-systems
