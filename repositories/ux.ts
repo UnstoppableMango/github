@@ -103,7 +103,6 @@ export const ux = new PublicRepo('ux', {
 		{ context: 'build', integrationId: integrationIds.github },
 		{ context: 'lint', integrationId: integrationIds.github },
 		{ context: 'docker', integrationId: integrationIds.github },
-		{ context: 'buf', integrationId: integrationIds.github },
 		{ context: 'clean', integrationId: integrationIds.github },
 	],
 });
