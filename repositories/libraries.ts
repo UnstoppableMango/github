@@ -95,6 +95,14 @@ export const dotnetProxmoxClient = new gh.Repository('dotnet-proxmox-client', {
 	vulnerabilityAlerts: true,
 }, { protect: true });
 
+export const nix = new PublicRepo('nix', {
+	description: 'Random Nix crap',
+	topics: ['nix', 'linux', 'flake', 'module'],
+	requiredChecks: [
+		{ context: 'build', integrationId: integrationIds.github },
+	],
+});
+
 export const proxmoxClient = new gh.Repository('proxmox-client', {
 	name: 'proxmox-client',
 	allowMergeCommit: false,
