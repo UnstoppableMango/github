@@ -1,5 +1,5 @@
 import * as gh from '@pulumi/github';
-import { PublicRepo } from '../components';
+import { integrationIds, PublicRepo } from '../components';
 
 export const audio = new gh.Repository('audio', {
 	name: 'audio',
@@ -19,6 +19,14 @@ export const audio = new gh.Repository('audio', {
 	},
 	visibility: 'public',
 }, { protect: true });
+
+export const fpCs = new PublicRepo('fp-cs', {
+	description: 'A functional programming library for C#',
+	topics: ['csharp', 'functional-programming', 'library'],
+	requiredChecks: [
+		{ context: 'build', integrationId: integrationIds.github },
+	],
+});
 
 export const http = new gh.Repository('http', {
 	name: 'http',

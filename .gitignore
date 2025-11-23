@@ -3,3 +3,5 @@ node_modules/
 .make/
 .envrc
 .direnv/
+.vscode/*
+!.vscode/extensions.json
