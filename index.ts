@@ -131,10 +131,9 @@ const mangoMtg = new gh.Repository('mango-mtg', {
 
 const nixos = new PublicRepo('nixos', {
 	description: 'My NixOS source',
-	requiredChecks: [{
-		context: 'Build',
-		integrationId: integrationIds.github,
-	}],
+	requiredChecks: [
+		{ context: 'build', integrationId: integrationIds.github },
+	],
 });
 
 const ouranosis = new PublicRepo('ouranosis', {
