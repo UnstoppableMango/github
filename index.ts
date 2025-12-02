@@ -70,7 +70,6 @@ const dotfiles = new gh.Repository('dotfiles', {
 	allowRebaseMerge: false,
 	allowSquashMerge: true,
 	deleteBranchOnMerge: true,
-	hasDownloads: true,
 	hasIssues: true,
 	securityAndAnalysis: {
 		secretScanning: {
@@ -82,7 +81,7 @@ const dotfiles = new gh.Repository('dotfiles', {
 	},
 	visibility: 'public',
 	vulnerabilityAlerts: true,
-}, { protect: true });
+}, { protect: true, aliases: [{ }] });
 
 const me = new PrivateRepo('erik', { description: 'me' });
 
