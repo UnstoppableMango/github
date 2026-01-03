@@ -10,3 +10,10 @@ export const theclusterIo = new PublicRepo('thecluster.io', {
 		{ context: 'Build and Test', integrationId: integrationIds.github },
 	],
 });
+
+export const theclusterLan = new PublicRepo('thecluster.lan', {
+	description: 'THECLUSTER in your area',
+	requiredChecks: [
+		{ context: 'Build and Test', integrationId: integrationIds.github },
+	],
+});
