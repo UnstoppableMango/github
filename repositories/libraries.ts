@@ -95,6 +95,14 @@ export const dotnetProxmoxClient = new gh.Repository('dotnet-proxmox-client', {
 	vulnerabilityAlerts: true,
 }, { protect: true });
 
+export const ihfs = new PublicRepo('ihfs', {
+	description: 'I ❤️ FileSystems!',
+	topics: ['go', 'filesystem', 'fs', 'afero'],
+	requiredChecks: [
+		{ context: 'build', integrationId: integrationIds.github },
+	],
+});
+
 export const nix = new PublicRepo('nix', {
 	description: 'Random Nix crap',
 	topics: ['nix', 'linux', 'flake', 'module'],
