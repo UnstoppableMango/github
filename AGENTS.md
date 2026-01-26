@@ -7,6 +7,7 @@ This document provides guidance for AI agents interacting with this repository. 
 This is a Pulumi Infrastructure as Code (IaC) project written in TypeScript that manages GitHub repositories and settings for the UnstoppableMango organization.
 
 **Key Technologies:**
+
 - TypeScript
 - Pulumi (GitHub provider)
 - Yarn (package manager)
@@ -55,6 +56,7 @@ Reusable Pulumi component resources for GitHub repositories:
 ```
 
 **Key Concepts:**
+
 - `RepoArgs`: Base arguments interface for all repository components
 - `PublicRepo`: Component for public repositories with standard settings
 - `PrivateRepo`: Component for private repositories with standard settings
@@ -82,6 +84,7 @@ Individual repository configurations organized by category:
 ```
 
 **Organization Pattern:**
+
 - Each file exports repository instances created with `PublicRepo`, `PrivateRepo`, or raw `gh.Repository`
 - Repositories are imported into `index.ts` and re-exported
 - Main `index.ts` imports from `/repositories` and creates additional inline repositories
@@ -114,6 +117,7 @@ Generated directory for compiled TypeScript output (ignored by git).
 ## Common Operations
 
 ### Building and Linting
+
 ```bash
 make lint          # Run ESLint on all TypeScript files
 make format        # Format code with dprint
@@ -121,6 +125,7 @@ make install       # Install Pulumi dependencies
 ```
 
 ### Pulumi Operations
+
 ```bash
 make preview       # Preview infrastructure changes
 make diff          # Show detailed diff of changes
@@ -129,6 +134,7 @@ make refresh       # Refresh state from actual infrastructure
 ```
 
 ### Development
+
 ```bash
 yarn install       # Install Node.js dependencies
 yarn lint          # Run ESLint directly
@@ -137,17 +143,20 @@ yarn lint          # Run ESLint directly
 ## Key Patterns and Conventions
 
 ### Repository Definitions
+
 - All repositories are defined either in `/repositories/*.ts` files or inline in `index.ts`
 - Repositories use component resources (`PublicRepo`, `PrivateRepo`) or raw `gh.Repository`
 - Common settings: `allowAutoMerge`, `deleteBranchOnMerge`, `squashMergeCommitTitle`, `requiredChecks`
 - Security settings are explicitly configured for each repository
 
 ### Code Organization
+
 1. **Categorization**: Repositories are organized by purpose (applications, libraries, operators, etc.)
 2. **Components**: Reusable components abstract common repository patterns
 3. **Exports**: The main `index.ts` exports a `repos` array containing all repository names
 
 ### TypeScript Configuration
+
 - Strict mode enabled
 - Target: ES2020
 - Module: CommonJS
@@ -157,6 +166,7 @@ yarn lint          # Run ESLint directly
 ## Working with This Repository
 
 ### When Adding New Repositories
+
 1. Determine the category (application, library, operator, utility, etc.)
 2. Add definition to appropriate `/repositories/*.ts` file
 3. Export from `/repositories/index.ts`
@@ -164,12 +174,14 @@ yarn lint          # Run ESLint directly
 5. Run `make preview` to verify configuration
 
 ### When Modifying Components
+
 1. Edit component files in `/components/`
 2. Ensure exports are updated in `/components/index.ts`
 3. Test changes with `make preview` or `make diff`
 4. Run `make lint` to check code quality
 
 ### When Updating Dependencies
+
 - Run `yarn upgrade` for Node.js dependencies
 - Run `nix flake update` for Nix dependencies
 - Update `.nvmrc` if Node.js version changes
@@ -203,6 +215,7 @@ yarn lint          # Run ESLint directly
 ### When to Update the Code Map
 
 Update this AGENTS.md file when you observe:
+
 - ✅ New TypeScript files in `/components` or `/repositories`
 - ✅ New category files in `/repositories`
 - ✅ Changes to directory structure
@@ -212,6 +225,7 @@ Update this AGENTS.md file when you observe:
 - ✅ Significant pattern changes in how repositories are defined
 
 Do NOT update for:
+
 - ❌ Changes within existing files (content changes)
 - ❌ Temporary or build artifact files
 - ❌ Changes to individual repository configurations
@@ -231,6 +245,7 @@ When making updates to this file:
 ### Example Update
 
 **Before:**
+
 ```
 /repositories/
 ├── index.ts
@@ -239,6 +254,7 @@ When making updates to this file:
 ```
 
 **After discovering a new file:**
+
 ```
 /repositories/
 ├── index.ts
