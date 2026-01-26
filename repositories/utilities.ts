@@ -4,7 +4,6 @@ import { integrationIds, PublicRepo } from '../components';
 export const multiDownloaderNxDocker = new gh.Repository('multi-downloader-nx-docker', {
 	name: 'multi-downloader-nx-docker',
 	description: 'Docker image for anidl/multi-downloader-nx',
-	hasDownloads: true,
 	hasIssues: true,
 	securityAndAnalysis: {
 		secretScanning: {

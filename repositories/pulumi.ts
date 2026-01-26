@@ -7,7 +7,6 @@ export const pulumiCiMgmt = new gh.Repository('pulumi-ci-mgmt', {
 	allowUpdateBranch: true,
 	deleteBranchOnMerge: true,
 	description: 'CI automation for Pulumi providers based on pulumi/ci-mgmt',
-	hasDownloads: true,
 	hasIssues: true,
 	securityAndAnalysis: {
 		secretScanning: {
@@ -27,7 +26,6 @@ export const pulumiKubernetesTheHardWay = new gh.Repository('pulumi-kubernetes-t
 	allowMergeCommit: false,
 	deleteBranchOnMerge: true,
 	description: 'A Pulumi component provider that implements Kelsey Hightower\'s Kubernetes the Hard Way',
-	hasDownloads: true,
 	hasIssues: true,
 	hasProjects: true,
 	securityAndAnalysis: {
@@ -48,7 +46,6 @@ export const pulumiKubernetesTheHardWay = new gh.Repository('pulumi-kubernetes-t
 
 export const pulumiProxmox = new gh.Repository('pulumi-proxmox', {
 	name: 'pulumi-proxmox',
-	hasDownloads: true,
 	hasIssues: true,
 	securityAndAnalysis: {
 		secretScanning: {

@@ -48,7 +48,6 @@ const adventOfCode = new gh.Repository('advent-of-code', {
 	allowMergeCommit: false,
 	deleteBranchOnMerge: true,
 	description: 'Advent of Code solutions in various languages',
-	hasDownloads: true,
 	hasIssues: true,
 	securityAndAnalysis: {
 		secretScanning: {
@@ -70,7 +69,6 @@ const dotfiles = new gh.Repository('dotfiles', {
 	allowRebaseMerge: false,
 	allowSquashMerge: true,
 	deleteBranchOnMerge: true,
-	hasDownloads: true,
 	hasIssues: true,
 	securityAndAnalysis: {
 		secretScanning: {
@@ -92,17 +90,18 @@ const everybodyCodes = new PublicRepo('everybody-codes', {
 
 const hosts = new PublicRepo('hosts', {
 	description: 'My on-prem server infrastructure',
-	requiredChecks: gh.getRepositoryFileOutput({
-		file: 'hosts.txt',
-		repository: 'UnstoppableMango/hosts',
-	}).apply(file => {
-		return file.content.trim().split('\n')
-			.filter(x => !['apollo', 'pik8s0a'].includes(x))
-			.map(x => ({
-				context: `pulumi (${x})`,
-				integrationId: integrationIds.github,
-			}));
-	}),
+	// This was jank from the beginning, need to decide on a better way
+	// requiredChecks: gh.getRepositoryFileOutput({
+	// 	file: 'hosts.txt',
+	// 	repository: 'UnstoppableMango/hosts',
+	// }).apply(file => {
+	// 	return file.content.trim().split('\n')
+	// 		.filter(x => !['apollo', 'pik8s0a'].includes(x))
+	// 		.map(x => ({
+	// 			context: `pulumi (${x})`,
+	// 			integrationId: integrationIds.github,
+	// 		}));
+	// }),
 });
 
 const lang = new PublicRepo('lang', {
@@ -116,7 +115,6 @@ const lang = new PublicRepo('lang', {
 const mangoMtg = new gh.Repository('mango-mtg', {
 	name: 'mango-mtg',
 	description: 'Digital Magic: The Gathering',
-	hasDownloads: true,
 	hasIssues: true,
 	securityAndAnalysis: {
 		secretScanning: {
@@ -143,7 +141,6 @@ const ouranosis = new PublicRepo('ouranosis', {
 const palumiWorld = new gh.Repository('palumi-world', {
 	name: 'palumi-world',
 	description: 'My Palworld install',
-	hasDownloads: true,
 	hasIssues: true,
 	hasProjects: true,
 	hasWiki: true,
@@ -207,7 +204,6 @@ const unstoppablemango_io = new gh.Repository('unstoppablemango.io', {
 	allowRebaseMerge: false,
 	deleteBranchOnMerge: true,
 	description: 'A website about me for random garbage',
-	hasDownloads: true,
 	hasIssues: true,
 	securityAndAnalysis: {
 		secretScanning: {

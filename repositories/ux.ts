@@ -72,7 +72,6 @@ export const tdl = new gh.Repository('tdl', {
 	allowUpdateBranch: true,
 	deleteBranchOnMerge: true,
 	description: 'Type description language and codegen suite',
-	hasDownloads: true,
 	hasIssues: true,
 	hasProjects: true,
 	securityAndAnalysis: {

@@ -7,7 +7,6 @@ export const blockyController = new gh.Repository('blocky-controller', {
 	allowMergeCommit: false,
 	deleteBranchOnMerge: true,
 	description: 'Blocky kubernetes controller sandbox',
-	hasDownloads: true,
 	hasIssues: true,
 	securityAndAnalysis: {
 		secretScanning: {

@@ -4,7 +4,6 @@ export const infra = new gh.Repository('infra', {
 	name: 'infra',
 	allowMergeCommit: false,
 	deleteBranchOnMerge: true,
-	hasDownloads: true,
 	hasIssues: true,
 	visibility: 'private',
 	vulnerabilityAlerts: true,
@@ -24,7 +23,6 @@ export const slackerBot = new gh.Repository('slacker-bot', {
 	allowMergeCommit: false,
 	allowUpdateBranch: true,
 	deleteBranchOnMerge: true,
-	hasDownloads: true,
 	hasIssues: true,
 	hasProjects: true,
 	securityAndAnalysis: {

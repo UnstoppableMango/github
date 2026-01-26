@@ -3,6 +3,7 @@ _ := $(shell mkdir -p .make)
 DPRINT ?= dprint
 NIX    := nix
 PULUMI ?= bin/pulumi
+YARN   ?= yarn
 
 TS_SRC != find . -name '*.ts' -not -path '**/node_modules/**'
 JS_SRC != find . \( -name '*.js' -o -name '*.mjs' \) -not -path '**/node_modules/**'
@@ -25,7 +26,7 @@ install: .make/pulumi_install
 stack: .make/stack_select_prod
 
 lint: install
-	yarn eslint .
+	$(YARN) eslint .
 
 format fmt: .make/format .make/nix_fmt
 update: flake.lock

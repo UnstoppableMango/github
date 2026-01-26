@@ -18,7 +18,6 @@ export const johnstonDems = new PrivateRepo('johnston-dems-mailer', {
 
 export const xmageDocker = new gh.Repository('xmage-docker', {
 	name: 'xmage-docker',
-	hasDownloads: true,
 	hasIssues: true,
 	hasWiki: false,
 	allowAutoMerge: true,
