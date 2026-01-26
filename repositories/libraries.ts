@@ -91,6 +91,14 @@ export const dotnetProxmoxClient = new gh.Repository('dotnet-proxmox-client', {
 	vulnerabilityAlerts: true,
 }, { protect: true });
 
+export const godec = new PublicRepo('godec', {
+	description: 'Yet another codec library for Go named "godec"',
+	topics: ['go', 'codec', 'encode', 'decode', 'serialization'],
+	requiredChecks: [
+		{ context: 'build', integrationId: integrationIds.github },
+	],
+});
+
 export const ihfs = new PublicRepo('ihfs', {
 	description: 'I ❤️ FileSystems!',
 	topics: ['go', 'filesystem', 'fs', 'afero'],
