@@ -10,7 +10,6 @@ export const cliwrapFsharp = new gh.Repository('CliWrap.FSharp', {
 	deleteBranchOnMerge: true,
 	description: 'Idiomatic F# support for CliWrap',
 	topics: ['shell', 'cli', 'fsharp', 'dotnet', 'process'],
-	hasDownloads: true,
 	hasIssues: true,
 	securityAndAnalysis: {
 		secretScanning: {
@@ -39,7 +38,6 @@ export const dockerDotnetFsharp = new gh.Repository('Docker.Dotnet.FSharp', {
 	allowUpdateBranch: true,
 	deleteBranchOnMerge: true,
 	description: 'Idiomatic F# support for Docker.DotNet',
-	hasDownloads: true,
 	hasIssues: true,
 	securityAndAnalysis: {
 		secretScanning: {
@@ -60,7 +58,6 @@ export const dockerFsharp = new gh.Repository('Docker.FSharp', {
 	allowUpdateBranch: true,
 	deleteBranchOnMerge: true,
 	description: 'Docker computation expression and client written in F#',
-	hasDownloads: true,
 	hasIssues: true,
 	securityAndAnalysis: {
 		secretScanning: {
@@ -80,7 +77,6 @@ export const dotnetProxmoxClient = new gh.Repository('dotnet-proxmox-client', {
 	allowMergeCommit: false,
 	deleteBranchOnMerge: true,
 	description: '.NET client for the Proxmox REST API',
-	hasDownloads: true,
 	hasIssues: true,
 	hasWiki: true,
 	securityAndAnalysis: {
@@ -116,7 +112,6 @@ export const proxmoxClient = new gh.Repository('proxmox-client', {
 	allowMergeCommit: false,
 	deleteBranchOnMerge: true,
 	description: 'Proxmox client libraries generated via OpenAPI Generator',
-	hasDownloads: true,
 	hasIssues: true,
 	securityAndAnalysis: {
 		secretScanning: {

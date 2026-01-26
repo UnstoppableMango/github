@@ -7,7 +7,6 @@ export const fsharpPropertyTesting = new gh.Repository('fsharp-property-testing'
 	allowUpdateBranch: true,
 	deleteBranchOnMerge: true,
 	description: 'Lightning talk for property testing in F#',
-	hasDownloads: true,
 	securityAndAnalysis: {
 		secretScanning: {
 			status: 'enabled',
@@ -23,7 +22,6 @@ export const fsharpPropertyTesting = new gh.Repository('fsharp-property-testing'
 export const imaug = new gh.Repository('imaug', {
 	name: 'imaug',
 	description: 'Code used in presentations for the Iowa Microsoft Azure User Group',
-	hasDownloads: true,
 	hasIssues: true,
 	hasProjects: true,
 	hasWiki: true,
@@ -44,7 +42,6 @@ export const pulumiImaug = new gh.Repository('pulumi-imaug', {
 	allowMergeCommit: false,
 	deleteBranchOnMerge: true,
 	description: 'A Pulumi component provider for the Iowa Microsoft Azure User Group presentation',
-	hasDownloads: true,
 	hasIssues: true,
 	securityAndAnalysis: {
 		secretScanning: {

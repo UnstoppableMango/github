@@ -7,7 +7,6 @@ export const audio = new gh.Repository('audio', {
 	allowMergeCommit: false,
 	allowRebaseMerge: false,
 	deleteBranchOnMerge: true,
-	hasDownloads: true,
 	hasIssues: true,
 	securityAndAnalysis: {
 		secretScanning: {
@@ -34,7 +33,6 @@ export const http = new gh.Repository('http', {
 	allowMergeCommit: false,
 	allowUpdateBranch: true,
 	deleteBranchOnMerge: true,
-	hasDownloads: true,
 	hasIssues: true,
 	securityAndAnalysis: {
 		secretScanning: {
@@ -54,7 +52,6 @@ export const rest = new gh.Repository('rest', {
 	allowMergeCommit: false,
 	deleteBranchOnMerge: true,
 	description: 'Just another .NET REST client',
-	hasDownloads: true,
 	hasIssues: true,
 	securityAndAnalysis: {
 		secretScanning: {
@@ -73,7 +70,6 @@ export const xml = new gh.Repository('xml', {
 	allowMergeCommit: false,
 	deleteBranchOnMerge: true,
 	description: 'A .NET XML serializer',
-	hasDownloads: true,
 	hasIssues: true,
 	securityAndAnalysis: {
 		secretScanning: {

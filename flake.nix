@@ -23,6 +23,7 @@
         {
           devShells.default = pkgs.mkShellNoCC {
             packages = with pkgs; [
+              corepack
               dprint
               gnumake
               nixfmt
@@ -32,6 +33,7 @@
               yarn
             ];
 
+            COREPACK = pkgs.corepack + "/bin/corepack";
             DPRINT = pkgs.dprint + "/bin/dprint";
             NIXFMT = pkgs.nixfmt + "/bin/nixfmt";
             NODE = pkgs.nodejs_24 + "/bin/node";
