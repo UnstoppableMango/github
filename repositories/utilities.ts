@@ -1,6 +1,15 @@
 import * as gh from '@pulumi/github';
 import { integrationIds, PublicRepo } from '../components';
 
+export const edd = new PublicRepo('edd', {
+	description: 'Example driven development',
+	topics: ['go', 'utility', 'tool', 'examples', 'spec', 'bdd', 'testing'],
+	requiredChecks: [
+		{ context: 'Build and Test', integrationId: integrationIds.github },
+		{ context: 'Docker', integrationId: integrationIds.github },
+	],
+});
+
 export const fenced = new PublicRepo('fenced', {
 	description: 'Parse code fences from anywhere',
 	topics: ['go', 'markdown', 'md', 'fence', 'parser', 'tool'],
