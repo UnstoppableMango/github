@@ -1,6 +1,14 @@
 import * as gh from '@pulumi/github';
 import { integrationIds, PublicRepo } from '../components';
 
+export const devcontainers = new PublicRepo('devcontainers', {
+	description: 'Home-grown devcontainer images',
+	topics: ['devcontainer', 'docker', 'container'],
+	requiredChecks: [
+		{ context: 'Build', integrationId: integrationIds.github },
+	],
+});
+
 export const edd = new PublicRepo('edd', {
 	description: 'Example driven development',
 	topics: ['go', 'utility', 'tool', 'examples', 'spec', 'bdd', 'testing'],
