@@ -16,26 +16,3 @@ export const minecraftOperator = new gh.Repository('minecraft-operator', {
 	deleteBranchOnMerge: true,
 	archived: true,
 });
-
-// export const slackerBot = new gh.Repository('slacker-bot', {
-// 	name: 'slacker-bot',
-// 	allowAutoMerge: true,
-// 	allowMergeCommit: false,
-// 	allowUpdateBranch: true,
-// 	deleteBranchOnMerge: true,
-// 	hasIssues: true,
-// 	hasProjects: true,
-// 	securityAndAnalysis: {
-// 		secretScanning: {
-// 			status: 'disabled',
-// 		},
-// 		secretScanningPushProtection: {
-// 			status: 'disabled',
-// 		},
-// 	},
-// 	squashMergeCommitMessage: 'PR_BODY',
-// 	squashMergeCommitTitle: 'PR_TITLE',
-// 	visibility: 'public',
-// 	vulnerabilityAlerts: true,
-// 	archived: true,
-// });
