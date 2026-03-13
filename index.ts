@@ -258,7 +258,7 @@ export const repos = [
 	renovateConfig.repo.name,
 	resume.repo.name,
 	rest.name,
-	slackerBot.name,
+	slackerBot.repo.name,
 	tdl.name,
 	theCluster.name,
 	theclusterIo.repo.name,
