@@ -14,6 +14,9 @@ export const theclusterIo = new PublicRepo('thecluster.io', {
 export const theclusterLan = new PublicRepo('thecluster.lan', {
 	description: 'THECLUSTER in your area',
 	requiredChecks: [
-		{ context: 'Build and Test', integrationId: integrationIds.github },
+		{ context: 'api', integrationId: integrationIds.github },
+		{ context: 'web', integrationId: integrationIds.github },
+		{ context: 'nix', integrationId: integrationIds.github },
+		{ context: 'helm', integrationId: integrationIds.github },
 	],
 });
