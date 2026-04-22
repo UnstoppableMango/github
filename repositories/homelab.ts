@@ -16,6 +16,7 @@ export const theclusterLan = new PublicRepo('thecluster.lan', {
 	requiredChecks: [
 		{ context: 'api', integrationId: integrationIds.github },
 		{ context: 'web', integrationId: integrationIds.github },
+		{ context: 'docker', integrationId: integrationIds.github },
 		{ context: 'nix', integrationId: integrationIds.github },
 		{ context: 'helm', integrationId: integrationIds.github },
 	],
