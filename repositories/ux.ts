@@ -38,6 +38,13 @@ export const openapi2terraform = new PublicRepo('openapi2terraform', {
 	],
 });
 
+export const goProtocmd = new PublicRepo('go-protocmd', {
+	description: 'Go implementation of dev.unmango.cmd',
+	requiredChecks: [
+		{ context: 'build', integrationId: integrationIds.github },
+	],
+});
+
 export const pulumi2crd = new PublicRepo('pulumi2crd', {
 	description: 'Converts Pulumi package specs to Custom Resource Definitions (CRDs)',
 	requiredChecks: [
