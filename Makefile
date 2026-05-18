@@ -34,9 +34,6 @@ update: flake.lock
 flake.lock: flake.nix
 	$(NIX) flake update
 
-$(PULUMI): .versions/pulumi
-	curl -fsSL https://get.pulumi.com | sh -s -- --install-root ${CURDIR} --version $(shell cat $<) --no-edit-path
-
 .envrc: hack/example.envrc
 	cp $< $@
 
