@@ -15,7 +15,7 @@ export interface PublicRepoArgs {
 }
 
 export class PublicRepo extends Repo {
-	public readonly mainRuleset: gh.RepositoryRuleset;
+	public readonly mainRuleset!: gh.RepositoryRuleset;
 
 	constructor(
 		name: string,
@@ -38,7 +38,10 @@ export class PublicRepo extends Repo {
 			opts,
 		);
 
+		if (opts?.urn) return; // Refreshing
+
 		const repo = this.repo;
+		const vulnerabilityAlerts = this.vulnerabilityAlerts;
 
 		const mainRuleset = new gh.RepositoryRuleset(
 			name,
@@ -73,6 +76,7 @@ export class PublicRepo extends Repo {
 		this.registerOutputs({
 			repo,
 			mainRuleset,
+			vulnerabilityAlerts,
 		});
 	}
 }
