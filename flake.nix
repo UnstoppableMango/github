@@ -33,6 +33,10 @@
               yarn
             ];
 
+            # Node.js bundled NSS certs lack GTS Root R4; registry.yarnpkg.com uses it
+            # https://github.com/yarnpkg/yarn/issues/6578
+            NODE_EXTRA_CA_CERTS = "${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt";
+
             COREPACK = pkgs.corepack + "/bin/corepack";
             DPRINT = pkgs.dprint + "/bin/dprint";
             NIXFMT = pkgs.nixfmt + "/bin/nixfmt";
