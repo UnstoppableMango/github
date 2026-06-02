@@ -3,9 +3,9 @@ import { integrationIds, PrivateRepo, PublicRepo } from './components';
 import {
 	a2b,
 	audio,
-	docker2nix,
 	blockyController,
 	cliwrapFsharp,
+	docker2nix,
 	dockerDotnetFsharp,
 	dockerFsharp,
 	dotnetProxmoxClient,
