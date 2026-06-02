@@ -92,6 +92,14 @@ export const terraform2crd = new PublicRepo('terraform2crd', {
 	],
 });
 
+export const docker2nix = new PublicRepo('docker2nix', {
+	description: 'Converts Docker images to Nix expressions',
+	topics: ['docker', 'nix', 'ux', 'codegen'],
+	requiredChecks: [
+		{ context: 'build', integrationId: integrationIds.github },
+	],
+});
+
 export const ux = new PublicRepo('ux', {
 	description: `The universal codegen framework`,
 	topics: ['codegen', 'go', 'protobuf'],

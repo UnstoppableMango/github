@@ -3,6 +3,7 @@ import { integrationIds, PrivateRepo, PublicRepo } from './components';
 import {
 	a2b,
 	audio,
+	docker2nix,
 	blockyController,
 	cliwrapFsharp,
 	dockerDotnetFsharp,
@@ -263,6 +264,7 @@ export const repos = [
 	theCluster.name,
 	theclusterIo.repo.name,
 	unstoppablemango_io.name,
+	docker2nix.repo.name,
 	ux.repo.name,
 	wireguardCni.repo.name,
 	xmageDocker.name,
