@@ -20,6 +20,13 @@ export const blockyController = new gh.Repository('blocky-controller', {
 	visibility: 'public',
 }, { protect: true });
 
+export const blockyOperator = new PublicRepo('blocky-operator', {
+	description: 'An operator for deploying and managing Blocky on Kubernetes',
+	requiredChecks: [
+		{ context: 'build', integrationId: integrationIds.github },
+	],
+});
+
 export const perryOperator = new PublicRepo('perry-operator', {
 	description: `A platypus? Perry the platypus?!?`,
 	topics: ['kubernetes', 'pulumi', 'operator'],
