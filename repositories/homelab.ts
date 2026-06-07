@@ -4,6 +4,10 @@ export const pfsense = new PrivateRepo('pfsense', {
 	description: 'pfSense configuration',
 });
 
+export const controlPlane = new PrivateRepo('control-plane', {
+	description: 'Control plane infrastructure configuration',
+});
+
 export const theclusterIo = new PublicRepo('thecluster.io', {
 	description: 'Web portal to THECLUSTER',
 	requiredChecks: [
