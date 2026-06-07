@@ -15,6 +15,10 @@ export const theclusterIo = new PublicRepo('thecluster.io', {
 	],
 });
 
+export const azure = new PrivateRepo('azure', {
+	description: 'Azure infrastructure configuration',
+});
+
 export const theclusterLan = new PublicRepo('thecluster.lan', {
 	description: 'THECLUSTER in your area',
 	requiredChecks: [
