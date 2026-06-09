@@ -88,8 +88,11 @@ export const dotnetProxmoxClient = new gh.Repository('dotnet-proxmox-client', {
 		},
 	},
 	visibility: 'public',
-	vulnerabilityAlerts: true,
 }, { protect: true });
+
+new gh.RepositoryVulnerabilityAlerts('dotnet-proxmox-client', {
+	repository: dotnetProxmoxClient.name,
+}, { parent: dotnetProxmoxClient });
 
 export const godec = new PublicRepo('godec', {
 	description: 'Yet another codec library for Go named "godec"',
