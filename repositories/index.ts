@@ -10,4 +10,3 @@ export * from './terraform';
 export * from './utilities';
 export * from './ux';
 export * from './work';
-export * from './ansible';
