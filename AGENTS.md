@@ -281,3 +281,5 @@ When making updates to this file:
 ---
 
 **Note to AI Agents**: This document is designed to minimize unnecessary file system exploration. Always consult this code map first before searching for files. If you need to update this document due to discovered discrepancies, follow the self-correction protocol above.
+
+Default required check context: 'build' (lowercase). This is used unless a repository specifies a different check context.
