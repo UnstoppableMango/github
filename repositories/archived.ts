@@ -9,10 +9,6 @@ export const infra = new gh.Repository('infra', {
 	archived: true,
 });
 
-new gh.RepositoryVulnerabilityAlerts('infra', {
-	repository: infra.name,
-}, { parent: infra });
-
 export const minecraftOperator = new gh.Repository('minecraft-operator', {
 	description: 'An operator for managing minecraft servers on Kubernetes',
 	allowMergeCommit: false,
