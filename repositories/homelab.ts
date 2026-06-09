@@ -29,3 +29,11 @@ export const theclusterLan = new PublicRepo('thecluster.lan', {
 		{ context: 'helm', integrationId: integrationIds.github },
 	],
 });
+
+export const ansibleOrchard = new PublicRepo('ansible-orchard', {
+	description: 'Collection of Ansible playbooks for infrastructure and apps',
+	topics: ['ansible', 'playbooks', 'automation', 'infrastructure'],
+	requiredChecks: [
+		{ context: 'build', integrationId: integrationIds.github },
+	],
+});
