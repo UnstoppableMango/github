@@ -50,6 +50,14 @@ export const plexOperator = new PublicRepo('plex-operator', {
 	],
 });
 
+export const pseudoSealedSecrets = new PublicRepo('pseudo-sealed-secrets', {
+	description: 'A re-implementation of sealed-secrets for experimentation and proof of concept',
+	topics: ['kubernetes', 'java', 'operator', 'josdk', 'sealed-secrets'],
+	requiredChecks: [
+		{ context: 'build', integrationId: integrationIds.github },
+	],
+});
+
 export const wireguardOperator = new PublicRepo('wireguard-operator', {
 	description: 'An operator for deploying and managing Wireguard on Kubernetes',
 	requiredChecks: [
