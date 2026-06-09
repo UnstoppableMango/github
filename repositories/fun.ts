@@ -44,8 +44,11 @@ export const http = new gh.Repository('http', {
 	},
 	squashMergeCommitTitle: 'PR_TITLE',
 	visibility: 'public',
-	vulnerabilityAlerts: true,
 }, { protect: true });
+
+new gh.RepositoryVulnerabilityAlerts('http', {
+	repository: http.name,
+}, { parent: http });
 
 export const rest = new gh.Repository('rest', {
 	name: 'rest',
@@ -62,8 +65,11 @@ export const rest = new gh.Repository('rest', {
 		},
 	},
 	visibility: 'public',
-	vulnerabilityAlerts: true,
 }, { protect: true });
+
+new gh.RepositoryVulnerabilityAlerts('rest', {
+	repository: rest.name,
+}, { parent: rest });
 
 export const xml = new gh.Repository('xml', {
 	name: 'xml',
@@ -80,8 +86,11 @@ export const xml = new gh.Repository('xml', {
 		},
 	},
 	visibility: 'public',
-	vulnerabilityAlerts: true,
 }, { protect: true });
+
+new gh.RepositoryVulnerabilityAlerts('xml', {
+	repository: xml.name,
+}, { parent: xml });
 
 export const ocamlGo = new PublicRepo('ocaml-go', {
 	description: 'An implementation of Go in OCaml for fun',

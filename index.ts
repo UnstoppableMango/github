@@ -82,8 +82,11 @@ const dotfiles = new gh.Repository('dotfiles', {
 		},
 	},
 	visibility: 'public',
-	vulnerabilityAlerts: true,
 }, { protect: true });
+
+new gh.RepositoryVulnerabilityAlerts('dotfiles', {
+	repository: dotfiles.name,
+}, { parent: dotfiles });
 
 const me = new PrivateRepo('erik', { description: 'me' });
 
