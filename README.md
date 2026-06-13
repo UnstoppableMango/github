@@ -16,10 +16,10 @@ Each repository is defined something like this:
 
 ```ts
 const nixos = new PublicRepo('nixos', {
-  description: 'My NixOS source',
-  requiredChecks: [
-    { context: 'build', integrationId: integrationIds.github },
-  ],
+	description: 'My NixOS source',
+	requiredChecks: [
+		{ context: 'build', integrationId: integrationIds.github },
+	],
 });
 ```
 
@@ -31,17 +31,17 @@ The `PublicRepo` and `PrivateRepo` components (in [`/components`](./components/)
 
 Repositories are grouped by category in [`/repositories`](./repositories/):
 
-| File | Contents |
-|------|----------|
-| `applications.ts` | Personal apps and clients |
-| `homelab.ts` | Home server / on-prem infrastructure |
-| `libraries.ts` | Reusable libraries and packages |
-| `operators.ts` | Kubernetes operators |
-| `pulumi.ts` | Pulumi providers and utilities |
-| `terraform.ts` | Terraform providers |
-| `utilities.ts` | One-off tools and scripts |
-| `fun.ts` | Hobby and experiment repos |
-| `archived.ts` | Archived / inactive repos |
+| File              | Contents                             |
+| ----------------- | ------------------------------------ |
+| `applications.ts` | Personal apps and clients            |
+| `homelab.ts`      | Home server / on-prem infrastructure |
+| `libraries.ts`    | Reusable libraries and packages      |
+| `operators.ts`    | Kubernetes operators                 |
+| `pulumi.ts`       | Pulumi providers and utilities       |
+| `terraform.ts`    | Terraform providers                  |
+| `utilities.ts`    | One-off tools and scripts            |
+| `fun.ts`          | Hobby and experiment repos           |
+| `archived.ts`     | Archived / inactive repos            |
 
 ## Usage
 
