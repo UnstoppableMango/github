@@ -2,8 +2,8 @@ import * as gh from '@pulumi/github';
 import { integrationIds, PublicRepo } from '../components';
 
 export const a2b = new PublicRepo('a2b', {
-	description: 'Primary ux plugin repository',
-	topics: ['ux', 'go', 'dotnet', 'codegen'],
+	description: 'Registry for converter utilities',
+	topics: ['ux', 'go', 'dotnet', 'nix', 'codegen'],
 	requiredChecks: [
 		{ context: 'build', integrationId: integrationIds.github },
 		{ context: 'test', integrationId: integrationIds.github },
