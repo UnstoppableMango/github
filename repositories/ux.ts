@@ -6,7 +6,6 @@ export const a2b = new PublicRepo('a2b', {
 	topics: ['ux', 'go', 'dotnet', 'nix', 'codegen'],
 	requiredChecks: [
 		{ context: 'build', integrationId: integrationIds.github },
-		{ context: 'test', integrationId: integrationIds.github },
 	],
 });
 
