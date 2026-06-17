@@ -75,7 +75,7 @@ Individual repository configurations organized by category:
 ├── homelab.ts                 # Homelab infrastructure repositories (infra, openshiftLab, etc.)
 ├── libraries.ts               # Library/package repositories (http, rest, cliwrapFsharp, etc.)
 ├── operators.ts               # Kubernetes operator repositories (minecraftOperator, etc.)
-├── presentations.ts           # Presentation/talk repositories (imaug, johnstonDems, etc.)
+├── demos.ts                   # Demo/presentation repositories (imaug, gheIac, fsharpPropertyTesting, etc.)
 ├── pulumi.ts                  # Pulumi-related repositories (pulumiBun, pulumiProxmox, etc.)
 ├── terraform.ts               # Terraform-related repositories
 ├── utilities.ts               # Utility repositories (a2b, gast, tdl, etc.)

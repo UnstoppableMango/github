@@ -1,4 +1,13 @@
 import * as gh from '@pulumi/github';
+import { integrationIds, PublicRepo } from '../components';
+
+export const ansibleOrchard = new PublicRepo('ansible-orchard', {
+	description: 'Collection of Ansible playbooks for infrastructure and apps',
+	topics: ['ansible', 'playbooks', 'automation', 'infrastructure'],
+	requiredChecks: [
+		{ context: 'build', integrationId: integrationIds.github },
+	],
+});
 
 export const fsharpPropertyTesting = new gh.Repository('fsharp-property-testing', {
 	name: 'fsharp-property-testing',
@@ -18,6 +27,10 @@ export const fsharpPropertyTesting = new gh.Repository('fsharp-property-testing'
 	squashMergeCommitTitle: 'PR_TITLE',
 	visibility: 'public',
 }, { protect: true });
+
+export const gheIac = new PublicRepo('ghe-iac', {
+	description: 'Proof-of-concept managing a GitHub Enterprise instance with Terraform',
+});
 
 export const imaug = new gh.Repository('imaug', {
 	name: 'imaug',

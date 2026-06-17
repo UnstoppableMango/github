@@ -4,7 +4,7 @@ export * from './fun';
 export * from './homelab';
 export * from './libraries';
 export * from './operators';
-export * from './presentations';
+export * from './demos';
 export * from './pulumi';
 export * from './terraform';
 export * from './utilities';
