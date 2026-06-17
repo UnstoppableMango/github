@@ -3,4 +3,4 @@ config:
   # Must be a classic PAT with repo admin scope. GitHub App installation tokens
   # cannot create user-owned repos (POST /user/repos requires user auth).
   github:token:
-    secure: AAABAKvBPxaSIp4Lj3QaFAcDDrwTxpreHqP2iatXhW11z4+KNXMBSQR1TEhon+e6lgsDrkAkBwag3H9gRnaNusq0oOi3PLdA
+    secure: AAABAJ9o+25N84XEcPQ9qLj+PGapa/DU1f+KLovPBPa1MEPKC97G8vLSGC2evlGD8eoSAUdT0UmYK92f8JYXNBnt6TPczKON
