@@ -1,4 +1,6 @@
 config:
   github:owner: UnstoppableMango
+  # Must be a classic PAT with repo admin scope. GitHub App installation tokens
+  # cannot create user-owned repos (POST /user/repos requires user auth).
   github:token:
     secure: AAABAKvBPxaSIp4Lj3QaFAcDDrwTxpreHqP2iatXhW11z4+KNXMBSQR1TEhon+e6lgsDrkAkBwag3H9gRnaNusq0oOi3PLdA
