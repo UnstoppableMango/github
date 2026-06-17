@@ -26,6 +26,12 @@ jobs:
 
       - run: yarn install --frozen-lockfile
 
+      - uses: actions/create-github-app-token@v3
+        id: app-token
+        with:
+          client-id: ${{ vars.APP_CLIENT_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
       - uses: pulumi/auth-actions@v2
         with:
           organization: UnstoppableMango
@@ -33,6 +39,8 @@ jobs:
           scope: user:UnstoppableMango
 
       - uses: pulumi/actions@v7
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
         with:
           command: ${{ github.event_name == 'pull_request' && 'preview' || 'up' }}
           stack-name: UnstoppableMango/github/prod
