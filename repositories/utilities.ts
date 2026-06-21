@@ -50,6 +50,13 @@ export const multiDownloaderNxDocker = new gh.Repository('multi-downloader-nx-do
 	visibility: 'public',
 }, { protect: true });
 
+export const patchpad = new PublicRepo('patchpad', {
+	description: 'Temporary developer environments for creating patches',
+	requiredChecks: [
+		{ context: 'build', integrationId: integrationIds.github },
+	],
+});
+
 export const piaManualConnections = new PublicRepo('pia-manual-connections', {
 	description: 'Dockerized pia-foss/manual-connections scripts',
 	requiredChecks: [
