@@ -12,6 +12,7 @@ export class PrivateRepo extends Repo {
 				name,
 				description: args.description,
 				visibility: 'private',
+				licenseTemplate: 'mit',
 			},
 		}, opts);
 
