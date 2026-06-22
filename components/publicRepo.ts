@@ -31,6 +31,7 @@ export class PublicRepo extends Repo {
 					description: args.description,
 					visibility: 'public',
 					allowAutoMerge: true,
+					licenseTemplate: 'mit',
 					template: args.template,
 					topics: args.topics,
 				},

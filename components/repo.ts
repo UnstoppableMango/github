@@ -24,7 +24,6 @@ export abstract class Repo extends ComponentResource {
 			hasIssues: true,
 			hasProjects: false,
 			hasWiki: false,
-			licenseTemplate: 'mit',
 			squashMergeCommitMessage: 'COMMIT_MESSAGES',
 			squashMergeCommitTitle: 'COMMIT_OR_PR_TITLE',
 			...args.overrides,
