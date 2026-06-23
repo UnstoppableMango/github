@@ -371,6 +371,14 @@ export const dockerfilesFork = new Fork('dockerfiles', {
 	},
 });
 
+export const ocamlProtocPlugin = new Fork('ocaml-protoc-plugin', {
+	sourceOwner: 'andersfugmann',
+	sourceRepo: 'ocaml-protoc-plugin',
+	repository: {
+		description: 'Plugin for Google\'s protobuf compiler to generate interfaces based on protobuf specifications and runtime for encoding and decoding protobuf messages',
+	},
+});
+
 export const unstoppableMangoGithubIo = new Fork('UnstoppableMango.github.io', {
 	sourceOwner: 'barryclark',
 	sourceRepo: 'jekyll-now',
