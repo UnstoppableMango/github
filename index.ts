@@ -1,4 +1,3 @@
-import './transforms';
 import * as gh from '@pulumi/github';
 import { integrationIds, PrivateRepo, PublicRepo } from './components';
 import {
