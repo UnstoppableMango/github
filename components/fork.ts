@@ -19,8 +19,18 @@ export class Fork extends Repo {
 					fork: 'true',
 					sourceOwner: args.sourceOwner,
 					sourceRepo: args.sourceRepo,
+					// GitHub defaults for forked repos
+					allowMergeCommit: true,
+					allowRebaseMerge: true,
+					deleteBranchOnMerge: false,
+					hasDownloads: true,
+					hasIssues: false,
+					hasProjects: true,
+					hasWiki: true,
+					ignoreVulnerabilityAlertsDuringRead: true,
 					...args.repository,
 				},
+				enableVulnerabilityAlerts: false,
 			},
 			opts,
 		);

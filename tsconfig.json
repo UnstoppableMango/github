@@ -17,6 +17,7 @@
 		"components/privateRepo.ts",
 		"components/publicRepo.ts",
 		"components/repo.ts",
+		"components/fork.ts",
 		"index.ts"
 	]
 }
