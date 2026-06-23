@@ -375,7 +375,8 @@ export const ocamlProtocPlugin = new Fork('ocaml-protoc-plugin', {
 	sourceOwner: 'andersfugmann',
 	sourceRepo: 'ocaml-protoc-plugin',
 	repository: {
-		description: 'Plugin for Google\'s protobuf compiler to generate interfaces based on protobuf specifications and runtime for encoding and decoding protobuf messages',
+		description:
+			'Plugin for Google\'s protobuf compiler to generate interfaces based on protobuf specifications and runtime for encoding and decoding protobuf messages',
 	},
 });
 
