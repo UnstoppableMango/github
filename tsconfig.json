@@ -2,6 +2,7 @@
 	"compilerOptions": {
 		"strict": true,
 		"outDir": "bin",
+		"rootDir": ".",
 		"target": "es2020",
 		"module": "node16",
 		"moduleResolution": "node16",
@@ -18,6 +19,7 @@
 		"components/publicRepo.ts",
 		"components/repo.ts",
 		"components/fork.ts",
+		"transforms.ts",
 		"index.ts"
 	]
 }
