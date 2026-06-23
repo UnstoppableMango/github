@@ -12,7 +12,7 @@ export const goGithubMock = new Fork('go-github-mock', {
 	sourceOwner: 'migueleliasweb',
 	sourceRepo: 'go-github-mock',
 	repository: {
-		description: "A library to aid unittesting code that uses Golang's Github SDK",
+		description: 'A library to aid unittesting code that uses Golang\'s Github SDK',
 		hasIssues: true,
 	},
 });
@@ -40,7 +40,8 @@ export const testcontainersNode = new Fork('testcontainers-node', {
 	sourceOwner: 'testcontainers',
 	sourceRepo: 'testcontainers-node',
 	repository: {
-		description: 'Testcontainers is a NodeJS library that supports tests, providing lightweight, throwaway instances of common databases, Selenium web browsers, or anything else that can run in a Docker container.',
+		description:
+			'Testcontainers is a NodeJS library that supports tests, providing lightweight, throwaway instances of common databases, Selenium web browsers, or anything else that can run in a Docker container.',
 		homepageUrl: 'https://testcontainers.com',
 	},
 });
@@ -123,7 +124,8 @@ export const cloudflareTunnelIngressController = new Fork('cloudflare-tunnel-ing
 	sourceOwner: 'STRRL',
 	sourceRepo: 'cloudflare-tunnel-ingress-controller',
 	repository: {
-		description: '🚀 Expose the website directly into the internet! The Kuberntes Ingress Controller based on Cloudflare Tunnel.',
+		description:
+			'🚀 Expose the website directly into the internet! The Kuberntes Ingress Controller based on Cloudflare Tunnel.',
 		deleteBranchOnMerge: true,
 		hasProjects: false,
 	},
@@ -153,7 +155,8 @@ export const openapiGenerator = new Fork('openapi-generator', {
 	sourceOwner: 'OpenAPITools',
 	sourceRepo: 'openapi-generator',
 	repository: {
-		description: 'OpenAPI Generator allows generation of API client libraries (SDK generation), server stubs, documentation and configuration automatically given an OpenAPI Spec (v2, v3)',
+		description:
+			'OpenAPI Generator allows generation of API client libraries (SDK generation), server stubs, documentation and configuration automatically given an OpenAPI Spec (v2, v3)',
 		homepageUrl: 'https://openapi-generator.tech',
 	},
 });
@@ -269,7 +272,8 @@ export const qemuGuestAgentTalos = new Fork('qemu-guest-agent-talos', {
 	sourceOwner: 'crisobal',
 	sourceRepo: 'qemu-guest-agent-talos',
 	repository: {
-		description: 'Run the qemu guest agent as daemonset on talos. Good for proxmox as it uses the guest agent to shutdown and reboot hosts.',
+		description:
+			'Run the qemu guest agent as daemonset on talos. Good for proxmox as it uses the guest agent to shutdown and reboot hosts.',
 	},
 });
 
@@ -328,7 +332,8 @@ export const operatorSdk = new Fork('operator-sdk', {
 	sourceOwner: 'operator-framework',
 	sourceRepo: 'operator-sdk',
 	repository: {
-		description: 'SDK for building Kubernetes applications. Provides high level APIs, useful abstractions, and project scaffolding.',
+		description:
+			'SDK for building Kubernetes applications. Provides high level APIs, useful abstractions, and project scaffolding.',
 		homepageUrl: 'https://sdk.operatorframework.io',
 	},
 });
@@ -361,7 +366,8 @@ export const dockerfilesFork = new Fork('dockerfiles', {
 	sourceOwner: 'firecat53',
 	sourceRepo: 'dockerfiles',
 	repository: {
-		description: 'Dockerfiles: Check_Mk, Couchpotato, Deluge, Gollum, Headphones, Lazy Librarian, OpenVPN PIA client, Plex, Sabnzbd, Samba, SSH Socks Proxy server, Sickrage, Syncthing, Stringer and Transmission.',
+		description:
+			'Dockerfiles: Check_Mk, Couchpotato, Deluge, Gollum, Headphones, Lazy Librarian, OpenVPN PIA client, Plex, Sabnzbd, Samba, SSH Socks Proxy server, Sickrage, Syncthing, Stringer and Transmission.',
 	},
 });
 
