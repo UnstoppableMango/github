@@ -1,9 +1,11 @@
+import * as gh from '@pulumi/github';
 import { ComponentResourceOptions, Input } from '@pulumi/pulumi';
 import { Repo } from './repo';
 
 export interface ForkArgs {
 	sourceOwner: Input<string>;
 	sourceRepo: Input<string>;
+	repository?: Partial<gh.RepositoryArgs>;
 }
 
 export class Fork extends Repo {
@@ -17,7 +19,16 @@ export class Fork extends Repo {
 					fork: 'true',
 					sourceOwner: args.sourceOwner,
 					sourceRepo: args.sourceRepo,
+					// GitHub defaults for forked repos
+					allowMergeCommit: true,
+					allowRebaseMerge: true,
+					deleteBranchOnMerge: false,
+					hasIssues: false,
+					hasProjects: true,
+					hasWiki: true,
+					...args.repository,
 				},
+				enableVulnerabilityAlerts: false,
 			},
 			opts,
 		);
