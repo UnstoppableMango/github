@@ -19,7 +19,6 @@
 		"components/publicRepo.ts",
 		"components/repo.ts",
 		"components/fork.ts",
-		"transforms.ts",
 		"index.ts"
 	]
 }
