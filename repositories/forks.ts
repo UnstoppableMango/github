@@ -456,6 +456,14 @@ export const forks = new PublicRepo("forks", {
 	requiredChecks: [{ context: "build", integrationId: integrationIds.github }],
 });
 
+export const ocMirror = new Fork('oc-mirror', {
+	sourceOwner: 'openshift',
+	sourceRepo: 'oc-mirror',
+	repository: {
+		description: 'Mirror OpenShift release images and Operator catalogs to disconnected registries',
+	},
+});
+
 export const unstoppableMangoGithubIo = new Fork("UnstoppableMango.github.io", {
 	sourceOwner: "barryclark",
 	sourceRepo: "jekyll-now",
