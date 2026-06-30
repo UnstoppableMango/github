@@ -1,5 +1,12 @@
 import { integrationIds, PublicRepo } from '../components';
 
+export const terraformProviderSmallImprovements = new PublicRepo('terraform-provider-small-improvements', {
+	description: 'Terraform provider for Small Improvements',
+	requiredChecks: [
+		{ context: 'build', integrationId: integrationIds.github },
+	],
+});
+
 export const terraformProviderPfSense = new PublicRepo('terraform-provider-pfsense', {
 	description: 'Terraform provider for pfSense using pfrest',
 	requiredChecks: [
