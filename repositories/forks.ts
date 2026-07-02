@@ -380,6 +380,14 @@ export const ocamlProtocPlugin = new Fork('ocaml-protoc-plugin', {
 	},
 });
 
+export const ryankurtePki = new Fork('ryankurte-pki', {
+	sourceOwner: 'ryankurte',
+	sourceRepo: 'pki',
+	repository: {
+		description: 'A simple PKI / certificate authority helper',
+	},
+});
+
 export const unstoppableMangoGithubIo = new Fork('UnstoppableMango.github.io', {
 	sourceOwner: 'barryclark',
 	sourceRepo: 'jekyll-now',
