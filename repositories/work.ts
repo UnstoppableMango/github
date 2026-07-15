@@ -5,6 +5,10 @@ export const kubernetesTheWrongWay = new PublicRepo('kubernetes-the-wrong-way', 
 	topics: ['kubernetes', 'technically-speaking', 'rest'],
 });
 
+export const auctionApp = new PublicRepo('auction-app', {
+	requiredChecks: [],
+});
+
 export const openshiftLab = new PublicRepo('openshift-lab', {
 	description: 'Learning OpenShift by doing',
 	topics: ['openshift', 'kubernetes', 'lab'],
