@@ -6,7 +6,7 @@ export const kubernetesTheWrongWay = new PublicRepo('kubernetes-the-wrong-way', 
 });
 
 export const auctionApp = new PublicRepo('auction-app', {
-	requiredChecks: [],
+	description: 'auction-app',
 });
 
 export const openshiftLab = new PublicRepo('openshift-lab', {
