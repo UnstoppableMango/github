@@ -12,14 +12,14 @@ Add a new GitHub repository to the Pulumi IaC project. Follow these steps exactl
 
 If not already provided, ask for:
 
-| Field | Required | Notes |
-|-------|----------|-------|
-| Repo name | Yes | kebab-case; becomes the GitHub repo name |
-| Description | Yes | Short string |
-| Visibility | Yes | `public` or `private` |
-| Category | Yes | See categories below |
-| Topics | No | Array of strings; public repos only |
-| Required checks | No | Public repos only; omit to skip CI enforcement |
+| Field           | Required | Notes                                          |
+| --------------- | -------- | ---------------------------------------------- |
+| Repo name       | Yes      | kebab-case; becomes the GitHub repo name       |
+| Description     | Yes      | Short string                                   |
+| Visibility      | Yes      | `public` or `private`                          |
+| Category        | Yes      | See categories below                           |
+| Topics          | No       | Array of strings; public repos only            |
+| Required checks | No       | Public repos only; omit to skip CI enforcement |
 
 **Categories** (maps to `/repositories/<category>.ts`):
 `applications`, `demos`, `fun`, `homelab`, `libraries`, `operators`, `pulumi`, `terraform`, `utilities`, `ux`, `work`
@@ -31,27 +31,30 @@ Add an exported const to `/repositories/<category>.ts`.
 Export name = camelCase of the repo name (e.g. `my-new-thing` → `myNewThing`).
 
 **Public repo with topics and required checks:**
+
 ```typescript
 export const myNewThing = new PublicRepo('my-new-thing', {
-  description: 'Does the thing',
-  topics: ['topic-a', 'topic-b'],
-  requiredChecks: [
-    { context: 'build', integrationId: integrationIds.github },
-  ],
+	description: 'Does the thing',
+	topics: ['topic-a', 'topic-b'],
+	requiredChecks: [
+		{ context: 'build', integrationId: integrationIds.github },
+	],
 });
 ```
 
 **Public repo (no CI check):**
+
 ```typescript
 export const myNewThing = new PublicRepo('my-new-thing', {
-  description: 'Does the thing',
+	description: 'Does the thing',
 });
 ```
 
 **Private repo:**
+
 ```typescript
 export const myNewThing = new PrivateRepo('my-new-thing', {
-  description: 'Does the thing',
+	description: 'Does the thing',
 });
 ```
 
