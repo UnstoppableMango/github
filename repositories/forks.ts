@@ -396,6 +396,14 @@ export const ryankurtePki = new Fork('ryankurte-pki', {
 	},
 });
 
+export const skopeo = new Fork('skopeo', {
+	sourceOwner: 'containers',
+	sourceRepo: 'skopeo',
+	repository: {
+		description: 'Work with remote images registries - retrieving information, images, signing content',
+	},
+});
+
 export const unstoppableMangoGithubIo = new Fork('UnstoppableMango.github.io', {
 	sourceOwner: 'barryclark',
 	sourceRepo: 'jekyll-now',
