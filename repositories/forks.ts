@@ -380,6 +380,14 @@ export const ocamlProtocPlugin = new Fork('ocaml-protoc-plugin', {
 	},
 });
 
+export const nix2container = new Fork('nix2container', {
+	sourceOwner: 'nlewo',
+	sourceRepo: 'nix2container',
+	repository: {
+		description: 'An archive format for container images',
+	},
+});
+
 export const ryankurtePki = new Fork('ryankurte-pki', {
 	sourceOwner: 'ryankurte',
 	sourceRepo: 'pki',
