@@ -328,6 +328,14 @@ export const gitkraken = new Fork('gitkraken', {
 	},
 });
 
+export const gomod2nix = new Fork('gomod2nix', {
+	sourceOwner: 'nix-community',
+	sourceRepo: 'gomod2nix',
+	repository: {
+		description: 'Convert applications using go modules to nix',
+	},
+});
+
 export const operatorSdk = new Fork('operator-sdk', {
 	sourceOwner: 'operator-framework',
 	sourceRepo: 'operator-sdk',
