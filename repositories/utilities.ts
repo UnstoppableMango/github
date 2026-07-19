@@ -34,6 +34,14 @@ export const forkctl = new PublicRepo('forkctl', {
 	],
 });
 
+export const gossamer2nix = new PublicRepo('gossamer2nix', {
+	description: 'Convert Gossamer projects to Nix derivations',
+	topics: ['nix', 'gossamer', 'go', 'rust', 'fsharp'],
+	requiredChecks: [
+		{ context: 'build', integrationId: integrationIds.github },
+	],
+});
+
 export const multiDownloaderNxDocker = new gh.Repository('multi-downloader-nx-docker', {
 	name: 'multi-downloader-nx-docker',
 	description: 'Docker image for anidl/multi-downloader-nx',
