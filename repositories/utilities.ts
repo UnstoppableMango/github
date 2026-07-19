@@ -27,6 +27,13 @@ export const fenced = new PublicRepo('fenced', {
 	],
 });
 
+export const forkctl = new PublicRepo('forkctl', {
+	description: 'A tool for maintaining forked repositories',
+	requiredChecks: [
+		{ context: 'build', integrationId: integrationIds.github },
+	],
+});
+
 export const multiDownloaderNxDocker = new gh.Repository('multi-downloader-nx-docker', {
 	name: 'multi-downloader-nx-docker',
 	description: 'Docker image for anidl/multi-downloader-nx',
