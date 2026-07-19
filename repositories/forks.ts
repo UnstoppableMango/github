@@ -1,4 +1,4 @@
-import { Fork } from '../components';
+import { Fork, integrationIds, PublicRepo } from '../components';
 
 export const nilFork = new Fork('nil', {
 	sourceOwner: 'oxalica',
@@ -410,6 +410,13 @@ export const skopeo = new Fork('skopeo', {
 	repository: {
 		description: 'Work with remote images registries - retrieving information, images, signing content',
 	},
+});
+
+export const forks = new PublicRepo('forks', {
+	description: 'My fork maintenance automation',
+	requiredChecks: [
+		{ context: 'build', integrationId: integrationIds.github },
+	],
 });
 
 export const unstoppableMangoGithubIo = new Fork('UnstoppableMango.github.io', {
