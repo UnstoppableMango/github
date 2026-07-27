@@ -34,6 +34,14 @@ export const forkctl = new PublicRepo('forkctl', {
 	],
 });
 
+export const ideas = new PublicRepo('ideas', {
+	description: 'Raw brainstorming workspace',
+	topics: ['idea', 'brainstorm', 'nix', 'productivity', 'markdown'],
+	requiredChecks: [
+		{ context: 'check', integrationId: integrationIds.github },
+	],
+});
+
 export const gossamer2nix = new PublicRepo('gossamer2nix', {
 	description: 'Convert Gossamer projects to Nix derivations',
 	topics: ['nix', 'gossamer', 'go', 'rust', 'fsharp'],
