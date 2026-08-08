@@ -1,5 +1,5 @@
-import * as gh from '@pulumi/github';
-import { integrationIds, PrivateRepo, PublicRepo } from './components';
+import * as gh from "@pulumi/github";
+import { integrationIds, PrivateRepo, PublicRepo } from "./components";
 import {
 	a2b,
 	accountManagementAutomation,
@@ -97,59 +97,71 @@ import {
 	x12,
 	xmageDocker,
 	xml,
-} from './repositories';
+} from "./repositories";
 
-const adventOfCode = new gh.Repository('advent-of-code', {
-	name: 'advent-of-code',
-	allowAutoMerge: true,
-	allowMergeCommit: false,
-	deleteBranchOnMerge: true,
-	description: 'Advent of Code solutions in various languages',
-	hasIssues: true,
-	securityAndAnalysis: {
-		secretScanning: {
-			status: 'disabled',
+const adventOfCode = new gh.Repository(
+	"advent-of-code",
+	{
+		name: "advent-of-code",
+		allowAutoMerge: true,
+		allowMergeCommit: false,
+		deleteBranchOnMerge: true,
+		description: "Advent of Code solutions in various languages",
+		hasIssues: true,
+		securityAndAnalysis: {
+			secretScanning: {
+				status: "disabled",
+			},
+			secretScanningPushProtection: {
+				status: "disabled",
+			},
 		},
-		secretScanningPushProtection: {
-			status: 'disabled',
-		},
+		squashMergeCommitTitle: "PR_TITLE",
+		topics: ["advent-of-code"],
+		visibility: "public",
 	},
-	squashMergeCommitTitle: 'PR_TITLE',
-	topics: ['advent-of-code'],
-	visibility: 'public',
-}, { protect: true });
+	{ protect: true },
+);
 
-const dotfiles = new gh.Repository('dotfiles', {
-	name: 'dotfiles',
-	allowAutoMerge: true,
-	allowMergeCommit: false,
-	allowRebaseMerge: false,
-	allowSquashMerge: true,
-	deleteBranchOnMerge: true,
-	hasIssues: true,
-	securityAndAnalysis: {
-		secretScanning: {
-			status: 'disabled',
+const dotfiles = new gh.Repository(
+	"dotfiles",
+	{
+		name: "dotfiles",
+		allowAutoMerge: true,
+		allowMergeCommit: false,
+		allowRebaseMerge: false,
+		allowSquashMerge: true,
+		deleteBranchOnMerge: true,
+		hasIssues: true,
+		securityAndAnalysis: {
+			secretScanning: {
+				status: "disabled",
+			},
+			secretScanningPushProtection: {
+				status: "disabled",
+			},
 		},
-		secretScanningPushProtection: {
-			status: 'disabled',
-		},
+		visibility: "public",
 	},
-	visibility: 'public',
-}, { protect: true });
+	{ protect: true },
+);
 
-new gh.RepositoryVulnerabilityAlerts('dotfiles', {
-	repository: dotfiles.name,
-}, { parent: dotfiles });
+new gh.RepositoryVulnerabilityAlerts(
+	"dotfiles",
+	{
+		repository: dotfiles.name,
+	},
+	{ parent: dotfiles },
+);
 
-const me = new PrivateRepo('erik', { description: 'me' });
+const me = new PrivateRepo("erik", { description: "me" });
 
-const everybodyCodes = new PublicRepo('everybody-codes', {
-	description: 'Everybody Codes solutions in various languages',
+const everybodyCodes = new PublicRepo("everybody-codes", {
+	description: "Everybody Codes solutions in various languages",
 });
 
-const hosts = new PublicRepo('hosts', {
-	description: 'My on-prem server infrastructure',
+const hosts = new PublicRepo("hosts", {
+	description: "My on-prem server infrastructure",
 	// This was jank from the beginning, need to decide on a better way
 	// requiredChecks: gh.getRepositoryFileOutput({
 	// 	file: 'hosts.txt',
@@ -164,117 +176,141 @@ const hosts = new PublicRepo('hosts', {
 	// }),
 });
 
-const lang = new PublicRepo('lang', {
-	description: 'A programming language',
-	requiredChecks: [{
-		context: 'Build and Test',
-		integrationId: integrationIds.github,
-	}],
-});
-
-const mangoMtg = new gh.Repository('mango-mtg', {
-	name: 'mango-mtg',
-	description: 'Digital Magic: The Gathering',
-	hasIssues: true,
-	securityAndAnalysis: {
-		secretScanning: {
-			status: 'disabled',
-		},
-		secretScanningPushProtection: {
-			status: 'disabled',
-		},
-	},
-	visibility: 'public',
-}, { protect: true });
-
-const nixos = new PublicRepo('nixos', {
-	description: 'My NixOS source',
+const lang = new PublicRepo("lang", {
+	description: "A programming language",
 	requiredChecks: [
-		{ context: 'build', integrationId: integrationIds.github },
+		{
+			context: "Build and Test",
+			integrationId: integrationIds.github,
+		},
 	],
 });
 
-const ouranosis = new PublicRepo('ouranosis', {
-	description: 'A game-ish kinda thing',
+const mangoMtg = new gh.Repository(
+	"mango-mtg",
+	{
+		name: "mango-mtg",
+		description: "Digital Magic: The Gathering",
+		hasIssues: true,
+		securityAndAnalysis: {
+			secretScanning: {
+				status: "disabled",
+			},
+			secretScanningPushProtection: {
+				status: "disabled",
+			},
+		},
+		visibility: "public",
+	},
+	{ protect: true },
+);
+
+const nixos = new PublicRepo("nixos", {
+	description: "My NixOS source",
+	requiredChecks: [{ context: "build", integrationId: integrationIds.github }],
 });
 
-const palumiWorld = new gh.Repository('palumi-world', {
-	name: 'palumi-world',
-	description: 'My Palworld install',
-	hasIssues: true,
-	hasProjects: true,
-	hasWiki: true,
-	securityAndAnalysis: {
-		secretScanning: {
-			status: 'enabled',
+const ouranosis = new PublicRepo("ouranosis", {
+	description: "A game-ish kinda thing",
+});
+
+const palumiWorld = new gh.Repository(
+	"palumi-world",
+	{
+		name: "palumi-world",
+		description: "My Palworld install",
+		hasIssues: true,
+		hasProjects: true,
+		hasWiki: true,
+		securityAndAnalysis: {
+			secretScanning: {
+				status: "enabled",
+			},
+			secretScanningPushProtection: {
+				status: "enabled",
+			},
 		},
-		secretScanningPushProtection: {
-			status: 'enabled',
-		},
+		visibility: "public",
 	},
-	visibility: 'public',
-}, { protect: true });
+	{ protect: true },
+);
 
-const pki = new PrivateRepo('pki', {
-	description: 'My private key infrastructure',
-}, { protect: true });
+const pki = new PrivateRepo(
+	"pki",
+	{
+		description: "My private key infrastructure",
+	},
+	{ protect: true },
+);
 
-const renovateConfig = new PublicRepo('renovate-config', {
+const renovateConfig = new PublicRepo("renovate-config", {
 	description: `UnstoppableMango's Renovate presets`,
-	topics: ['renovate', 'cicd', 'bun'],
+	topics: ["renovate", "cicd", "bun"],
 	requiredChecks: [
-		{ context: 'Validate', integrationId: integrationIds.github },
+		{ context: "Validate", integrationId: integrationIds.github },
 	],
 });
 
-const resume = new PublicRepo('resume', {
-	description: 'My résumé, codified',
-	requiredChecks: [
-		{ context: 'build', integrationId: integrationIds.github },
-	],
-}, { aliases: [{ type: 'unmango:github:PrivateRepo' }] });
-
-const theCluster = new gh.Repository('the-cluster', {
-	name: 'the-cluster',
-	allowAutoMerge: true,
-	allowMergeCommit: false,
-	allowRebaseMerge: false,
-	allowSquashMerge: true,
-	allowUpdateBranch: true,
-	deleteBranchOnMerge: true,
-	description: 'Source for THECLUSTER',
-	hasIssues: true,
-	securityAndAnalysis: {
-		secretScanning: {
-			status: 'disabled',
-		},
-		secretScanningPushProtection: {
-			status: 'disabled',
-		},
+const resume = new PublicRepo(
+	"resume",
+	{
+		description: "My résumé, codified",
+		requiredChecks: [
+			{ context: "build", integrationId: integrationIds.github },
+		],
 	},
-	squashMergeCommitTitle: 'PR_TITLE',
-	visibility: 'public',
-	webCommitSignoffRequired: true,
-}, { protect: true });
+	{ aliases: [{ type: "unmango:github:PrivateRepo" }] },
+);
 
-const unstoppablemango_io = new gh.Repository('unstoppablemango.io', {
-	name: 'unstoppablemango.io',
-	allowAutoMerge: true,
-	allowMergeCommit: false,
-	allowRebaseMerge: false,
-	deleteBranchOnMerge: true,
-	description: 'A website about me for random garbage',
-	hasIssues: true,
-	securityAndAnalysis: {
-		secretScanning: {
-			status: 'disabled',
+const theCluster = new gh.Repository(
+	"the-cluster",
+	{
+		name: "the-cluster",
+		allowAutoMerge: true,
+		allowMergeCommit: false,
+		allowRebaseMerge: false,
+		allowSquashMerge: true,
+		allowUpdateBranch: true,
+		deleteBranchOnMerge: true,
+		description: "Source for THECLUSTER",
+		hasIssues: true,
+		securityAndAnalysis: {
+			secretScanning: {
+				status: "disabled",
+			},
+			secretScanningPushProtection: {
+				status: "disabled",
+			},
 		},
-		secretScanningPushProtection: {
-			status: 'disabled',
-		},
+		squashMergeCommitTitle: "PR_TITLE",
+		visibility: "public",
+		webCommitSignoffRequired: true,
 	},
-	visibility: 'public',
-}, { protect: true });
+	{ protect: true },
+);
+
+const unstoppablemango_io = new gh.Repository(
+	"unstoppablemango.io",
+	{
+		name: "unstoppablemango.io",
+		allowAutoMerge: true,
+		allowMergeCommit: false,
+		allowRebaseMerge: false,
+		deleteBranchOnMerge: true,
+		description: "A website about me for random garbage",
+		hasIssues: true,
+		securityAndAnalysis: {
+			secretScanning: {
+				status: "disabled",
+			},
+			secretScanningPushProtection: {
+				status: "disabled",
+			},
+		},
+		visibility: "public",
+	},
+	{ protect: true },
+);
 
 export const repos = [
 	accountManagementAutomation.repo.name,

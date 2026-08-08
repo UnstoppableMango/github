@@ -33,28 +33,26 @@ Export name = camelCase of the repo name (e.g. `my-new-thing` → `myNewThing`).
 **Public repo with topics and required checks:**
 
 ```typescript
-export const myNewThing = new PublicRepo('my-new-thing', {
-	description: 'Does the thing',
-	topics: ['topic-a', 'topic-b'],
-	requiredChecks: [
-		{ context: 'build', integrationId: integrationIds.github },
-	],
+export const myNewThing = new PublicRepo("my-new-thing", {
+	description: "Does the thing",
+	topics: ["topic-a", "topic-b"],
+	requiredChecks: [{ context: "build", integrationId: integrationIds.github }],
 });
 ```
 
 **Public repo (no CI check):**
 
 ```typescript
-export const myNewThing = new PublicRepo('my-new-thing', {
-	description: 'Does the thing',
+export const myNewThing = new PublicRepo("my-new-thing", {
+	description: "Does the thing",
 });
 ```
 
 **Private repo:**
 
 ```typescript
-export const myNewThing = new PrivateRepo('my-new-thing', {
-	description: 'Does the thing',
+export const myNewThing = new PrivateRepo("my-new-thing", {
+	description: "Does the thing",
 });
 ```
 

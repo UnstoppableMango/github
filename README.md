@@ -15,11 +15,9 @@ This project uses [Pulumi](https://www.pulumi.com/), which lets you write infras
 Each repository is defined something like this:
 
 ```ts
-const nixos = new PublicRepo('nixos', {
-	description: 'My NixOS source',
-	requiredChecks: [
-		{ context: 'build', integrationId: integrationIds.github },
-	],
+const nixos = new PublicRepo("nixos", {
+	description: "My NixOS source",
+	requiredChecks: [{ context: "build", integrationId: integrationIds.github }],
 });
 ```
 
