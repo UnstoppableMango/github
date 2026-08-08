@@ -4,8 +4,11 @@ NIX    := nix
 PULUMI ?= pulumi
 YARN   ?= yarn
 
-TS_SRC != find . -name '*.ts' -not -path '**/node_modules/**'
-JS_SRC != find . \( -name '*.js' -o -name '*.mjs' \) -not -path '**/node_modules/**'
+TS_SRC  != find . -name '*.ts' -not -path '**/node_modules/**'
+JS_SRC  != find . \( -name '*.js' -o -name '*.mjs' \) -not -path '**/node_modules/**'
+JSON_SRC != find . -name '*.json' -not -path '**/node_modules/**'
+MD_SRC  != find . -name '*.md' -not -path '**/node_modules/**'
+NIX_SRC != find . -name '*.nix'
 
 .PHONY: preview diff up refresh stack lint format install
 
@@ -44,6 +47,6 @@ flake.lock: flake.nix
 	$(PULUMI) stack select prod
 	@touch $@
 
-.make/nix_fmt: $(wildcard *.nix)
+.make/nix_fmt: $(NIX_SRC) $(TS_SRC) $(JS_SRC) $(JSON_SRC) $(MD_SRC)
 	$(NIX) fmt
 	@touch $@
