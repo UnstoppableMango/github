@@ -1,5 +1,5 @@
 import * as gh from '@pulumi/github';
-import { integrationIds, PublicRepo } from '../components';
+import { integrationIds, PrivateRepo, PublicRepo } from '../components';
 
 export const devcontainers = new PublicRepo('devcontainers', {
 	description: 'Home-grown devcontainer images',
@@ -94,4 +94,15 @@ export const pulumiBun = new PublicRepo('pulumi-bun', {
 
 export const wireguardCni = new PublicRepo('wireguard-cni', {
 	description: 'Wireguard CNI plugin',
+});
+
+export const relationships = new PrivateRepo('relationships', {
+	description: 'relationships',
+});
+
+export const travel = new PublicRepo('travel', {
+	description: 'travel',
+	requiredChecks: [
+		{ context: 'check', integrationId: integrationIds.github },
+	],
 });

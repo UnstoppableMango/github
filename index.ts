@@ -97,6 +97,8 @@ import {
 	x12,
 	xmageDocker,
 	xml,
+	relationships,
+	travel,
 } from './repositories';
 
 const adventOfCode = new gh.Repository('advent-of-code', {
@@ -387,4 +389,6 @@ export const repos = [
 	xml.name,
 	x12.repo.name,
 	docker2nix.repo.name,
+	relationships.repo.name,
+	travel.repo.name,
 ];
