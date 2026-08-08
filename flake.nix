@@ -54,7 +54,10 @@
                 "*.json"
                 "*.md"
               ];
-              excludes = [ "*-lock.json" "yarn.lock" ];
+              excludes = [
+                "*-lock.json"
+                "yarn.lock"
+              ];
             };
           };
         };
