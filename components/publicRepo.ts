@@ -1,15 +1,15 @@
-import * as gh from '@pulumi/github';
+import * as gh from "@pulumi/github";
 import {
 	RepositoryRulesetRules,
 	RepositoryRulesetRulesRequiredStatusChecks,
 	RepositoryTemplate,
-} from '@pulumi/github/types/input';
-import { ComponentResourceOptions, Input } from '@pulumi/pulumi';
-import { Repo } from './repo';
+} from "@pulumi/github/types/input";
+import { ComponentResourceOptions, Input } from "@pulumi/pulumi";
+import { Repo } from "./repo";
 
 export interface PublicRepoArgs {
 	description: Input<string>;
-	requiredChecks?: RepositoryRulesetRulesRequiredStatusChecks['requiredChecks'];
+	requiredChecks?: RepositoryRulesetRulesRequiredStatusChecks["requiredChecks"];
 	template?: RepositoryTemplate;
 	topics?: Input<Input<string>[]>;
 }
@@ -23,15 +23,15 @@ export class PublicRepo extends Repo {
 		opts?: ComponentResourceOptions,
 	) {
 		super(
-			'unmango:github:PublicRepo',
+			"unmango:github:PublicRepo",
 			name,
 			{
 				overrides: {
 					name,
 					description: args.description,
-					visibility: 'public',
+					visibility: "public",
 					allowAutoMerge: true,
-					licenseTemplate: 'mit',
+					licenseTemplate: "mit",
 					template: args.template,
 					topics: args.topics,
 				},
@@ -47,13 +47,13 @@ export class PublicRepo extends Repo {
 		const mainRuleset = new gh.RepositoryRuleset(
 			name,
 			{
-				name: 'main',
+				name: "main",
 				repository: repo.name,
-				enforcement: 'active',
-				target: 'branch',
+				enforcement: "active",
+				target: "branch",
 				conditions: {
 					refName: {
-						includes: ['~DEFAULT_BRANCH'],
+						includes: ["~DEFAULT_BRANCH"],
 						excludes: [],
 					},
 				},
@@ -61,7 +61,7 @@ export class PublicRepo extends Repo {
 					deletion: true,
 					pullRequest: {
 						dismissStaleReviewsOnPush: true,
-						allowedMergeMethods: ['squash'],
+						allowedMergeMethods: ["squash"],
 					},
 					nonFastForward: true,
 					requiredLinearHistory: true,
@@ -83,8 +83,8 @@ export class PublicRepo extends Repo {
 }
 
 function getRequiredStatusChecks(
-	checks: PublicRepoArgs['requiredChecks'],
-): RepositoryRulesetRules['requiredStatusChecks'] {
+	checks: PublicRepoArgs["requiredChecks"],
+): RepositoryRulesetRules["requiredStatusChecks"] {
 	if (!checks) return;
 	return { requiredChecks: checks };
 }

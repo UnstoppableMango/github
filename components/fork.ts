@@ -1,6 +1,6 @@
-import * as gh from '@pulumi/github';
-import { ComponentResourceOptions, Input } from '@pulumi/pulumi';
-import { Repo } from './repo';
+import * as gh from "@pulumi/github";
+import { ComponentResourceOptions, Input } from "@pulumi/pulumi";
+import { Repo } from "./repo";
 
 export interface ForkArgs {
 	sourceOwner: Input<string>;
@@ -11,12 +11,12 @@ export interface ForkArgs {
 export class Fork extends Repo {
 	constructor(name: string, args: ForkArgs, opts?: ComponentResourceOptions) {
 		super(
-			'unmango:github:Fork',
+			"unmango:github:Fork",
 			name,
 			{
 				overrides: {
 					name,
-					fork: 'true',
+					fork: "true",
 					sourceOwner: args.sourceOwner,
 					sourceRepo: args.sourceRepo,
 					// GitHub defaults for forked repos

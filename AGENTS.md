@@ -38,7 +38,6 @@ Use this code map to locate files efficiently. **Always check this map first bef
 ├── .nvmrc                      # Node version specification
 ├── .envrc                      # direnv configuration
 ├── .editorconfig              # Editor configuration
-├── .dprint.json               # dprint formatter configuration
 └── .gitignore                 # Git ignore patterns
 ```
 
@@ -120,7 +119,7 @@ Generated directory for compiled TypeScript output (ignored by git).
 
 ```bash
 make lint          # Run ESLint on all TypeScript files
-make format        # Format code with dprint
+make format        # Format code with nix fmt (via treefmt-nix)
 make install       # Install Pulumi dependencies
 ```
 
@@ -273,7 +272,7 @@ When making updates to this file:
 
 ## Version Information
 
-- **Last Updated**: 2026-01-26
+- **Last Updated**: 2026-08-08
 - **Node Version**: See `.nvmrc`
 - **Pulumi Version**: See `.versions/pulumi`
 - **Package Manager**: Yarn 1.22.22
@@ -281,6 +280,8 @@ When making updates to this file:
 ---
 
 **Note to AI Agents**: This document is designed to minimize unnecessary file system exploration. Always consult this code map first before searching for files. If you need to update this document due to discovered discrepancies, follow the self-correction protocol above.
+
+**Formatting**: Always run `nix fmt` before opening a PR. Formatting is enforced by `nix flake check` (via treefmt-nix) in CI. The `nix fmt` command runs prettier (TypeScript, JSON, Markdown) and nixfmt (Nix files).
 
 Default required check context: 'build' (lowercase). This is used unless a repository specifies a different check context.
 

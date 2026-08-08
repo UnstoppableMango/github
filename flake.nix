@@ -24,7 +24,6 @@
           devShells.default = pkgs.mkShellNoCC {
             packages = with pkgs; [
               corepack
-              dprint
               gnumake
               nixfmt
               nodejs_24
@@ -38,7 +37,6 @@
             NODE_EXTRA_CA_CERTS = "${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt";
 
             COREPACK = pkgs.corepack + "/bin/corepack";
-            DPRINT = pkgs.dprint + "/bin/dprint";
             NIXFMT = pkgs.nixfmt + "/bin/nixfmt";
             NODE = pkgs.nodejs_24 + "/bin/node";
             PULUMI = pkgs.pulumi-bin + "/bin/pulumi";
@@ -48,7 +46,19 @@
           treefmt = {
             projectRootFile = "flake.nix";
             programs.nixfmt.enable = true;
-            # programs.dprint.enable = true;
+            programs.prettier = {
+              enable = true;
+              includes = [
+                "*.ts"
+                "*.mjs"
+                "*.json"
+                "*.md"
+              ];
+              excludes = [
+                "*-lock.json"
+                "yarn.lock"
+              ];
+            };
           };
         };
     };

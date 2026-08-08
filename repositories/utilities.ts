@@ -1,108 +1,100 @@
-import * as gh from '@pulumi/github';
-import { integrationIds, PrivateRepo, PublicRepo } from '../components';
+import * as gh from "@pulumi/github";
+import { integrationIds, PrivateRepo, PublicRepo } from "../components";
 
-export const devcontainers = new PublicRepo('devcontainers', {
-	description: 'Home-grown devcontainer images',
-	topics: ['devcontainer', 'docker', 'container'],
+export const devcontainers = new PublicRepo("devcontainers", {
+	description: "Home-grown devcontainer images",
+	topics: ["devcontainer", "docker", "container"],
+	requiredChecks: [{ context: "Build", integrationId: integrationIds.github }],
+});
+
+export const edd = new PublicRepo("edd", {
+	description: "Example driven development",
+	topics: ["go", "utility", "tool", "examples", "spec", "bdd", "testing"],
 	requiredChecks: [
-		{ context: 'Build', integrationId: integrationIds.github },
+		{ context: "Build and Test", integrationId: integrationIds.github },
+		{ context: "Docker", integrationId: integrationIds.github },
 	],
 });
 
-export const edd = new PublicRepo('edd', {
-	description: 'Example driven development',
-	topics: ['go', 'utility', 'tool', 'examples', 'spec', 'bdd', 'testing'],
+export const fenced = new PublicRepo("fenced", {
+	description: "Parse code fences from anywhere",
+	topics: ["go", "markdown", "md", "fence", "parser", "tool"],
 	requiredChecks: [
-		{ context: 'Build and Test', integrationId: integrationIds.github },
-		{ context: 'Docker', integrationId: integrationIds.github },
+		{ context: "Build and Test", integrationId: integrationIds.github },
+		{ context: "Docker", integrationId: integrationIds.github },
 	],
 });
 
-export const fenced = new PublicRepo('fenced', {
-	description: 'Parse code fences from anywhere',
-	topics: ['go', 'markdown', 'md', 'fence', 'parser', 'tool'],
-	requiredChecks: [
-		{ context: 'Build and Test', integrationId: integrationIds.github },
-		{ context: 'Docker', integrationId: integrationIds.github },
-	],
+export const forkctl = new PublicRepo("forkctl", {
+	description: "A tool for maintaining forked repositories",
+	requiredChecks: [{ context: "build", integrationId: integrationIds.github }],
 });
 
-export const forkctl = new PublicRepo('forkctl', {
-	description: 'A tool for maintaining forked repositories',
-	requiredChecks: [
-		{ context: 'build', integrationId: integrationIds.github },
-	],
+export const ideas = new PublicRepo("ideas", {
+	description: "Raw brainstorming workspace",
+	topics: ["idea", "brainstorm", "nix", "productivity", "markdown"],
+	requiredChecks: [{ context: "check", integrationId: integrationIds.github }],
 });
 
-export const ideas = new PublicRepo('ideas', {
-	description: 'Raw brainstorming workspace',
-	topics: ['idea', 'brainstorm', 'nix', 'productivity', 'markdown'],
-	requiredChecks: [
-		{ context: 'check', integrationId: integrationIds.github },
-	],
+export const gossamer2nix = new PublicRepo("gossamer2nix", {
+	description: "Convert Gossamer projects to Nix derivations",
+	topics: ["nix", "gossamer", "go", "rust", "fsharp"],
+	requiredChecks: [{ context: "build", integrationId: integrationIds.github }],
 });
 
-export const gossamer2nix = new PublicRepo('gossamer2nix', {
-	description: 'Convert Gossamer projects to Nix derivations',
-	topics: ['nix', 'gossamer', 'go', 'rust', 'fsharp'],
-	requiredChecks: [
-		{ context: 'build', integrationId: integrationIds.github },
-	],
-});
-
-export const multiDownloaderNxDocker = new gh.Repository('multi-downloader-nx-docker', {
-	name: 'multi-downloader-nx-docker',
-	description: 'Docker image for anidl/multi-downloader-nx',
-	hasIssues: true,
-	securityAndAnalysis: {
-		secretScanning: {
-			status: 'disabled',
+export const multiDownloaderNxDocker = new gh.Repository(
+	"multi-downloader-nx-docker",
+	{
+		name: "multi-downloader-nx-docker",
+		description: "Docker image for anidl/multi-downloader-nx",
+		hasIssues: true,
+		securityAndAnalysis: {
+			secretScanning: {
+				status: "disabled",
+			},
+			secretScanningPushProtection: {
+				status: "disabled",
+			},
 		},
-		secretScanningPushProtection: {
-			status: 'disabled',
-		},
+		topics: [
+			"anime",
+			"crunchyroll",
+			"docker",
+			"downloader",
+			"funimation",
+			"utility",
+		],
+		visibility: "public",
 	},
-	topics: [
-		'anime',
-		'crunchyroll',
-		'docker',
-		'downloader',
-		'funimation',
-		'utility',
-	],
-	visibility: 'public',
-}, { protect: true });
+	{ protect: true },
+);
 
-export const patchpad = new PublicRepo('patchpad', {
-	description: 'Temporary developer environments for creating patches',
+export const patchpad = new PublicRepo("patchpad", {
+	description: "Temporary developer environments for creating patches",
+	requiredChecks: [{ context: "build", integrationId: integrationIds.github }],
+});
+
+export const piaManualConnections = new PublicRepo("pia-manual-connections", {
+	description: "Dockerized pia-foss/manual-connections scripts",
 	requiredChecks: [
-		{ context: 'build', integrationId: integrationIds.github },
+		{ context: "Build and Test", integrationId: integrationIds.github },
+		{ context: "Docker", integrationId: integrationIds.github },
 	],
 });
 
-export const piaManualConnections = new PublicRepo('pia-manual-connections', {
-	description: 'Dockerized pia-foss/manual-connections scripts',
-	requiredChecks: [
-		{ context: 'Build and Test', integrationId: integrationIds.github },
-		{ context: 'Docker', integrationId: integrationIds.github },
-	],
+export const pulumiBun = new PublicRepo("pulumi-bun", {
+	description: "Experimental Pulumi support for Bun",
 });
 
-export const pulumiBun = new PublicRepo('pulumi-bun', {
-	description: 'Experimental Pulumi support for Bun',
+export const wireguardCni = new PublicRepo("wireguard-cni", {
+	description: "Wireguard CNI plugin",
 });
 
-export const wireguardCni = new PublicRepo('wireguard-cni', {
-	description: 'Wireguard CNI plugin',
+export const relationships = new PrivateRepo("relationships", {
+	description: "Relationships mesh",
 });
 
-export const relationships = new PrivateRepo('relationships', {
-	description: 'Relationships mesh',
-});
-
-export const travel = new PublicRepo('travel', {
-	description: 'My adventures wandering the world',
-	requiredChecks: [
-		{ context: 'check', integrationId: integrationIds.github },
-	],
+export const travel = new PublicRepo("travel", {
+	description: "My adventures wandering the world",
+	requiredChecks: [{ context: "check", integrationId: integrationIds.github }],
 });

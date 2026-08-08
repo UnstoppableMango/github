@@ -1,28 +1,37 @@
-import * as gh from '@pulumi/github';
-import { integrationIds, PrivateRepo, PublicRepo } from '../components';
+import * as gh from "@pulumi/github";
+import { integrationIds, PrivateRepo, PublicRepo } from "../components";
 
-export const minecraftManager = new PublicRepo('minecraft-manager', {
-	description: 'Visual management tool for deploying Minecraft servers across various platforms',
-	topics: ['minecraft', 'kubernetes', 'docker', 'helm', 'bun', 'react', 'tailwindcss'],
+export const minecraftManager = new PublicRepo("minecraft-manager", {
+	description:
+		"Visual management tool for deploying Minecraft servers across various platforms",
+	topics: [
+		"minecraft",
+		"kubernetes",
+		"docker",
+		"helm",
+		"bun",
+		"react",
+		"tailwindcss",
+	],
 	requiredChecks: [
-		{ context: 'Build and Test', integrationId: integrationIds.github },
-		{ context: 'Build and Test API', integrationId: integrationIds.github },
-		{ context: 'Docker', integrationId: integrationIds.github },
-		{ context: 'Helm', integrationId: integrationIds.github },
+		{ context: "Build and Test", integrationId: integrationIds.github },
+		{ context: "Build and Test API", integrationId: integrationIds.github },
+		{ context: "Docker", integrationId: integrationIds.github },
+		{ context: "Helm", integrationId: integrationIds.github },
 	],
 });
 
-export const johnstonDems = new PrivateRepo('johnston-dems-mailer', {
-	description: 'Johnston Democrats mailing application',
+export const johnstonDems = new PrivateRepo("johnston-dems-mailer", {
+	description: "Johnston Democrats mailing application",
 });
 
-export const slackerBot = new PublicRepo('slacker-bot', {
-	description: 'A Discord bot for the Slackers',
-	topics: ['discord', 'bot', 'slackers'],
+export const slackerBot = new PublicRepo("slacker-bot", {
+	description: "A Discord bot for the Slackers",
+	topics: ["discord", "bot", "slackers"],
 });
 
-export const xmageDocker = new gh.Repository('xmage-docker', {
-	name: 'xmage-docker',
+export const xmageDocker = new gh.Repository("xmage-docker", {
+	name: "xmage-docker",
 	hasIssues: true,
 	hasWiki: false,
 	allowAutoMerge: true,
@@ -30,26 +39,34 @@ export const xmageDocker = new gh.Repository('xmage-docker', {
 	allowRebaseMerge: false,
 	allowSquashMerge: true,
 	deleteBranchOnMerge: true,
-	topics: ['xmage', 'docker', 'container', 'magic', 'mtg', 'gaming', 'self-hosted'],
+	topics: [
+		"xmage",
+		"docker",
+		"container",
+		"magic",
+		"mtg",
+		"gaming",
+		"self-hosted",
+	],
 	securityAndAnalysis: {
 		secretScanning: {
-			status: 'disabled',
+			status: "disabled",
 		},
 		secretScanningPushProtection: {
-			status: 'disabled',
+			status: "disabled",
 		},
 	},
-	visibility: 'public',
+	visibility: "public",
 });
 
-export const xmageRuleset = new gh.RepositoryRuleset('xmage-docker', {
-	name: 'main',
+export const xmageRuleset = new gh.RepositoryRuleset("xmage-docker", {
+	name: "main",
 	repository: xmageDocker.name,
-	enforcement: 'active',
-	target: 'branch',
+	enforcement: "active",
+	target: "branch",
 	conditions: {
 		refName: {
-			includes: ['~DEFAULT_BRANCH'],
+			includes: ["~DEFAULT_BRANCH"],
 			excludes: [],
 		},
 	},
@@ -63,7 +80,7 @@ export const xmageRuleset = new gh.RepositoryRuleset('xmage-docker', {
 		requiredSignatures: true,
 		requiredStatusChecks: {
 			requiredChecks: [
-				{ context: 'Build', integrationId: integrationIds.github },
+				{ context: "Build", integrationId: integrationIds.github },
 			],
 		},
 	},
