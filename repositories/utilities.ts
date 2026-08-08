@@ -97,11 +97,11 @@ export const wireguardCni = new PublicRepo('wireguard-cni', {
 });
 
 export const relationships = new PrivateRepo('relationships', {
-	description: 'relationships',
+	description: 'Relationships mesh',
 });
 
 export const travel = new PublicRepo('travel', {
-	description: 'travel',
+	description: 'My adventures wandering the world',
 	requiredChecks: [
 		{ context: 'check', integrationId: integrationIds.github },
 	],

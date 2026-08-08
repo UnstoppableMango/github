@@ -368,6 +368,7 @@ export const repos = [
 	pulumiTemplates.repo.name,
 	pulumiFork.repo.name,
 	qemuGuestAgentTalos.repo.name,
+	relationships.repo.name,
 	renovateConfig.repo.name,
 	ressuKubePlex.repo.name,
 	ryankurtePki.repo.name,
@@ -380,6 +381,7 @@ export const repos = [
 	testcontainersNode.repo.name,
 	theCluster.name,
 	theclusterIo.repo.name,
+	travel.repo.name,
 	unstoppablemango_io.name,
 	unstoppableMangoGithubIo.repo.name,
 	utf8Json.repo.name,
@@ -389,6 +391,4 @@ export const repos = [
 	xml.name,
 	x12.repo.name,
 	docker2nix.repo.name,
-	relationships.repo.name,
-	travel.repo.name,
 ];
