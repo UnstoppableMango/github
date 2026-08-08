@@ -81,6 +81,7 @@ import {
 	pulumiTalos,
 	pulumiTemplates,
 	qemuGuestAgentTalos,
+	relationships,
 	ressuKubePlex,
 	rest,
 	ryankurtePki,
@@ -90,6 +91,7 @@ import {
 	tdl,
 	testcontainersNode,
 	theclusterIo,
+	travel,
 	unstoppableMangoGithubIo,
 	utf8Json,
 	ux,
@@ -97,8 +99,6 @@ import {
 	x12,
 	xmageDocker,
 	xml,
-	relationships,
-	travel,
 } from './repositories';
 
 const adventOfCode = new gh.Repository('advent-of-code', {
