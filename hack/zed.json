@@ -1,11 +1,10 @@
 {
 	"languages": {
 		"TypeScript": {
-			"prettier": { "allowed": false },
 			"formatter": {
 				"external": {
-					"command": "dprint",
-					"arguments": ["fmt", "--stdin"]
+					"command": "prettier",
+					"arguments": ["--write"]
 				}
 			}
 		}

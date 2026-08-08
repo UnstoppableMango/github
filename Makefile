@@ -1,6 +1,5 @@
 _ := $(shell mkdir -p .make)
 
-DPRINT ?= dprint
 NIX    := nix
 PULUMI ?= pulumi
 YARN   ?= yarn
@@ -28,7 +27,7 @@ stack: .make/stack_select_prod
 lint: install
 	$(YARN) eslint .
 
-format fmt: .make/format .make/nix_fmt
+format fmt: .make/nix_fmt
 update: flake.lock
 
 flake.lock: flake.nix
@@ -43,10 +42,6 @@ flake.lock: flake.nix
 
 .make/stack_select_prod:
 	$(PULUMI) stack select prod
-	@touch $@
-
-.make/format: ${TS_SRC} ${JS_SRC}
-	$(DPRINT) fmt $?
 	@touch $@
 
 .make/nix_fmt: $(wildcard *.nix)
