@@ -80,8 +80,8 @@ export class PublicRepo extends Repo {
 			this.pages = new gh.RepositoryPages(
 				name,
 				{
-					repository: repo.name,
 					...args.pages,
+					repository: repo.name,
 				},
 				{ parent: this },
 			);
