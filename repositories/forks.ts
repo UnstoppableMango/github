@@ -443,7 +443,7 @@ export const ryankurtePki = new Fork("ryankurte-pki", {
 });
 
 export const skopeo = new Fork("skopeo", {
-	sourceOwner: "containers",
+	sourceOwner: "podman-container-tools",
 	sourceRepo: "skopeo",
 	repository: {
 		description:

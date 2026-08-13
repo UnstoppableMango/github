@@ -34,6 +34,10 @@ export const ideas = new PublicRepo("ideas", {
 	description: "Raw brainstorming workspace",
 	topics: ["idea", "brainstorm", "nix", "productivity", "markdown"],
 	requiredChecks: [{ context: "check", integrationId: integrationIds.github }],
+	pages: {
+		buildType: "legacy",
+		source: { branch: "main", path: "/" },
+	},
 });
 
 export const gossamer2nix = new PublicRepo("gossamer2nix", {

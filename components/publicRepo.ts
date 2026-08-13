@@ -9,6 +9,7 @@ import { Repo } from "./repo";
 
 export interface PublicRepoArgs {
 	description: Input<string>;
+	pages?: Omit<gh.RepositoryPagesArgs, "repository">;
 	requiredChecks?: RepositoryRulesetRulesRequiredStatusChecks["requiredChecks"];
 	template?: RepositoryTemplate;
 	topics?: Input<Input<string>[]>;
@@ -16,6 +17,7 @@ export interface PublicRepoArgs {
 
 export class PublicRepo extends Repo {
 	public readonly mainRuleset!: gh.RepositoryRuleset;
+	public readonly pages?: gh.RepositoryPages;
 
 	constructor(
 		name: string,
@@ -74,10 +76,22 @@ export class PublicRepo extends Repo {
 
 		this.mainRuleset = mainRuleset;
 
+		if (args.pages) {
+			this.pages = new gh.RepositoryPages(
+				name,
+				{
+					...args.pages,
+					repository: repo.name,
+				},
+				{ parent: this },
+			);
+		}
+
 		this.registerOutputs({
 			repo,
 			mainRuleset,
 			vulnerabilityAlerts,
+			pages: this.pages,
 		});
 	}
 }
