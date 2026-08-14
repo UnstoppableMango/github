@@ -24,8 +24,5 @@ export const terraformProviderGit = new PublicRepo("terraform-provider-git", {
 	description:
 		"Terraform provider for managing the desired state of git repositories",
 	topics: ["terraform", "terraform-provider", "git", "golang"],
-	requiredChecks: [
-		{ context: "build", integrationId: integrationIds.github },
-		{ context: "check", integrationId: integrationIds.github },
-	],
+	requiredChecks: [{ context: "build", integrationId: integrationIds.github }],
 });
