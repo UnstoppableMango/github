@@ -4,6 +4,12 @@ export const pfsense = new PrivateRepo("pfsense", {
 	description: "pfSense configuration",
 });
 
+export const cairn = new PublicRepo("cairn", {
+	description: "Kubernetes distribution built in Nix",
+	topics: ["kubernetes", "nix", "clan"],
+	requiredChecks: [{ context: "build", integrationId: integrationIds.github }],
+});
+
 export const controlPlane = new PrivateRepo("control-plane", {
 	description: "Control plane infrastructure configuration",
 });
