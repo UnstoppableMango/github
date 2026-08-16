@@ -1,5 +1,5 @@
 import * as gh from "@pulumi/github";
-import { integrationIds, PrivateRepo, PublicRepo } from "./components";
+import { integrationIds, PublicRepo } from "./components";
 import {
 	a2b,
 	accountManagementAutomation,
@@ -26,6 +26,7 @@ import {
 	dockerDotnetFsharp,
 	dockerfilesFork,
 	dockerFsharp,
+	dotfiles,
 	dotnetProxmoxClient,
 	forkctl,
 	forks,
@@ -39,6 +40,7 @@ import {
 	gomod2nix,
 	gossamer2nix,
 	grpcDotnet,
+	hosts,
 	http,
 	ideas,
 	imaug,
@@ -56,6 +58,7 @@ import {
 	nilFork,
 	nix2container,
 	nixpkgs,
+	nixos,
 	openapiGenerator,
 	openshiftLab,
 	operatorSdk,
@@ -65,6 +68,7 @@ import {
 	pfsenseOperator,
 	piaManualConnections,
 	piholeKubernetes,
+	pki,
 	portainerNordDarkTheme,
 	prowlarr,
 	proxmoxClient,
@@ -85,6 +89,7 @@ import {
 	relationships,
 	ressuKubePlex,
 	rest,
+	resume,
 	ryankurtePki,
 	skopeo,
 	slackerBot,
@@ -97,6 +102,7 @@ import {
 	theclusterIo,
 	travel,
 	unstoppableMangoGithubIo,
+	unstoppablemango_io,
 	utf8Json,
 	ux,
 	wireguardCni,
@@ -129,57 +135,8 @@ const adventOfCode = new gh.Repository(
 	{ protect: true },
 );
 
-const dotfiles = new gh.Repository(
-	"dotfiles",
-	{
-		name: "dotfiles",
-		allowAutoMerge: true,
-		allowMergeCommit: false,
-		allowRebaseMerge: false,
-		allowSquashMerge: true,
-		deleteBranchOnMerge: true,
-		hasIssues: true,
-		securityAndAnalysis: {
-			secretScanning: {
-				status: "disabled",
-			},
-			secretScanningPushProtection: {
-				status: "disabled",
-			},
-		},
-		visibility: "public",
-	},
-	{ protect: true },
-);
-
-new gh.RepositoryVulnerabilityAlerts(
-	"dotfiles",
-	{
-		repository: dotfiles.name,
-	},
-	{ parent: dotfiles },
-);
-
-const me = new PrivateRepo("erik", { description: "me" });
-
 const everybodyCodes = new PublicRepo("everybody-codes", {
 	description: "Everybody Codes solutions in various languages",
-});
-
-const hosts = new PublicRepo("hosts", {
-	description: "My on-prem server infrastructure",
-	// This was jank from the beginning, need to decide on a better way
-	// requiredChecks: gh.getRepositoryFileOutput({
-	// 	file: 'hosts.txt',
-	// 	repository: 'UnstoppableMango/hosts',
-	// }).apply(file => {
-	// 	return file.content.trim().split('\n')
-	// 		.filter(x => !['apollo', 'pik8s0a'].includes(x))
-	// 		.map(x => ({
-	// 			context: `pulumi (${x})`,
-	// 			integrationId: integrationIds.github,
-	// 		}));
-	// }),
 });
 
 const lang = new PublicRepo("lang", {
@@ -211,11 +168,6 @@ const mangoMtg = new gh.Repository(
 	{ protect: true },
 );
 
-const nixos = new PublicRepo("nixos", {
-	description: "My NixOS source",
-	requiredChecks: [{ context: "build", integrationId: integrationIds.github }],
-});
-
 const ouranosis = new PublicRepo("ouranosis", {
 	description: "A game-ish kinda thing",
 });
@@ -241,14 +193,6 @@ const palumiWorld = new gh.Repository(
 	{ protect: true },
 );
 
-const pki = new PrivateRepo(
-	"pki",
-	{
-		description: "My private key infrastructure",
-	},
-	{ protect: true },
-);
-
 const renovateConfig = new PublicRepo("renovate-config", {
 	description: `UnstoppableMango's Renovate presets`,
 	topics: ["renovate", "cicd", "bun"],
@@ -256,17 +200,6 @@ const renovateConfig = new PublicRepo("renovate-config", {
 		{ context: "Validate", integrationId: integrationIds.github },
 	],
 });
-
-const resume = new PublicRepo(
-	"resume",
-	{
-		description: "My résumé, codified",
-		requiredChecks: [
-			{ context: "build", integrationId: integrationIds.github },
-		],
-	},
-	{ aliases: [{ type: "unmango:github:PrivateRepo" }] },
-);
 
 const theCluster = new gh.Repository(
 	"the-cluster",
@@ -291,29 +224,6 @@ const theCluster = new gh.Repository(
 		squashMergeCommitTitle: "PR_TITLE",
 		visibility: "public",
 		webCommitSignoffRequired: true,
-	},
-	{ protect: true },
-);
-
-const unstoppablemango_io = new gh.Repository(
-	"unstoppablemango.io",
-	{
-		name: "unstoppablemango.io",
-		allowAutoMerge: true,
-		allowMergeCommit: false,
-		allowRebaseMerge: false,
-		deleteBranchOnMerge: true,
-		description: "A website about me for random garbage",
-		hasIssues: true,
-		securityAndAnalysis: {
-			secretScanning: {
-				status: "disabled",
-			},
-			secretScanningPushProtection: {
-				status: "disabled",
-			},
-		},
-		visibility: "public",
 	},
 	{ protect: true },
 );

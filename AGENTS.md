@@ -75,6 +75,7 @@ Individual repository configurations organized by category:
 ├── libraries.ts               # Library/package repositories (http, rest, cliwrapFsharp, etc.)
 ├── operators.ts               # Kubernetes operator repositories (minecraftOperator, etc.)
 ├── demos.ts                   # Demo/presentation repositories (imaug, gheIac, fsharpPropertyTesting, etc.)
+├── personal.ts                # Personal repositories about the author (erik, dotfiles, resume, pki, nixos, hosts, unstoppablemango.io, travel, relationships)
 ├── pulumi.ts                  # Pulumi-related repositories (pulumiBun, pulumiProxmox, etc.)
 ├── terraform.ts               # Terraform-related repositories
 ├── utilities.ts               # Utility repositories (a2b, gast, tdl, etc.)
