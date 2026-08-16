@@ -6,6 +6,7 @@ export * from "./fun";
 export * from "./homelab";
 export * from "./libraries";
 export * from "./operators";
+export * from "./personal";
 export * from "./pulumi";
 export * from "./terraform";
 export * from "./utilities";
