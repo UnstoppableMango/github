@@ -1,4 +1,14 @@
 import * as gh from "@pulumi/github";
+import { integrationIds, PublicRepo } from "../components";
+
+export const vcs = new PublicRepo("vcs", {
+	description: "Version control infrastructure as code",
+	topics: ["iac", "vcs", "github", "gitlab", "git", "pulumi"],
+	requiredChecks: [
+		{ context: "check", integrationId: integrationIds.github },
+		{ context: "pulumi", integrationId: integrationIds.github },
+	],
+});
 
 export const pulumiCiMgmt = new gh.Repository(
 	"pulumi-ci-mgmt",
