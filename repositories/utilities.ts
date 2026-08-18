@@ -73,6 +73,12 @@ export const multiDownloaderNxDocker = new gh.Repository(
 	{ protect: true },
 );
 
+export const palworldUtils = new PublicRepo("palworld-utils", {
+	description: "Utilities for Palworld",
+	topics: ["palworld", "go", "utility", "tool", "game"],
+	requiredChecks: [{ context: "build", integrationId: integrationIds.github }],
+});
+
 export const patchpad = new PublicRepo("patchpad", {
 	description: "Temporary developer environments for creating patches",
 	requiredChecks: [{ context: "build", integrationId: integrationIds.github }],
