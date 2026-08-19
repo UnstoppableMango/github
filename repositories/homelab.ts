@@ -27,7 +27,12 @@ export const azure = new PrivateRepo("azure", {
 
 export const inoculant = new PublicRepo("inoculant", {
 	description: "Kubernetes cluster bootstrapping",
-	requiredChecks: [{ context: "build (x86_64_linux, ubuntu-latest)", integrationId: integrationIds.github }],
+	requiredChecks: [
+		{
+			context: "build (x86_64_linux, ubuntu-latest)",
+			integrationId: integrationIds.github,
+		},
+	],
 });
 
 export const theclusterLan = new PublicRepo("thecluster.lan", {
