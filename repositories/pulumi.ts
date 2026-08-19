@@ -16,6 +16,12 @@ export const pulumiComponents = new PublicRepo("pulumi-components", {
 	requiredChecks: [{ context: "build", integrationId: integrationIds.github }],
 });
 
+export const pulumi2nix = new PublicRepo("pulumi2nix", {
+	description: "Generate Nix expressions from Pulumi projects",
+	topics: ["pulumi", "nix", "tooling"],
+	requiredChecks: [{ context: "build", integrationId: integrationIds.github }],
+});
+
 export const pulumiCiMgmt = new gh.Repository(
 	"pulumi-ci-mgmt",
 	{
