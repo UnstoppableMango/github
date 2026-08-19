@@ -10,6 +10,12 @@ export const vcs = new PublicRepo("vcs", {
 	],
 });
 
+export const pulumiComponents = new PublicRepo("pulumi-components", {
+	description: "Reusable Pulumi component resources",
+	topics: ["pulumi", "iac", "components", "typescript"],
+	requiredChecks: [{ context: "build", integrationId: integrationIds.github }],
+});
+
 export const pulumiCiMgmt = new gh.Repository(
 	"pulumi-ci-mgmt",
 	{
