@@ -96,3 +96,31 @@ export const pulumiProxmox = new gh.Repository(
 	},
 	{ protect: true },
 );
+
+export const pulumiProviderGit = new gh.Repository(
+	"pulumi-provider-git",
+	{
+		name: "pulumi-provider-git",
+		allowAutoMerge: true,
+		allowMergeCommit: false,
+		deleteBranchOnMerge: true,
+		description:
+			"Pulumi provider for managing the desired state of git repositories, bridged from terraform-provider-git",
+		hasIssues: true,
+		securityAndAnalysis: {
+			secretScanning: {
+				status: "disabled",
+			},
+			secretScanningPushProtection: {
+				status: "disabled",
+			},
+		},
+		squashMergeCommitTitle: "PR_TITLE",
+		template: {
+			owner: "pulumi",
+			repository: "pulumi-tf-provider-boilerplate",
+		},
+		visibility: "public",
+	},
+	{ protect: true },
+);
