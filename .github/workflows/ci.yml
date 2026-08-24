@@ -32,13 +32,15 @@ jobs:
           requested-token-type: urn:pulumi:token-type:access_token:personal
           scope: user:UnstoppableMango
 
+      # `up` is disabled: infra management moved to
+      # gitlab.com/unmango/pulumi/vcs. This stays on `preview` only so we can
+      # still see drift while the vcs migration completes.
       - uses: pulumi/actions@8e5e406f4007fca908480587cb9893c07090f58d # v7.0.0
         with:
-          command: ${{ github.event_name == 'pull_request' && 'preview' || 'up' }}
+          command: preview
           stack-name: UnstoppableMango/github/prod
           refresh: true
           pulumi-version-file: .versions/pulumi
-          expect-no-changes: ${{ github.actor == 'renovate[bot]' || github.actor == 'thecluster[bot]' }}
 
   nix:
     runs-on: ubuntu-latest
