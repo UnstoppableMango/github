@@ -1,5 +1,10 @@
 # github
 
+> [!WARNING]
+> This repository is being retired in favor of [`gitlab.com/unmango/pulumi/vcs`](https://gitlab.com/unmango/pulumi/vcs), which manages both GitHub and GitLab resources from one Pulumi program.
+> CI here no longer applies changes (the `up` CI step is disabled, preview-only), it only checks for drift until migration is complete.
+> Don't add new repositories here; add them in `vcs` instead.
+
 My GitHub organization settings and repositories, managed as code.
 
 ## What is this?
