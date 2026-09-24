@@ -1,5 +1,7 @@
 # github
 
+[![Hercules CI](https://hercules-ci.com/api/v1/site/github/account/UnstoppableMango/project/github/badge)](https://hercules-ci.com/github/UnstoppableMango/github)
+
 > [!WARNING]
 > This repository is being retired in favor of [`gitlab.com/unmango/pulumi/vcs`](https://gitlab.com/unmango/pulumi/vcs), which manages both GitHub and GitLab resources from one Pulumi program.
 > CI here no longer applies changes (the `up` CI step is disabled, preview-only), it only checks for drift until migration is complete.
