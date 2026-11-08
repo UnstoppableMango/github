@@ -1,6 +1,6 @@
 # AI Agent Instructions
 
-This document provides guidance for AI agents interacting with this repository. It includes a comprehensive code map to facilitate targeted file reads and minimize unnecessary repository exploration.
+This document provides guidance for AI agents interacting with this repository. Start with the knowledge graph below to find files, rather than exploring the repository.
 
 ## Repository Overview
 
@@ -14,105 +14,18 @@ This is a Pulumi Infrastructure as Code (IaC) project written in TypeScript that
 - ESLint (linting)
 - Nix (development environment)
 
-## Code Map
+## Knowledge graph
 
-Use this code map to locate files efficiently. **Always check this map first before exploring the repository.**
+`graphify-out/` holds a [graphify](https://github.com/Graphify-Labs/graphify) knowledge graph of this repository: code structure parsed with tree-sitter, plus the concepts and decisions in its docs.
+Read `graphify-out/GRAPH_REPORT.md` before exploring files. It lists the graph's communities, its most connected nodes, and links between them you might not expect.
+Ask the graph before searching: `graphify query "<question>"`, `graphify path "<A>" "<B>"`, `graphify explain "<name>"`.
+`graphify` is in the dev shell, from `unmango/pkgs`.
 
-### Root Level Structure
-
-```
-/
-├── index.ts                     # Main Pulumi program - imports all repositories and exports list
-├── package.json                 # Project dependencies and scripts
-├── tsconfig.json               # TypeScript compiler configuration
-├── tsconfig.eslint.json        # TypeScript config for ESLint
-├── eslint.config.mjs           # ESLint configuration
-├── Makefile                    # Build automation (up, preview, diff, refresh, lint, format)
-├── Pulumi.yaml                 # Pulumi project configuration
-├── Pulumi.prod.yaml            # Pulumi stack configuration (prod)
-├── README.md                   # Basic project description
-├── LICENSE                     # MIT License
-├── flake.nix                   # Nix flake for development environment
-├── flake.lock                  # Nix flake lock file
-├── yarn.lock                   # Yarn dependency lock file
-├── .nvmrc                      # Node version specification
-├── .envrc                      # direnv configuration
-├── .editorconfig              # Editor configuration
-└── .gitignore                 # Git ignore patterns
-```
-
-### Component Modules (`/components`)
-
-Reusable Pulumi component resources for GitHub repositories:
-
-```
-/components/
-├── index.ts                    # Exports all components and constants (integrationIds, etc.)
-├── repo.ts                     # Base repository component (RepoArgs interface)
-├── publicRepo.ts              # PublicRepo component - extends base with public settings
-├── privateRepo.ts             # PrivateRepo component - extends base with private settings
-└── util.ts                     # Utility functions and helpers
-```
-
-**Key Concepts:**
-
-- `RepoArgs`: Base arguments interface for all repository components
-- `PublicRepo`: Component for public repositories with standard settings
-- `PrivateRepo`: Component for private repositories with standard settings
-- `integrationIds`: Constants for GitHub App integration IDs (used in required checks)
-
-### Repository Definitions (`/repositories`)
-
-Individual repository configurations organized by category:
-
-```
-/repositories/
-├── index.ts                    # Exports all repository definitions
-├── applications.ts            # Application repositories (dotnetProxmoxClient, proxmoxClient, etc.)
-├── archived.ts                # Archived repository definitions
-├── fun.ts                     # Fun/hobby project repositories (audio, xmageDocker, mangoMtg, etc.)
-├── homelab.ts                 # Homelab infrastructure repositories (infra, openshiftLab, etc.)
-├── libraries.ts               # Library/package repositories (http, rest, cliwrapFsharp, etc.)
-├── operators.ts               # Kubernetes operator repositories (minecraftOperator, etc.)
-├── demos.ts                   # Demo/presentation repositories (imaug, gheIac, fsharpPropertyTesting, etc.)
-├── personal.ts                # Personal repositories about the author (erik, dotfiles, resume, pki, nixos, hosts, unstoppablemango.io, travel, relationships)
-├── pulumi.ts                  # Pulumi-related repositories (pulumiBun, pulumiProxmox, etc.)
-├── terraform.ts               # Terraform-related repositories
-├── utilities.ts               # Utility repositories (a2b, gast, tdl, etc.)
-├── ux.ts                      # UX/UI repositories
-└── work.ts                    # Work-related repositories
-```
-
-**Organization Pattern:**
-
-- Each file exports repository instances created with `PublicRepo`, `PrivateRepo`, or raw `gh.Repository`
-- Repositories are imported into `index.ts` and re-exported
-- Main `index.ts` imports from `/repositories` and creates additional inline repositories
-
-### Development Tools (`/hack`)
-
-Development utilities and examples:
-
-```
-/hack/
-├── example.envrc              # Example direnv configuration file
-└── vscode.json                # VSCode settings example
-```
-
-### Build Artifacts (`/bin`)
-
-Generated directory for compiled TypeScript output (ignored by git).
-
-### Hidden Configuration Files
-
-```
-.github/                        # GitHub Actions workflows and settings
-.vscode/                        # VSCode workspace settings
-.direnv/                        # direnv cache
-.make/                         # Makefile build targets state
-.git/                          # Git repository data
-.versions/                     # Version pin files
-```
+A pull request that changes code or docs rebuilds the graph and commits it in the same pull request.
+`graphify update .` re-extracts code without an LLM.
+After a doc change, run the graphify skill with `--update` in an agent session (`graphify install` adds the skill), so the docs are read again.
+Commit `graphify-out/graph.json`, `graphify-out/GRAPH_REPORT.md`, and `graphify-out/.graphify_labels.json`, which keeps the community names across rebuilds; the rest of `graphify-out/` is ignored.
+`unmango/architecture` merges this graph with the other source control repositories' graphs.
 
 ## Common Operations
 
@@ -187,82 +100,6 @@ yarn lint          # Run ESLint directly
 - Update `.nvmrc` if Node.js version changes
 - Update `.versions/pulumi` if Pulumi version changes
 
-## Self-Correction Protocol
-
-### Maintaining Code Map Accuracy
-
-**When you discover discrepancies between this code map and the actual repository structure:**
-
-1. **Document the Discrepancy**
-   - Note the specific inaccuracy (file missing, file moved, new file added, etc.)
-   - Record the actual current state
-
-2. **Update This Document**
-   - Modify the affected section(s) of the code map
-   - Ensure the update is accurate and complete
-   - Maintain the same formatting and structure
-
-3. **Update Guidelines**
-   - If new patterns emerge (new categories, new component types), document them in the "Key Patterns and Conventions" section
-   - If new directories are added, include them in the appropriate map section
-   - If files are deleted, remove them from the map
-
-4. **Verification**
-   - After updating, verify related sections are still accurate
-   - Check that cross-references in the document remain valid
-   - Ensure the "Common Operations" section still reflects available commands
-
-### When to Update the Code Map
-
-Update this AGENTS.md file when you observe:
-
-- ✅ New TypeScript files in `/components` or `/repositories`
-- ✅ New category files in `/repositories`
-- ✅ Changes to directory structure
-- ✅ New build commands or Make targets
-- ✅ Changes to package.json scripts
-- ✅ New configuration files at root level
-- ✅ Significant pattern changes in how repositories are defined
-
-Do NOT update for:
-
-- ❌ Changes within existing files (content changes)
-- ❌ Temporary or build artifact files
-- ❌ Changes to individual repository configurations
-- ❌ Minor documentation updates in other files
-
-### Update Process
-
-When making updates to this file:
-
-1. Preserve the existing structure and formatting
-2. Use the same markdown conventions
-3. Keep descriptions concise and actionable
-4. Maintain alphabetical ordering where applicable
-5. Test that all referenced paths actually exist
-6. Ensure consistency between related sections
-
-### Example Update
-
-**Before:**
-
-```
-/repositories/
-├── index.ts
-├── applications.ts
-└── libraries.ts
-```
-
-**After discovering a new file:**
-
-```
-/repositories/
-├── index.ts
-├── applications.ts
-├── libraries.ts
-└── databases.ts                # Database-related repositories
-```
-
 ## Additional Context
 
 - **Pulumi Stack**: The project uses a "prod" stack for production infrastructure
@@ -273,14 +110,11 @@ When making updates to this file:
 
 ## Version Information
 
-- **Last Updated**: 2026-08-08
 - **Node Version**: See `.nvmrc`
 - **Pulumi Version**: See `.versions/pulumi`
 - **Package Manager**: Yarn 1.22.22
 
 ---
-
-**Note to AI Agents**: This document is designed to minimize unnecessary file system exploration. Always consult this code map first before searching for files. If you need to update this document due to discovered discrepancies, follow the self-correction protocol above.
 
 **Formatting**: Always run `nix fmt` before opening a PR. Formatting is enforced by `nix flake check` (via treefmt-nix) in CI. The `nix fmt` command runs prettier (TypeScript, JSON, Markdown) and nixfmt (Nix files).
 
